@@ -1,0 +1,18 @@
+[gd_scene format=2]
+
+[node name="LabelInput" type="VBoxContainer"]
+margin_left = 224.0
+margin_right = 440.0
+margin_bottom = 350.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="Label" type="Label" parent="."]
+margin_right = 216.0
+margin_bottom = 17.0
+text = "LabelInput"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_top = 25.0
+margin_right = 216.0
+margin_bottom = 49.0

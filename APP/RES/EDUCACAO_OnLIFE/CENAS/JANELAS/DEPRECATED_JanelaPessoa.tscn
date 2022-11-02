@@ -1,0 +1,203 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Janela.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/ORCID_iD.svg" type="Texture" id=2]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/ResearchGate_.png" type="Texture" id=3]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/lattes.png" type="Texture" id=4]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Profile.svg" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.439216, 0.439216, 0.439216, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 1, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="JanelaPessoa" type="Control"]
+margin_right = 516.0
+margin_bottom = 281.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Janela" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 516.0
+margin_bottom = 281.0
+Titulo = "Pessoa"
+
+[node name="MarginContainer" type="MarginContainer" parent="Janela"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 26
+custom_constants/margin_top = 26
+custom_constants/margin_left = 26
+custom_constants/margin_bottom = 26
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Janela/MarginContainer"]
+margin_left = 26.0
+margin_top = 26.0
+margin_right = 490.0
+margin_bottom = 255.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Janela/MarginContainer/HBoxContainer"]
+margin_right = 228.0
+margin_bottom = 229.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Janela/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 228.0
+margin_bottom = 186.0
+size_flags_vertical = 3
+
+[node name="Borda" type="Panel" parent="Janela/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+margin_left = 26.0
+margin_top = 6.0
+margin_right = 202.0
+margin_bottom = 180.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Janela/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/Borda"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Janela/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/Borda/MarginContainer"]
+margin_left = 26.0
+margin_top = 6.0
+margin_right = 150.0
+margin_bottom = 168.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource( 5 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Janela/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 194.0
+margin_right = 228.0
+margin_bottom = 229.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Janela/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 54.0
+margin_right = 88.0
+margin_bottom = 35.0
+texture_normal = ExtResource( 2 )
+
+[node name="TextureButton2" type="TextureButton" parent="Janela/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 96.0
+margin_right = 131.0
+margin_bottom = 35.0
+texture_normal = ExtResource( 4 )
+
+[node name="TextureButton3" type="TextureButton" parent="Janela/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 139.0
+margin_right = 174.0
+margin_bottom = 35.0
+texture_normal = ExtResource( 3 )
+
+[node name="LabelInput" type="VBoxContainer" parent="Janela/MarginContainer/HBoxContainer"]
+margin_left = 236.0
+margin_right = 464.0
+margin_bottom = 229.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="LabelInput" type="VBoxContainer" parent="Janela/MarginContainer/HBoxContainer/LabelInput"]
+margin_right = 228.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="Label" type="Label" parent="Janela/MarginContainer/HBoxContainer/LabelInput/LabelInput"]
+margin_right = 228.0
+margin_bottom = 17.0
+text = "Nome"
+
+[node name="LineEdit" type="LineEdit" parent="Janela/MarginContainer/HBoxContainer/LabelInput/LabelInput"]
+margin_top = 25.0
+margin_right = 228.0
+margin_bottom = 49.0
+
+[node name="LabelInput2" type="VBoxContainer" parent="Janela/MarginContainer/HBoxContainer/LabelInput"]
+margin_top = 57.0
+margin_right = 228.0
+margin_bottom = 106.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="Label" type="Label" parent="Janela/MarginContainer/HBoxContainer/LabelInput/LabelInput2"]
+margin_right = 228.0
+margin_bottom = 17.0
+text = "Apelido"
+
+[node name="LineEdit" type="LineEdit" parent="Janela/MarginContainer/HBoxContainer/LabelInput/LabelInput2"]
+margin_top = 25.0
+margin_right = 228.0
+margin_bottom = 49.0
+
+[node name="LabelInput3" type="VBoxContainer" parent="Janela/MarginContainer/HBoxContainer/LabelInput"]
+margin_top = 114.0
+margin_right = 228.0
+margin_bottom = 163.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="Label" type="Label" parent="Janela/MarginContainer/HBoxContainer/LabelInput/LabelInput3"]
+margin_right = 228.0
+margin_bottom = 17.0
+text = "Localização"
+
+[node name="LineEdit" type="LineEdit" parent="Janela/MarginContainer/HBoxContainer/LabelInput/LabelInput3"]
+margin_top = 25.0
+margin_right = 228.0
+margin_bottom = 49.0
+
+[node name="Button" type="Button" parent="Janela/MarginContainer/HBoxContainer/LabelInput"]
+margin_left = 119.0
+margin_top = 189.0
+margin_right = 228.0
+margin_bottom = 229.0
+size_flags_horizontal = 8
+size_flags_vertical = 14
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/normal = SubResource( 2 )
+text = "Conexões"

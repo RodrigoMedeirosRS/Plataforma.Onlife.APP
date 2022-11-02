@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/Linha.cs" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.998344 )
+colors = PoolColorArray( 0.785156, 0, 0, 1, 1, 0.550781, 0.550781, 1 )
+
+[node name="Linha" type="Line2D"]
+points = PoolVector2Array( 0, 0, 50, 0 )
+width = 4.0
+default_color = Color( 1, 0, 0, 1 )
+gradient = SubResource( 1 )
+joint_mode = 2
+antialiased = true
+script = ExtResource( 1 )

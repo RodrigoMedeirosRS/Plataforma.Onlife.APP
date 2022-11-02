@@ -1,0 +1,331 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://CTRL/TabCadastrarPessoaCTRL.cs" type="Script" id=1]
+[ext_resource path="res://CTRL/ControladorTabCTRL.cs" type="Script" id=2]
+[ext_resource path="res://RES/ICONES/Save.png" type="Texture" id=3]
+[ext_resource path="res://RES/ICONES/Buscar.png" type="Texture" id=4]
+[ext_resource path="res://RES/ICONES/Limpar.png" type="Texture" id=5]
+[ext_resource path="res://RES/CENAS/LinhaRelacao.tscn" type="PackedScene" id=6]
+
+[node name="TabCadastrarPessoa" type="Tabs"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -272.0
+margin_right = 324.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 836, 580 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controladores" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -418.0
+margin_top = -290.0
+margin_right = -418.0
+margin_bottom = -290.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Controladores"]
+visible = false
+margin_left = -3.0
+margin_top = -8.0
+margin_right = 834.0
+margin_bottom = 572.0
+color = Color( 1, 1, 1, 0.0823529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Controladores"]
+margin_left = 808.045
+margin_top = -1.7818
+margin_right = 828.045
+margin_bottom = 18.2182
+hint_tooltip = "Clique aqui para fechar essa tab."
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inputs" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -399.0
+margin_top = -261.0
+margin_right = -399.0
+margin_bottom = -261.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nome" type="LineEdit" parent="Inputs"]
+margin_top = 18.0
+margin_right = 363.0
+margin_bottom = 42.0
+hint_tooltip = "Digite aqui o nome da Pista Viva a ser cadastrada. Atenção! Este campo é obrigatório!"
+placeholder_text = "Nome"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblNome" type="Label" parent="Inputs/Nome"]
+margin_top = -18.0
+margin_right = 43.0
+margin_bottom = -4.0
+text = "Nome:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sobrenome" type="LineEdit" parent="Inputs"]
+margin_left = 1.0
+margin_top = 69.0
+margin_right = 364.0
+margin_bottom = 93.0
+hint_tooltip = "Digite aqui o sobrenome da Pista Viva a ser cadastrada. Atenção! Este campo é obrigatório!"
+placeholder_text = "Sobrenome"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblSobrenome" type="Label" parent="Inputs/Sobrenome"]
+margin_top = -18.0
+margin_right = 43.0
+margin_bottom = -4.0
+text = "Sobrenome:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Genero" type="LineEdit" parent="Inputs"]
+margin_left = 1.0
+margin_top = 118.0
+margin_right = 364.0
+margin_bottom = 142.0
+hint_tooltip = "Digite aqui o gênero da Pista Viva a ser cadastrada. Atenção! Este campo é obrigatório!"
+placeholder_text = "Gênero"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblGenero" type="Label" parent="Inputs/Genero"]
+margin_top = -18.0
+margin_right = 43.0
+margin_bottom = -4.0
+text = "Gênero:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Apelido" type="LineEdit" parent="Inputs"]
+margin_left = 1.0
+margin_top = 166.0
+margin_right = 364.0
+margin_bottom = 190.0
+hint_tooltip = "Digite aqui, ser hover, um apelido para a Pista Viva a ser cadastrada. Esse campo é opcional."
+placeholder_text = "Apelido"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblApelido" type="Label" parent="Inputs/Apelido"]
+margin_top = -18.0
+margin_right = 43.0
+margin_bottom = -4.0
+text = "Apelido:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Latitude" type="LineEdit" parent="Inputs"]
+margin_left = 1.0
+margin_top = 217.0
+margin_right = 364.0
+margin_bottom = 241.0
+hint_tooltip = "Digite aqui as coordenadas geográficas onde a Pista Viva está localizada no seguinte formado ( 00.0000 , 00.0000). Este campo é opcional."
+placeholder_text = "Latitude, Longitude"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblGeoLocalizacao" type="Label" parent="Inputs/Latitude"]
+margin_top = -18.0
+margin_right = 43.0
+margin_bottom = -4.0
+text = "GeoLocalização:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Inputs"]
+margin_left = 385.0
+margin_top = -2.0
+margin_right = 446.0
+margin_bottom = 12.0
+text = "Relações:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Inputs/Label"]
+margin_top = 24.0
+margin_right = 408.0
+margin_bottom = 444.0
+color = Color( 0.172549, 0.164706, 0.196078, 0.729412 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Inputs"]
+margin_left = 384.0
+margin_top = 21.0
+margin_right = 792.0
+margin_bottom = 441.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inputs/ScrollContainer"]
+margin_right = 408.0
+margin_bottom = 420.0
+rect_min_size = Vector2( 408, 420 )
+
+[node name="SalvarAlteracoes" type="Button" parent="Inputs"]
+margin_left = 100.0
+margin_top = 305.0
+margin_right = 247.0
+margin_bottom = 331.0
+hint_tooltip = "Salva a Pista Viva na plataforma e limpa a tela."
+text = "Salvar Alterações"
+icon = ExtResource( 3 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuscaRelacoes" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 190.0
+margin_top = 198.0
+margin_right = 190.0
+margin_bottom = 198.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nome" type="LineEdit" parent="BuscaRelacoes"]
+margin_left = -199.633
+margin_top = 7.0406
+margin_right = -19.633
+margin_bottom = 31.0406
+hint_tooltip = "Digite aqui o nome do Registro que você quer relacionar a sua Pista Viva."
+placeholder_text = "Nome"
+
+[node name="Label" type="Label" parent="BuscaRelacoes/Nome"]
+margin_top = -18.0
+margin_right = 40.0
+margin_bottom = -4.0
+text = "Nome"
+
+[node name="Idioma" type="OptionButton" parent="BuscaRelacoes"]
+margin_left = -11.633
+margin_top = 7.0406
+margin_right = 204.367
+margin_bottom = 31.0406
+hint_tooltip = "Selecione o idioma dos Registros que você quer Relacionar a sua Pista Viva."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="BuscaRelacoes/Idioma"]
+margin_top = -18.0
+margin_right = 73.0
+margin_bottom = -4.0
+text = "Idioma da Busca"
+
+[node name="Buscar" type="Button" parent="BuscaRelacoes"]
+margin_left = -37.0
+margin_top = 42.0
+margin_right = 76.0
+margin_bottom = 68.0
+hint_tooltip = "Clique aqui para buscar os Registros que você quer relacionar a sua Pista Viva."
+text = "Buscar"
+icon = ExtResource( 4 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Limpar" type="Button" parent="BuscaRelacoes"]
+margin_left = 91.0
+margin_top = 42.0
+margin_right = 204.0
+margin_bottom = 68.0
+hint_tooltip = "Limpa resultados da pesquisa e exibe realações estabelicidas."
+text = "Limpar"
+icon = ExtResource( 5 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sucesso" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -402.0
+margin_top = 94.0
+margin_right = -32.0
+margin_bottom = 237.0
+custom_colors/font_color = Color( 0.137255, 0.764706, 0.129412, 1 )
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Erro" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -402.0
+margin_top = 94.0
+margin_right = -32.0
+margin_bottom = 237.0
+custom_colors/font_color = Color( 0.941176, 0.133333, 0.133333, 1 )
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinhaRelacao" parent="." instance=ExtResource( 6 )]
+margin_left = 20000.0
+margin_top = 311.0
+margin_right = 19571.0
+margin_bottom = -236.0
+
+[connection signal="button_up" from="Controladores/Button" to="Controladores" method="_on_Button_button_up"]
+[connection signal="button_up" from="Inputs/SalvarAlteracoes" to="." method="_on_SalvarAlteracoes_button_up"]
+[connection signal="button_up" from="BuscaRelacoes/Buscar" to="." method="_on_Buscar_button_up"]
+[connection signal="button_up" from="BuscaRelacoes/Limpar" to="." method="_on_Limpar_button_up"]

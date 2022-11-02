@@ -1,0 +1,120 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/MapaClaro.png" type="Texture" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/PainelDeFundo.cs" type="Script" id=2]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaPessoa.tscn" type="PackedScene" id=3]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaLocalidade.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaSobre.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaGPedU.tscn" type="PackedScene" id=6]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaConexoes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/COMPONENTES/Balloom.tscn" type="PackedScene" id=8]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaArtigo.tscn" type="PackedScene" id=9]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Linha.tscn" type="PackedScene" id=10]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=11]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/COMPONENTES/FerramentaBusca.tscn" type="PackedScene" id=12]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Location.svg" type="Texture" id=13]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/world.svg" type="Texture" id=14]
+[ext_resource path="res://CTRL/_Teste.cs" type="Script" id=16]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.94902, 0.94902, 0.94902, 1 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.998344 )
+colors = PoolColorArray( 0.785156, 0, 0, 1, 1, 0.550781, 0.550781, 1 )
+
+[node name="PaginaMapa" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Offset" type="Control" parent="."]
+rect_pivot_offset = Vector2( 1247, 118 )
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="World" type="Sprite" parent="Offset"]
+position = Vector2( 2359, -407 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MapaTeste" type="Sprite" parent="Offset"]
+position = Vector2( 903, 655 )
+scale = Vector2( 1.8, 1.8 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Offset"]
+position = Vector2( 1219, 619 )
+texture = ExtResource( 13 )
+offset = Vector2( 0.7, -16 )
+script = ExtResource( 16 )
+
+[node name="Linha" parent="Offset" instance=ExtResource( 10 )]
+gradient = SubResource( 2 )
+ponto_a = NodePath("../Janelas/JanelaGPedU")
+ponto_b = NodePath("../Janelas/JanelaSobre")
+
+[node name="Janelas" type="Control" parent="Offset"]
+mouse_filter = 2
+theme = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="JanelaPessoa" parent="Offset/Janelas" instance=ExtResource( 3 )]
+margin_left = 271.0
+margin_top = 695.0
+margin_right = 737.0
+margin_bottom = 974.0
+
+[node name="JanelaLocalidade" parent="Offset/Janelas" instance=ExtResource( 4 )]
+margin_left = 903.0
+margin_top = 700.0
+margin_right = 1366.0
+margin_bottom = 1276.0
+
+[node name="JanelaSobre" parent="Offset/Janelas" instance=ExtResource( 5 )]
+margin_left = 166.0
+margin_top = 245.0
+margin_right = 744.0
+margin_bottom = 590.0
+
+[node name="JanelaGPedU" parent="Offset/Janelas" instance=ExtResource( 6 )]
+margin_left = 1081.0
+margin_top = 252.0
+margin_right = 1610.0
+margin_bottom = 601.0
+
+[node name="JanelaArtigo" parent="Offset/Janelas" instance=ExtResource( 9 )]
+margin_left = 1718.0
+margin_top = 624.0
+margin_right = 2181.0
+margin_bottom = 1200.0
+
+[node name="JanelaConexoes" parent="Offset/Janelas" instance=ExtResource( 7 )]
+margin_left = -176.5
+margin_top = 942.5
+margin_right = 218.5
+margin_bottom = 1353.5
+
+[node name="Balloom" parent="Offset/Janelas" instance=ExtResource( 8 )]
+margin_left = 418.0
+margin_top = 1017.0
+margin_right = 797.0
+margin_bottom = 1072.0
+
+[node name="FerramentaBusca" parent="." instance=ExtResource( 12 )]

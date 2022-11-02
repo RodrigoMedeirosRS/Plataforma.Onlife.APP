@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://RES/CENAS/MenuSuperior.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RES/TEMAS/LightTheme.tres" type="Theme" id=2]
+[ext_resource path="res://RES/FONTES/Lato-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.94902, 0.94902, 0.94902, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 1
+outline_color = Color( 0.670588, 0, 0, 0.211765 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="Teste_UX" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuSuperior" parent="CanvasLayer/Control/Panel/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 119.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Body" type="Control" parent="CanvasLayer/Control/Panel/VBoxContainer"]
+margin_top = 123.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Panel/VBoxContainer/Body"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -265.5
+margin_top = -229.0
+margin_right = 265.5
+margin_bottom = 229.0
+custom_fonts/bold_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[wave][b]O que te conecta?[/b][/wave]
+
+Talvez a pergunta soe meio aberta, então vamos começar do princípio... Existe uma lenda japonesa chamada Akai Ito que diz que todos nós temos um fio vermelho que nos conecta a alguém. Esse fio pode esticar, enrolar, dar nós, mas nunca se rompe. Eu, você, as plantas, os animais, as tecnologias, todos estamos conectados, interagindo e mutuamente alterando a forma como percebemos o mundos. São essas conexões que nos definem, que nos dizem quem somos e a que território pertencemos, que nos atribuem significado e compõem nossa identidade. 
+
+O que instiga o conhecimento são as perguntas, o que mobiliza o aprendizado é o afeto, o princípio de toda relação é a confiança, o que nos fortalece é a cooperação e o que nos liga é o amor e a solidariedade. E o mundo já não é mais o mesmo: a [color=red]realidade hiperconectada hibridiza[/color] o mundo [color=red]biológico[/color], o [color=red]físico[/color] e o [color=red]digital[/color]. Nos enredamos e nos tornamos fluxo, nosso Akai Ito se digitalizou, se tornou internet, wi-fi, sensores, dispositivos e tecnologias que oportunizaram ao nosso Akai Ito cruzar grandes distâncias [color=red]se conectar a pessoas[/color], [color=red]lugares[/color], [color=red]plantas[/color] e [color=red]animais[/color] de qualquer lugar do mundo. 
+
+Por onde o seu fio já passou? Que rastros ele deixou? Que territórios ele adentrou? Com quantos outros fios ele se cruzou? Convidamos você a explorar, criar e descobrir, por meio desta plataforma você poderá trilhar diversos caminhos, explorar distintos territórios, perseguir pistas, e se conectar a diferentes pessoas, lugares, tecnologias e saberes, e quem sabe descobrir o que te conecta.
+"
+text = "O que te conecta?
+
+Talvez a pergunta soe meio aberta, então vamos começar do princípio... Existe uma lenda japonesa chamada Akai Ito que diz que todos nós temos um fio vermelho que nos conecta a alguém. Esse fio pode esticar, enrolar, dar nós, mas nunca se rompe. Eu, você, as plantas, os animais, as tecnologias, todos estamos conectados, interagindo e mutuamente alterando a forma como percebemos o mundos. São essas conexões que nos definem, que nos dizem quem somos e a que território pertencemos, que nos atribuem significado e compõem nossa identidade. 
+
+O que instiga o conhecimento são as perguntas, o que mobiliza o aprendizado é o afeto, o princípio de toda relação é a confiança, o que nos fortalece é a cooperação e o que nos liga é o amor e a solidariedade. E o mundo já não é mais o mesmo: a realidade hiperconectada hibridiza o mundo biológico, o físico e o digital. Nos enredamos e nos tornamos fluxo, nosso Akai Ito se digitalizou, se tornou internet, wi-fi, sensores, dispositivos e tecnologias que oportunizaram ao nosso Akai Ito cruzar grandes distâncias se conectar a pessoas, lugares, plantas e animais de qualquer lugar do mundo. 
+
+Por onde o seu fio já passou? Que rastros ele deixou? Que territórios ele adentrou? Com quantos outros fios ele se cruzou? Convidamos você a explorar, criar e descobrir, por meio desta plataforma você poderá trilhar diversos caminhos, explorar distintos territórios, perseguir pistas, e se conectar a diferentes pessoas, lugares, tecnologias e saberes, e quem sabe descobrir o que te conecta.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 256, 204 )

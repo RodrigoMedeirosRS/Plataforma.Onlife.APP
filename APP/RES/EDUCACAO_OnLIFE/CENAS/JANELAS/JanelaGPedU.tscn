@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Janela.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/FONTES/Lato-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+outline_color = Color( 0.670588, 0, 0, 0.211765 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 13
+font_data = ExtResource( 2 )
+
+[node name="JanelaGPedU" instance=ExtResource( 1 )]
+Titulo = "Sobre o GPe-dU"
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" index="0"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 462.0
+margin_bottom = 332.0
+rect_pivot_offset = Vector2( -0.5, 0.5 )
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "O Grupo Internacional de Pesquisa Educação Digital – GPe-dU foi criado em 1998 e cadastrado no Diretório de Grupos de Pesquisa do CNPq em 2004. O GPe-dU, que teve origem no Programa de Pós-Graduação em Educação da UNISINOS, em 2019, se expande em rede, a partir da organização por hubs. Atualmente, se conectam ao GPe-dU UNISINOS o hub GPe-dU Paraná e o hub GPe-dU Minas Gerais. O GPe-dU se constitui na tríade Pesquisa, Desenvolvimento e Formação, tendo como campo temático principal a Educação na conexão com a Transformação Digital em contextos escolares e não escolares. Assim, o GPe-dU produz conhecimentos, tecnologias, metodologias e práticas educacionais na interface entre tecnologias e desenvolvimento cognitivo, cultural e social. Busca inovação na educação, a partir da conexão com diferentes áreas do conhecimento e organizações, constituindo Ecossistemas Conectivos Inventivos que envolvem entidades humanas e não humanas na promoção da cidadania digital e da transformação social."
+text = "O Grupo Internacional de Pesquisa Educação Digital – GPe-dU foi criado em 1998 e cadastrado no Diretório de Grupos de Pesquisa do CNPq em 2004. O GPe-dU, que teve origem no Programa de Pós-Graduação em Educação da UNISINOS, em 2019, se expande em rede, a partir da organização por hubs. Atualmente, se conectam ao GPe-dU UNISINOS o hub GPe-dU Paraná e o hub GPe-dU Minas Gerais. O GPe-dU se constitui na tríade Pesquisa, Desenvolvimento e Formação, tendo como campo temático principal a Educação na conexão com a Transformação Digital em contextos escolares e não escolares. Assim, o GPe-dU produz conhecimentos, tecnologias, metodologias e práticas educacionais na interface entre tecnologias e desenvolvimento cognitivo, cultural e social. Busca inovação na educação, a partir da conexão com diferentes áreas do conhecimento e organizações, constituindo Ecossistemas Conectivos Inventivos que envolvem entidades humanas e não humanas na promoção da cidadania digital e da transformação social."
+__meta__ = {
+"_edit_use_anchors_": false
+}

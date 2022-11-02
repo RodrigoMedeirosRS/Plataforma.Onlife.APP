@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/FONTES/Lato-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Janela.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Borda.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+outline_color = Color( 0.670588, 0, 0, 0.211765 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 13
+font_data = ExtResource( 1 )
+
+[node name="JanelaSobre" instance=ExtResource( 2 )]
+Titulo = "Sobre a plataforma Educação Onlife"
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" index="0"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 462.0
+margin_bottom = 332.0
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[wave][b][color=black]O que te conecta?[/color][/b][/wave]
+
+Talvez a pergunta soe meio aberta, então vamos começar do princípio... Existe uma lenda japonesa chamada Akai Ito que diz que todos nós temos um fio vermelho que nos conecta a alguém. Esse fio pode esticar, enrolar, dar nós, mas nunca se rompe. Eu, você, as plantas, os animais, as tecnologias, todos estamos conectados, interagindo e mutuamente alterando a forma como percebemos o mundos. São essas conexões que nos definem, que nos dizem quem somos e a que território pertencemos, que nos atribuem significado e compõem nossa identidade. 
+
+O que instiga o conhecimento são as perguntas, o que mobiliza o aprendizado é o afeto, o princípio de toda relação é a confiança, o que nos fortalece é a cooperação e o que nos liga é o amor e a solidariedade. E o mundo já não é mais o mesmo: a [color=red]realidade hiperconectada hibridiza[/color] o mundo [color=red]biológico[/color], o [color=red]físico[/color] e o [color=red]digital[/color]. Nos enredamos e nos tornamos fluxo, nosso Akai Ito se digitalizou, se tornou internet, wi-fi, sensores, dispositivos e tecnologias que oportunizaram ao nosso Akai Ito cruzar grandes distâncias [color=red]se conectar a pessoas[/color], [color=red]lugares[/color], [color=red]plantas[/color] e [color=red]animais[/color] de qualquer lugar do mundo. 
+
+Por onde o seu fio já passou? Que rastros ele deixou? Que territórios ele adentrou? Com quantos outros fios ele se cruzou? Convidamos você a explorar, criar e descobrir, por meio desta plataforma você poderá trilhar diversos caminhos, explorar distintos territórios, perseguir pistas, e se conectar a diferentes pessoas, lugares, tecnologias e saberes, e quem sabe descobrir o que te conecta.
+"
+text = "O que te conecta?
+
+Talvez a pergunta soe meio aberta, então vamos começar do princípio... Existe uma lenda japonesa chamada Akai Ito que diz que todos nós temos um fio vermelho que nos conecta a alguém. Esse fio pode esticar, enrolar, dar nós, mas nunca se rompe. Eu, você, as plantas, os animais, as tecnologias, todos estamos conectados, interagindo e mutuamente alterando a forma como percebemos o mundos. São essas conexões que nos definem, que nos dizem quem somos e a que território pertencemos, que nos atribuem significado e compõem nossa identidade. 
+
+O que instiga o conhecimento são as perguntas, o que mobiliza o aprendizado é o afeto, o princípio de toda relação é a confiança, o que nos fortalece é a cooperação e o que nos liga é o amor e a solidariedade. E o mundo já não é mais o mesmo: a realidade hiperconectada hibridiza o mundo biológico, o físico e o digital. Nos enredamos e nos tornamos fluxo, nosso Akai Ito se digitalizou, se tornou internet, wi-fi, sensores, dispositivos e tecnologias que oportunizaram ao nosso Akai Ito cruzar grandes distâncias se conectar a pessoas, lugares, plantas e animais de qualquer lugar do mundo. 
+
+Por onde o seu fio já passou? Que rastros ele deixou? Que territórios ele adentrou? Com quantos outros fios ele se cruzou? Convidamos você a explorar, criar e descobrir, por meio desta plataforma você poderá trilhar diversos caminhos, explorar distintos territórios, perseguir pistas, e se conectar a diferentes pessoas, lugares, tecnologias e saberes, e quem sabe descobrir o que te conecta.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer" index="1"]
+visible = false
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 462.0
+margin_bottom = 332.0
+rect_clip_content = true
+custom_constants/margin_right = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Borda" parent="MarginContainer" index="2" instance=ExtResource( 3 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 462.0
+margin_bottom = 332.0

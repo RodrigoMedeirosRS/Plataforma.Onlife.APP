@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <ProjectReference Include="..\SAL\SAL.csproj" />
+        <ProjectReference Include="..\Plataforma.Onlife.LIB\BLL\BibliotecaViva.BLL.csproj" />
+        <ProjectReference Include="..\Plataforma.Onlife.LIB\DTO\BibliotecaViva.DTO.csproj" />
+        <ProjectReference Include="..\Plataforma.Onlife.LIB\SAL\BibliotecaViva.SAL.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="GodotSharp">
+            <HintPath>../APP/.mono/assemblies/Debug/GodotSharp.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+</Project>

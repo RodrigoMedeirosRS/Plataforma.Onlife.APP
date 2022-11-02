@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Wild Fire.ogg-bcb1cc0899b457ffcc5612a7b7963117.oggstr"
+
+[deps]
+
+source_file="res://TEMP/Wild Fire.ogg"
+dest_files=[ "res://.import/Wild Fire.ogg-bcb1cc0899b457ffcc5612a7b7963117.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

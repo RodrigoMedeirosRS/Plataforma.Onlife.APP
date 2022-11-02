@@ -1,0 +1,133 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/COMPONENTES/Busca.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/OpenSans-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+use_filter = true
+extra_spacing_top = 4
+extra_spacing_bottom = 6
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.94902, 0.94902, 0.94902, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id=4]
+Button/colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+Button/colors/font_color_focus = Color( 0.501961, 0.501961, 0.501961, 1 )
+Button/colors/font_color_hover = Color( 0.501961, 0.501961, 0.501961, 1 )
+Button/colors/font_color_pressed = Color( 0.501961, 0.501961, 0.501961, 1 )
+Button/fonts/font = SubResource( 2 )
+Button/styles/hover = SubResource( 1 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 1 )
+
+[node name="FerramentaBusca" type="Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 60.0
+margin_top = -72.0
+margin_right = -430.0
+margin_bottom = -20.0
+mouse_filter = 2
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Busca" parent="HBoxContainer" instance=ExtResource( 1 )]
+margin_right = 690.0
+margin_bottom = 52.0
+
+[node name="Control" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 740.0
+margin_top = 17.0
+margin_right = 1430.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme = SubResource( 4 )
+alignment = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/Control"]
+margin_right = 131.0
+margin_bottom = 35.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+text = "textos"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="HBoxContainer/Control"]
+margin_left = 139.0
+margin_right = 271.0
+margin_bottom = 35.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+text = "imagens"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="HBoxContainer/Control"]
+margin_left = 279.0
+margin_right = 410.0
+margin_bottom = 35.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+text = "vídeos"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="HBoxContainer/Control"]
+margin_left = 418.0
+margin_right = 550.0
+margin_bottom = 35.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+text = "pessoas"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="HBoxContainer/Control"]
+margin_left = 558.0
+margin_right = 690.0
+margin_bottom = 35.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+text = "expêriencias"
+__meta__ = {
+"_edit_use_anchors_": false
+}

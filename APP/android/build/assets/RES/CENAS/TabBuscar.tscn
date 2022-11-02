@@ -1,0 +1,233 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://CTRL/ControladorTabCTRL.cs" type="Script" id=1]
+[ext_resource path="res://CTRL/TabBuscarCTRL.cs" type="Script" id=2]
+[ext_resource path="res://CTRL/PesquisaCTRL.cs" type="Script" id=3]
+[ext_resource path="res://RES/CENAS/PessoaBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RES/CENAS/RegistroBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RES/ICONES/Buscar.png" type="Texture" id=6]
+
+[node name="TabBuscar" type="Tabs"]
+pause_mode = 2
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -272.0
+margin_right = -188.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 836, 580 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controladores" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -418.0
+margin_top = -290.0
+margin_right = -418.0
+margin_bottom = -290.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Controladores"]
+visible = false
+margin_left = -3.0
+margin_top = -8.0
+margin_right = 834.0
+margin_bottom = 572.0
+color = Color( 1, 1, 1, 0.0823529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Controladores"]
+margin_left = 808.045
+margin_top = -1.7818
+margin_right = 828.045
+margin_bottom = 18.2182
+hint_tooltip = "Clique aqui para fechar esta tab."
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pesquisa" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -202.0
+margin_top = -268.0
+margin_right = -202.0
+margin_bottom = -268.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nome" type="LineEdit" parent="Pesquisa"]
+margin_left = -207.633
+margin_top = 10.0406
+margin_right = -27.633
+margin_bottom = 34.0406
+hint_tooltip = "Digite aqui o nome do Registro ou Pista Viva que você está buscando."
+placeholder_text = "Nome"
+
+[node name="Label" type="Label" parent="Pesquisa/Nome"]
+margin_top = -18.0
+margin_right = 40.0
+margin_bottom = -4.0
+text = "Nome"
+
+[node name="Sobrenome" type="LineEdit" parent="Pesquisa"]
+margin_left = -19.633
+margin_top = 10.0406
+margin_right = 196.367
+margin_bottom = 34.0406
+hint_tooltip = "Digite aqui o sobrenome da Pista Viva que você está buscando."
+placeholder_text = "Sobrenome"
+
+[node name="Label" type="Label" parent="Pesquisa/Sobrenome"]
+margin_top = -18.0
+margin_right = 73.0
+margin_bottom = -4.0
+text = "Sobrenome"
+
+[node name="Idioma" type="OptionButton" parent="Pesquisa"]
+margin_left = -19.633
+margin_top = 10.0406
+margin_right = 196.367
+margin_bottom = 34.0406
+hint_tooltip = "Selecione aqui o idioma do Registro que você está buscando."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pesquisa/Idioma"]
+margin_top = -18.0
+margin_right = 73.0
+margin_bottom = -4.0
+text = "Idioma"
+
+[node name="Apelido" type="LineEdit" parent="Pesquisa"]
+margin_left = 207.367
+margin_top = 10.0406
+margin_right = 387.367
+margin_bottom = 34.0406
+hint_tooltip = "Digite aqui o Apelido do Registro ou Pista Viva que você está buscando."
+placeholder_text = "Nome"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pesquisa/Apelido"]
+margin_top = -18.0
+margin_right = 40.0
+margin_bottom = -4.0
+text = "Apelido"
+
+[node name="Tipo" type="OptionButton" parent="Pesquisa"]
+margin_left = 396.0
+margin_top = 10.0
+margin_right = 520.0
+margin_bottom = 34.0
+hint_tooltip = "Selecione aqui se você deseja buscar uma Pista Viva ou Registro."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pesquisa/Tipo"]
+margin_top = -18.0
+margin_right = 73.0
+margin_bottom = -4.0
+text = "Tipo"
+
+[node name="Pesquisar" type="Button" parent="Pesquisa"]
+margin_left = 528.287
+margin_top = 11.6273
+margin_right = 602.287
+margin_bottom = 31.6273
+hint_tooltip = "Clique aqui para realizar a sua pesquisa."
+text = "Buscar"
+icon = ExtResource( 6 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 14.0
+margin_top = -223.0
+margin_right = -22.0
+margin_bottom = 259.0
+rect_min_size = Vector2( 800, 482 )
+color = Color( 0.172549, 0.164706, 0.196078, 0.388235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dados" type="Control" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 14.0
+margin_top = -223.0
+margin_right = -22.0
+margin_bottom = 259.0
+rect_min_size = Vector2( 800, 482 )
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Dados"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -241.0
+margin_bottom = 241.0
+rect_min_size = Vector2( 800, 482 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colunas" type="HBoxContainer" parent="Dados/ScrollContainer"]
+margin_right = 800.0
+rect_min_size = Vector2( 800, 0 )
+custom_constants/separation = 20
+alignment = 1
+
+[node name="PopErro" type="AcceptDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -106.0
+margin_top = -70.0
+margin_right = 107.0
+margin_bottom = 28.0
+window_title = "Alerta!"
+
+[node name="PessoaBox" parent="." instance=ExtResource( 4 )]
+margin_left = 50000.0
+margin_top = 92.0
+margin_right = 50400.0
+margin_bottom = 371.0
+
+[node name="RegistroBox" parent="." instance=ExtResource( 5 )]
+margin_left = 50000.0
+margin_right = 50400.0
+margin_bottom = 303.0
+
+[connection signal="button_up" from="Controladores/Button" to="Controladores" method="_on_Button_button_up"]
+[connection signal="item_selected" from="Pesquisa/Tipo" to="Pesquisa" method="_on_Tipo_item_selected"]
+[connection signal="button_up" from="Pesquisa/Pesquisar" to="." method="_on_Pesquisar_button_up"]

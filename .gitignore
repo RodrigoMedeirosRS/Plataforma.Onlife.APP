@@ -1,0 +1,28 @@
+BLL/bin
+BLL/obj
+DTO/bin
+DTO/obj
+SAL/bin
+SAL/obj
+APP/.mono/temp
+/BibliotecaViva.LIB/DTO/bin
+/BibliotecaViva.LIB/DTO/obj
+/BibliotecaViva.LIB/BLL/bin
+/BibliotecaViva.LIB/BLL/obj
+BibliotecaViva.LIB/LIB/Geocordinate/GeoCoordinate.NetStandard2/bin
+BibliotecaViva.LIB/LIB/Geocordinate/GeoCoordinate.NetStandard2/obj
+
+# Godot
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+
+# Mono
+.mono/
+APP/.mono
+data_*/
+mono_crash.*.json
+
+#VScode
+*.code-workspace

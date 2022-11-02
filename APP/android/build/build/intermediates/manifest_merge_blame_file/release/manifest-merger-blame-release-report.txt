@@ -1,0 +1,150 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.gpedu.bibliotecaviva"
+4    android:installLocation="auto"
+5    android:versionCode="1"
+6    android:versionName="1.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="19"
+10        android:targetSdkVersion="30" />
+11
+12    <supports-screens
+12-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:12:5-16:40
+13        android:largeScreens="true"
+13-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:15:9-36
+14        android:normalScreens="true"
+14-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:14:9-37
+15        android:smallScreens="true"
+15-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:13:9-36
+16        android:xlargeScreens="true" />
+16-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:16:9-37
+17
+18    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+18-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:10:5-79
+18-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:10:22-76
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+19-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:11:5-79
+19-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:11:22-76
+20    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+20-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:12:5-76
+20-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:12:22-73
+21    <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" />
+21-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:13:5-81
+21-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:13:22-78
+22    <uses-permission android:name="android.permission.INTERNET" />
+22-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:14:5-67
+22-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:14:22-64
+23    <uses-permission android:name="android.permission.LOCATION_HARDWARE" />
+23-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:15:5-76
+23-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:15:22-73
+24    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+24-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:16:5-75
+24-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:16:22-72
+25    <uses-permission
+25-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:17:5-107
+26        android:name="android.permission.READ_EXTERNAL_STORAGE"
+26-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:17:22-77
+27        android:maxSdkVersion="29" />
+27-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:17:78-104
+28    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+28-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:18:5-79
+28-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:18:22-76
+29    <uses-permission
+29-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:19:5-108
+30        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+30-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:19:22-78
+31        android:maxSdkVersion="29" />
+31-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:19:79-105
+32    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
+32-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:20:5-80
+32-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:20:22-77
+33
+34    <instrumentation
+34-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:21:5-26:60
+35        android:name=".GodotInstrumentation"
+35-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:23:9-45
+36        android:icon="@mipmap/icon"
+36-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:24:9-36
+37        android:label="@string/godot_project_name_string"
+37-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:25:9-58
+38        android:targetPackage="org.gpedu.bibliotecaviva" />
+38-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/src/release/AndroidManifest.xml:26:9-57
+39    <!-- glEsVersion is modified by the exporter, changing this value here has no effect. -->
+40    <uses-feature
+40-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:19:5-21:35
+41        android:glEsVersion="0x00020000"
+41-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:20:9-41
+42        android:required="true" />
+42-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:21:9-32
+43
+44    <application
+44-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:31:5-81:19
+45        android:allowBackup="false"
+45-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:31:68-95
+46        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+46-->[androidx.core:core:1.2.0] /home/rmlehnemann/.gradle/caches/transforms-3/c5eaa7d939abb2d757f863a6b5340cdd/transformed/core-1.2.0/AndroidManifest.xml:24:18-86
+47        android:hasFragileUserData="false"
+47-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:31:118-152
+48        android:icon="@mipmap/icon"
+48-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:31:238-265
+49        android:isGame="true"
+49-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:31:96-117
+50        android:label="@string/godot_project_name_string"
+50-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:31:18-67
+51        android:requestLegacyExternalStorage="true" >
+51-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:31:153-197
+52        <activity
+52-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:53:9-75:20
+53            android:name="com.godot.game.GodotApp"
+53-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:54:13-37
+54            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
+54-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:60:13-141
+55            android:excludeFromRecents="false"
+55-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:58:13-47
+56            android:label="@string/godot_project_name_string"
+56-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:55:13-62
+57            android:launchMode="singleTask"
+57-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:57:13-44
+58            android:resizeableActivity="false"
+58-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:61:13-47
+59            android:screenOrientation="landscape"
+59-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:59:13-50
+60            android:theme="@style/GodotAppSplashTheme" >
+60-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:56:13-55
+61            <intent-filter>
+61-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:67:13-74:29
+62                <action android:name="android.intent.action.MAIN" />
+62-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:68:17-69
+62-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:68:25-66
+63
+64                <category android:name="android.intent.category.LAUNCHER" />
+64-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:69:17-77
+64-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:69:27-74
+65
+66                <!--
+67                Enable access to OpenXR on Oculus mobile devices, no-op on other Android
+68                platforms.
+69                -->
+70                <category android:name="com.oculus.intent.category.VR" />
+70-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:73:17-74
+70-->/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/android/build/AndroidManifest.xml:73:27-71
+71            </intent-filter>
+72        </activity>
+73        <!-- Records the version of the Godot editor used for building -->
+74        <meta-data
+75            android:name="org.godotengine.editor.version"
+76            android:value="3.4.2.stable.mono" /> <!-- Records the version of the Godot library -->
+77        <meta-data
+77-->[godot-lib.release.aar] /home/rmlehnemann/.gradle/caches/transforms-3/6d421d43b1d609b85c709f19d74056a9/transformed/jetified-godot-lib.release/AndroidManifest.xml:19:9-21:44
+78            android:name="org.godotengine.library.version"
+78-->[godot-lib.release.aar] /home/rmlehnemann/.gradle/caches/transforms-3/6d421d43b1d609b85c709f19d74056a9/transformed/jetified-godot-lib.release/AndroidManifest.xml:20:13-59
+79            android:value="3.4.2.stable" />
+79-->[godot-lib.release.aar] /home/rmlehnemann/.gradle/caches/transforms-3/6d421d43b1d609b85c709f19d74056a9/transformed/jetified-godot-lib.release/AndroidManifest.xml:21:13-41
+80
+81        <service android:name="org.godotengine.godot.GodotDownloaderService" />
+81-->[godot-lib.release.aar] /home/rmlehnemann/.gradle/caches/transforms-3/6d421d43b1d609b85c709f19d74056a9/transformed/jetified-godot-lib.release/AndroidManifest.xml:23:9-80
+81-->[godot-lib.release.aar] /home/rmlehnemann/.gradle/caches/transforms-3/6d421d43b1d609b85c709f19d74056a9/transformed/jetified-godot-lib.release/AndroidManifest.xml:23:18-77
+82    </application>
+83
+84</manifest>
