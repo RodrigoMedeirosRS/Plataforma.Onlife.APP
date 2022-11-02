@@ -1,0 +1,3 @@
+[submodule "Plataforma.Onlife.LIB"]
+	path = Plataforma.Onlife.LIB
+	url = git@github.com:RodrigoMedeirosRS/Plataforma.Onlife.LIB.git
