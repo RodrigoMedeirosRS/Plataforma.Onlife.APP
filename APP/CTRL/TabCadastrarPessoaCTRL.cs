@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-using BibliotecaViva.DTO;
-using BibliotecaViva.BLL;
-using BibliotecaViva.DTO.Utils;
-using BibliotecaViva.DTO.Dominio;
-using BibliotecaViva.BLL.Interface;
-using BibliotecaViva.CTRL.Interface;
+using DTO;
+using BLL;
+using DTO.Utils;
+using DTO.Dominio;
+using BLL.Interface;
+using CTRL.Interface;
 
-namespace BibliotecaViva.CTRL
+namespace CTRL
 {
 	public class TabCadastrarPessoaCTRL : Tabs, IDisposableCTRL
 	{
@@ -212,9 +212,7 @@ namespace BibliotecaViva.CTRL
 			CodigoPessoa = pessoa.Codigo;
 			TesteID.Text = "Codigo: " + CodigoPessoa.ToString();
 			Nome.Text = pessoa.Nome;
-			Sobrenome.Text = pessoa.Sobrenome;
 			Apelido.Text = pessoa.Apelido;
-			SetarDropdownDeGenero(pessoa.Genero);
 			Task.Run(async () => await BuscarRegistros(false, pessoa));
 		}
 		private void LimparPreenchimento()

@@ -1,6 +1,6 @@
 using Godot;
 
-namespace BibliotecaViva.DTO
+namespace DTO
 {
     public class PessoaObject : Object
     {

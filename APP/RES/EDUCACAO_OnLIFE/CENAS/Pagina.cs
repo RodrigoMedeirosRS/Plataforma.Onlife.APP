@@ -14,11 +14,13 @@ public class Pagina : CanvasLayer
         {
             GetNode<Panel>("PaginaIndex").Visible = true;
             GetNode<Panel>("PaginaMapa").Visible = false;
+            GetParent().GetNode<Control>("Interface/InterfaceSobreposta").Visible = false;
         }
         else if (pagina == "Mapa")
         {
             GetNode<Panel>("PaginaIndex").Visible = false;
             GetNode<Panel>("PaginaMapa").Visible = true;
+            GetParent().GetNode<Control>("Interface/InterfaceSobreposta").Visible = true;
         }
     }
 }

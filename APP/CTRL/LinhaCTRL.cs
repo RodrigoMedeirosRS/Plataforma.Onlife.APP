@@ -1,6 +1,6 @@
 using Godot;
 
-namespace BibliotecaViva.CTRL
+namespace CTRL
 {
 	public class LinhaCTRL : ScrollContainer
 	{		

@@ -1,6 +1,6 @@
 using System;
 
-namespace BibliotecaViva.BLL.Utils
+namespace BLL.Utils
 {
     public static class Apontamentos
     {

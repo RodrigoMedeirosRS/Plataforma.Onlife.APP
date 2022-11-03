@@ -1,10 +1,10 @@
 using Godot;
 using System.Collections.Generic;
 
-using BibliotecaViva.DTO;
-using BibliotecaViva.DTO.Dominio;
+using DTO;
+using DTO.Dominio;
 
-namespace BibliotecaViva.BLL.Interface
+namespace BLL.Interface
 {
     public interface IConsultarRegistroBLL
     {

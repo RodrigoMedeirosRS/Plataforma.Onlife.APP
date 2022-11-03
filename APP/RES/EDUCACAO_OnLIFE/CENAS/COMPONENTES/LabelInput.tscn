@@ -9,10 +9,10 @@ size_flags_vertical = 5
 
 [node name="Label" type="Label" parent="."]
 margin_right = 216.0
-margin_bottom = 17.0
+margin_bottom = 25.0
 text = "LabelInput"
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_top = 25.0
+margin_top = 33.0
 margin_right = 216.0
-margin_bottom = 49.0
+margin_bottom = 78.0

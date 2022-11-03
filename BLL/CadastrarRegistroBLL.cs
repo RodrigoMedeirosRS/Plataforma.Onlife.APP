@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using BibliotecaViva.DTO;
-using BibliotecaViva.SAL;
-using BibliotecaViva.BLL.Utils;
-using BibliotecaViva.BLL.Interface;
-using BibliotecaViva.SAL.Interface;
+using DTO;
+using SAL;
+using BLL.Utils;
+using BLL.Interface;
+using SAL.Interface;
 
-namespace BibliotecaViva.BLL
+namespace BLL
 {
     public class CadastrarRegistroBLL : ICadastrarRegistroBLL, IDisposable
     {
@@ -49,7 +49,7 @@ namespace BibliotecaViva.BLL
             {
                 try
                 {
-                    var coordenadas = TratadorUtil.ProcessarLatLong(latlong);
+                    //var coordenadas = TratadorUtil.ProcessarLatLong(latlong);
                 }
                 catch
                 {
@@ -84,9 +84,9 @@ namespace BibliotecaViva.BLL
         }
         private RegistroDTO PopularCoordenadas(RegistroDTO registro, string latlong)
         {
-            var coordenadas = TratadorUtil.ProcessarLatLong(latlong);
-            registro.Latitude = coordenadas[0];
-            registro.Longitude = coordenadas[1];
+            //var coordenadas = TratadorUtil.ProcessarLatLong(latlong);
+            //egistro.Latitude = coordenadas[0];
+            //registro.Longitude = coordenadas[1];
             return registro;
         }
         public string CadastrarRegistro(RegistroDTO registro)

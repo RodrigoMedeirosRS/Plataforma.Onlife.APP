@@ -6,7 +6,6 @@
 margin_right = 217.0
 margin_bottom = 395.0
 rect_pivot_offset = Vector2( -891, -189 )
-Titulo = "Localidade"
 
 [node name="Titulo" parent="BarraDeTituloJanela/MarginContainer" index="0"]
 margin_right = 437.0

@@ -1,6 +1,6 @@
 using Godot;
 
-namespace BibliotecaViva.BLL.Interface
+namespace BLL.Interface
 {
     public interface IMapaBLL
     {

@@ -1,8 +1,8 @@
 using Godot;
 
-using BibliotecaViva.CTRL.Interface;
+using CTRL.Interface;
 
-namespace BibliotecaViva.CTRL
+namespace CTRL
 {
     public class ControladorTabCTRL : Control
     {

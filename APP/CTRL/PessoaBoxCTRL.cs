@@ -2,16 +2,15 @@ using Godot;
 using System;
 using System.Threading.Tasks;
 
-using BibliotecaViva.DTO;
-using BibliotecaViva.CTRL.Interface;
+using DTO;
+using CTRL.Interface;
 
-namespace BibliotecaViva.CTRL
+namespace CTRL
 {
 	public class PessoaBoxCTRL : Panel, IDisposableCTRL
 	{
 		public int Coluna { get; set; }
 		public TabBuscarCTRL TabBuscar { get; set; }
-		public TabSonarCTRL TabSonar { get; set; }
 		public PessoaDTO Pessoa { get; set; }
 		private Label NomeCompleto { get; set; }
 		private Label Genero { get; set; }
@@ -36,8 +35,6 @@ namespace BibliotecaViva.CTRL
 		{
 			RectPosition = posicao;
 			Pessoa = pessoaDTO;
-			NomeCompleto.Text = Pessoa.Nome + " " + Pessoa.Sobrenome;
-			PopularCampoOpcional(Genero, Pessoa.Genero);
 			PopularCampoOpcional(Apelido, Pessoa.Apelido);
 		}
 		private void PopularCampoOpcional(Label campo, string conteudo)
@@ -53,8 +50,6 @@ namespace BibliotecaViva.CTRL
 		{
 			if (TabBuscar != null)
 				Task.Run(async () => await TabBuscar.BuscarRelacoes(Pessoa, Coluna, this));
-			else
-				Task.Run(async () => await TabSonar.BuscarRelacoes(Pessoa, Coluna, this));
 		}
 		public void FecharCTRL()
 		{

@@ -1,16 +1,26 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/MenuSuperior.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Rodape.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/SideBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/noun-menu.svg" type="Texture" id=4]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=5]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/InterfaceSobreposta.cs" type="Script" id=6]
 [ext_resource path="res://RES/ICONES/Fechar.png" type="Texture" id=7]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/DadosCTRL.cs" type="Script" id=8]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Coluna.tscn" type="PackedScene" id=9]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaRegistro.tscn" type="PackedScene" id=10]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaPessoa.tscn" type="PackedScene" id=11]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaSobre.tscn" type="PackedScene" id=12]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaGPedU.tscn" type="PackedScene" id=13]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/Buscar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaContato.tscn" type="PackedScene" id=15]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaEquipe.tscn" type="PackedScene" id=16]
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 1, 1, 1, 1 )
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
 shadow_color = Color( 0, 0, 0, 0.0392157 )
 shadow_size = 6
 shadow_offset = Vector2( 1, 2 )
@@ -30,115 +40,40 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("InterfaceExpandida:visible")
+tracks/1/path = NodePath("InterfaceExpandida:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("InterfaceExpandida/MenuSuperior:anchor_right")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("InterfaceExpandida/Rodape:margin_top")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0, -150 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("InterfaceExpandida:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("Panel:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Panel:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("InterfaceExpandida/MenuSuperior:anchor_right")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1.0 ]
-}
 tracks/2/type = "value"
 tracks/2/path = NodePath("InterfaceExpandida/Rodape:margin_top")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = false
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 890 ]
+"values": [ 0, -150 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("InterfaceExpandida:modulate")
-tracks/3/interp = 1
+tracks/3/path = NodePath("InterfaceExpandida/MenuSuperior:anchor_right")
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ 0.0, 1.0 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("InterfaceExpandida:visible")
@@ -159,10 +94,133 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SideBar:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -9 ), Vector2( 0, 130 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("SideBar:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InterfaceExpandida:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("InterfaceExpandida:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("InterfaceExpandida/Rodape:margin_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 890 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("InterfaceExpandida/MenuSuperior:anchor_right")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Panel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SideBar:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -9 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("SideBar:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -180,52 +238,52 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("InterfaceExpandida:visible")
+tracks/1/path = NodePath("InterfaceExpandida:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("InterfaceExpandida/MenuSuperior:anchor_right")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 1.0, 0.0 ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("InterfaceExpandida/Rodape:margin_top")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("InterfaceExpandida/Rodape:margin_top")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ -150, 0 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("InterfaceExpandida/MenuSuperior:anchor_right")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
 tracks/4/type = "value"
-tracks/4/path = NodePath("InterfaceExpandida:modulate")
+tracks/4/path = NodePath("InterfaceExpandida:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ true, false ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Panel:modulate")
@@ -239,6 +297,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("SideBar:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 130 ), Vector2( 0, -9 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("SideBar:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="InterfaceSobreposta" type="Control"]
 anchor_right = 1.0
@@ -251,13 +333,134 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Dados" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1920, 1020 )
+mouse_filter = 2
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Coluna" parent="Dados" instance=ExtResource( 9 )]
+mouse_filter = 2
+
+[node name="Colunas" parent="Dados/Coluna" index="0"]
+mouse_filter = 2
+
+[node name="PopErro" type="AcceptDialog" parent="Dados"]
+margin_left = 742.0
+margin_top = 492.0
+margin_right = 1159.0
+margin_bottom = 698.0
+window_title = "Erro"
+
+[node name="JanelaRegistro" parent="Dados" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 90000.0
+margin_top = 366.0
+margin_right = 90000.0
+margin_bottom = 366.0
+
+[node name="JanelaPessoa" parent="Dados" instance=ExtResource( 11 )]
+margin_left = 89040.0
+margin_top = -114.5
+margin_right = 89540.0
+margin_bottom = 164.5
+
+[node name="JanelaSobre" parent="Dados" instance=ExtResource( 12 )]
+margin_left = 89040.0
+margin_top = -121.0
+margin_right = 89532.0
+margin_bottom = 241.0
+
+[node name="JanelaGPedU" parent="Dados" instance=ExtResource( 13 )]
+margin_left = 89040.0
+margin_top = -10.0
+margin_right = 89532.0
+margin_bottom = 352.0
+
+[node name="JanelaEquipe" parent="Dados" instance=ExtResource( 16 )]
+margin_left = -821.0
+margin_top = -1094.0
+margin_right = -321.0
+margin_bottom = -732.0
+
+[node name="JanelaContato" parent="Dados" instance=ExtResource( 15 )]
+margin_left = 232.0
+margin_top = -1128.0
+margin_right = 732.0
+margin_bottom = -766.0
+
+[node name="BarraDeBusca" parent="." instance=ExtResource( 14 )]
+margin_left = 205.0
+margin_top = 145.0
+margin_right = -397.0
+margin_bottom = -895.0
+
+[node name="BtnBuscar" parent="BarraDeBusca" index="1"]
+margin_left = 1050.0
+margin_right = 1152.0
+
+[node name="SideBar" parent="." instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = -9.0
+margin_right = 63360.0
+margin_bottom = 35631.0
+rect_min_size = Vector2( 175, 139 )
+mouse_filter = 2
+
+[node name="Panel" parent="SideBar" index="0"]
+margin_right = 175.0
+margin_bottom = 139.0
+
+[node name="VBoxContainer" parent="SideBar" index="1"]
+margin_right = 162.0
+
+[node name="NovaPistaViva" parent="SideBar/VBoxContainer" index="0"]
+margin_right = 153.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="NovoRegistro" parent="SideBar/VBoxContainer" index="1"]
+margin_top = 28.0
+margin_right = 153.0
+margin_bottom = 48.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="HSeparator" parent="SideBar/VBoxContainer" index="2"]
+margin_top = 56.0
+margin_right = 153.0
+margin_bottom = 58.0
+
+[node name="Buscar" parent="SideBar/VBoxContainer" index="3"]
+margin_top = 66.0
+margin_right = 153.0
+margin_bottom = 86.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="Explorar" parent="SideBar/VBoxContainer" index="4"]
+margin_top = 94.0
+margin_right = 153.0
+margin_bottom = 114.0
+focus_mode = 0
+enabled_focus_mode = 0
+
 [node name="InterfaceExpandida" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="MenuSuperior" parent="InterfaceExpandida" instance=ExtResource( 1 )]
@@ -267,16 +470,70 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 
+[node name="Panel" parent="InterfaceExpandida/MenuSuperior/MarginContainer" index="0"]
+margin_bottom = 104.0
+
+[node name="MarginContainer" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer" index="0"]
+margin_bottom = 70.0
+
+[node name="TextureRect" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/MarginContainer" index="0"]
+margin_bottom = 66.0
+
+[node name="HBoxContainer" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer" index="1"]
+margin_bottom = 70.0
+
+[node name="Sobre" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer" index="0"]
+margin_top = 25.0
+margin_bottom = 45.0
+
+[node name="Equipes" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer" index="1"]
+margin_top = 25.0
+margin_bottom = 45.0
+
+[node name="GPedU" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer" index="2"]
+margin_top = 25.0
+margin_bottom = 45.0
+
+[node name="Contato" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer" index="3"]
+margin_top = 25.0
+margin_bottom = 45.0
+
+[node name="HBoxContainer4" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer" index="2"]
+margin_bottom = 70.0
+
+[node name="TextureButton" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer4" index="0"]
+margin_top = 27.0
+margin_bottom = 43.0
+
+[node name="TextureButton2" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer4" index="1"]
+margin_top = 27.0
+margin_bottom = 43.0
+
+[node name="TextureButton3" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer4" index="2"]
+margin_top = 27.0
+margin_bottom = 43.0
+
+[node name="TextureButton4" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer4" index="3"]
+margin_top = 27.0
+margin_bottom = 43.0
+
+[node name="VSeparator" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer4" index="4"]
+margin_bottom = 70.0
+
+[node name="TextureButton5" parent="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer4" index="5"]
+margin_top = 27.0
+margin_bottom = 43.0
+
 [node name="CloseButton" type="TextureButton" parent="InterfaceExpandida/MenuSuperior"]
-modulate = Color( 0.439216, 0.439216, 0.439216, 1 )
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -48.0
-margin_top = -51.0
-margin_bottom = -3.0
-rect_scale = Vector2( 0.7, 0.7 )
+margin_left = -74.0
+margin_top = -57.0
+margin_right = -26.0
+margin_bottom = -9.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 7 )
 __meta__ = {
@@ -285,7 +542,6 @@ __meta__ = {
 }
 
 [node name="Rodape" parent="InterfaceExpandida" instance=ExtResource( 2 )]
-visible = false
 anchor_top = 1.0
 margin_top = 890.0
 rect_clip_content = true
@@ -299,11 +555,11 @@ margin_right = 94.0
 margin_bottom = 130.0
 custom_styles/panel = SubResource( 7 )
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="ExpandirButton" type="TextureButton" parent="Panel"]
+modulate = Color( 1, 1, 1, 0.784314 )
 margin_right = 93.0
 margin_bottom = 70.0
 mouse_default_cursor_shape = 2
@@ -312,7 +568,8 @@ expand = true
 stretch_mode = 2
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true
+"_edit_lock_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="Anim" type="AnimationPlayer" parent="."]
@@ -321,5 +578,19 @@ anims/Expandir = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 anims/Retrair = SubResource( 6 )
 
+[connection signal="button_up" from="BarraDeBusca/BtnBuscar" to="Dados" method="_on_BtnBuscar_button_up"]
+[connection signal="button_up" from="SideBar/VBoxContainer/NovaPistaViva" to="Dados" method="_on_NovaPistaViva_button_up"]
+[connection signal="button_up" from="SideBar/VBoxContainer/NovoRegistro" to="Dados" method="_on_NovoRegistro_button_up"]
+[connection signal="toggled" from="SideBar/VBoxContainer/Buscar" to="Dados" method="_on_Buscar_toggled"]
+[connection signal="button_up" from="SideBar/VBoxContainer/Explorar" to="Dados" method="_on_Explorar_button_up"]
+[connection signal="button_up" from="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer/Sobre" to="Dados" method="_on_Sobre_button_up"]
+[connection signal="button_up" from="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer/Equipes" to="Dados" method="_on_Equipes_button_up"]
+[connection signal="button_up" from="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer/GPedU" to="Dados" method="_on_GPedU_button_up"]
+[connection signal="button_up" from="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer/Contato" to="Dados" method="_on_Contato_button_up"]
 [connection signal="pressed" from="InterfaceExpandida/MenuSuperior/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Panel/ExpandirButton" to="." method="_on_ExpandirButton_pressed"]
+
+[editable path="Dados/Coluna"]
+[editable path="BarraDeBusca"]
+[editable path="SideBar"]
+[editable path="InterfaceExpandida/MenuSuperior"]

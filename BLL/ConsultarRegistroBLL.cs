@@ -2,14 +2,14 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-using BibliotecaViva.SAL;
-using BibliotecaViva.DTO;
-using BibliotecaViva.BLL.Utils;
-using BibliotecaViva.DTO.Dominio;
-using BibliotecaViva.SAL.Interface;
-using BibliotecaViva.BLL.Interface;
+using SAL;
+using DTO;
+using BLL.Utils;
+using DTO.Dominio;
+using SAL.Interface;
+using BLL.Interface;
 
-namespace BibliotecaViva.BLL
+namespace BLL
 {
     public class ConsultarRegistroBLL : IConsultarRegistroBLL, IDisposable
     {

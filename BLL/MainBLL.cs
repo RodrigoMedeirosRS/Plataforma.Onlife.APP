@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-using BibliotecaViva.BLL.Utils;
-using BibliotecaViva.BLL.Interface;
+using BLL.Utils;
+using BLL.Interface;
 
-namespace BibliotecaViva.BLL
+namespace BLL
 {
     public class MainBLL : IMainBLL, IDisposable
     {

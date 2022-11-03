@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://RES/ICONES/CadastrarRegistro.png" type="Texture" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/ButtonHover.tres" type="StyleBox" id=2]
+[ext_resource path="res://RES/ICONES/CadastrarPessoa.png" type="Texture" id=3]
+[ext_resource path="res://RES/ICONES/Buscar.png" type="Texture" id=4]
+[ext_resource path="res://RES/ICONES/Rastros.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 0, 0, 1 )
+corner_radius_bottom_right = 50
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+expand_margin_top = 1.0
+
+[node name="SideBar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1620.0
+margin_bottom = -918.0
+rect_min_size = Vector2( 300, 162 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 300.0
+margin_bottom = 162.0
+custom_styles/panel = SubResource( 11 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 9.0
+margin_top = 11.0
+margin_right = 287.0
+margin_bottom = 145.0
+
+[node name="NovaPistaViva" type="Button" parent="VBoxContainer"]
+margin_right = 278.0
+margin_bottom = 25.0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Nova Pista Viva"
+icon = ExtResource( 3 )
+expand_icon = true
+
+[node name="NovoRegistro" type="Button" parent="VBoxContainer"]
+margin_top = 33.0
+margin_right = 278.0
+margin_bottom = 58.0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+text = "Novo Registro"
+icon = ExtResource( 1 )
+expand_icon = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 66.0
+margin_right = 278.0
+margin_bottom = 68.0
+custom_constants/separation = 2
+custom_styles/separator = SubResource( 2 )
+
+[node name="Buscar" type="Button" parent="VBoxContainer"]
+margin_top = 76.0
+margin_right = 278.0
+margin_bottom = 101.0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+toggle_mode = true
+text = "Buscar"
+icon = ExtResource( 4 )
+expand_icon = true
+
+[node name="Explorar" type="Button" parent="VBoxContainer"]
+margin_top = 109.0
+margin_right = 278.0
+margin_bottom = 134.0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Explorar"
+icon = ExtResource( 5 )
+expand_icon = true

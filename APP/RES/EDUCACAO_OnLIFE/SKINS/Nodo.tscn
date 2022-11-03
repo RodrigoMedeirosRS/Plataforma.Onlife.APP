@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/circle-slice-8.png" type="Texture" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/Nodo.cs" type="Script" id=2]
+
+[node name="Nodo" type="TextureButton"]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="." to="." method="_on_Nodo_pressed"]

@@ -13,5 +13,4 @@ public class MenuSuperior : Control
 
         nodo_pagina.Call("SetPagina", "Index");
     }
-
 }

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/ToggleVisibleButton.cs" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/circle-slice-8.png-a04eae396064764d0395403b15a5af49.stex"
+
+[node name="AbreNodo" type="TextureButton"]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+margin_left = -11.5
+margin_top = -11.5
+margin_right = 11.5
+margin_bottom = 11.5
+mouse_default_cursor_shape = 2
+texture_normal = SubResource( 1 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="." to="." method="_on_ToggleVisibleButton_pressed"]
+[connection signal="visibility_changed" from="." to="." method="_on_ToggleVisibleButton_visibility_changed"]

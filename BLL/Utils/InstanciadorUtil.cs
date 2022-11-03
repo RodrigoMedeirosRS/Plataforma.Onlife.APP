@@ -1,6 +1,6 @@
 using Godot;
 
-namespace BibliotecaViva.BLL.Utils
+namespace BLL.Utils
 {
     public static class InstanciadorUtil
     {

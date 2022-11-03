@@ -2,10 +2,10 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-using BibliotecaViva.DTO;
-using BibliotecaViva.DTO.Utils;
+using DTO;
+using DTO.Utils;
 
-namespace BibliotecaViva.CTRL
+namespace CTRL
 {
 	public class LinhaRelacaoCTRL : Control, IDisposable
 	{

@@ -2,8 +2,9 @@
     <ItemGroup>
         <ProjectReference Include="..\SAL\SAL.csproj" />
         <ProjectReference Include="..\Plataforma.Onlife.LIB\BLL\BibliotecaViva.BLL.csproj" />
-        <ProjectReference Include="..\Plataforma.Onlife.LIB\DTO\BibliotecaViva.DTO.csproj" />
         <ProjectReference Include="..\Plataforma.Onlife.LIB\SAL\BibliotecaViva.SAL.csproj" />
+        <ProjectReference Include="..\Plataforma.Onlife.LIB\DTO\BibliotecaViva.DTO.csproj" />
+        <ProjectReference Include="..\Plataforma.Onlife.LIB\LIB\RandomGen\RandomGen.csproj" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="GodotSharp">
@@ -11,6 +12,6 @@
         </Reference>
     </ItemGroup>
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
     </PropertyGroup>
 </Project>

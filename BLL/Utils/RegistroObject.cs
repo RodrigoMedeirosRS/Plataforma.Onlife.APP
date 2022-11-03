@@ -1,7 +1,7 @@
 using Godot;
-using BibliotecaViva.DTO;
+using DTO;
 
-namespace BibliotecaViva.DTO
+namespace DTO
 {
     public class RegistroObject : Object
     {

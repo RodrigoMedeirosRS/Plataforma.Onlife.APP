@@ -4,15 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-using BibliotecaViva.BLL;
-using BibliotecaViva.BLL.Interface;
-using BibliotecaViva.CTRL.Interface;
-using BibliotecaViva.DTO;
-using BibliotecaViva.DTO.Utils;
-using BibliotecaViva.BLL.Utils;
-using BibliotecaViva.DTO.Dominio;
+using BLL;
+using BLL.Interface;
+using CTRL.Interface;
+using DTO;
+using DTO.Utils;
+using BLL.Utils;
+using DTO.Dominio;
 
-namespace BibliotecaViva.CTRL
+namespace CTRL
 {
 	public class TabCadastrarRegistroCTRL : Tabs, IDisposableCTRL
 	{
@@ -239,8 +239,6 @@ namespace BibliotecaViva.CTRL
 			CodigoRegistro = registro.Codigo;
 			Nome.Text = registro.Nome;
 			Apelido.Text = registro.Apelido;
-			if (!string.IsNullOrEmpty(registro.Latitude) && !string.IsNullOrEmpty(registro.Longitude))
-				LatLong.Text = registro.Latitude + ", " + registro.Longitude;
 			Descricao.Text = registro.Descricao;
 			if (!ObterDetalhesTipo(registro.Tipo).Binario)
 				ConteudoASCII.Text = registro.Conteudo;

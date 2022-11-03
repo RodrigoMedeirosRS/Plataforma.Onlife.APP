@@ -2,14 +2,14 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-using BibliotecaViva.SAL;
-using BibliotecaViva.DTO;
-using BibliotecaViva.BLL.Utils;
-using BibliotecaViva.DTO.Dominio;
-using BibliotecaViva.SAL.Interface;
-using BibliotecaViva.BLL.Interface;
+using SAL;
+using DTO;
+using BLL.Utils;
+using DTO.Dominio;
+using SAL.Interface;
+using BLL.Interface;
 
-namespace BibliotecaViva.BLL
+namespace BLL
 {
     public class ConsultarPessoaBLL : IConsultarPessoaBLL, IDisposable
     {
@@ -24,7 +24,7 @@ namespace BibliotecaViva.BLL
         }
         public void ValidarPreenchimento(PessoaConsulta pessoaConsulta)
         {
-            if (string.IsNullOrEmpty(pessoaConsulta.Nome) && string.IsNullOrEmpty(pessoaConsulta.Sobrenome) && string.IsNullOrEmpty(pessoaConsulta.Apelido))
+            if (string.IsNullOrEmpty(pessoaConsulta.Nome) && string.IsNullOrEmpty(pessoaConsulta.Apelido))
                 throw new Exception("Favor inserir nome, sobrenome ou apelido para realizar a consulta");
         }
         public List<PessoaDTO> ValidarConsulta(List<PessoaDTO> retorno)

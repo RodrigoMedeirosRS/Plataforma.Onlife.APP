@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 
-using BibliotecaViva.BLL.Utils;
-using BibliotecaViva.BLL.Interface;
-using BibliotecaViva.DTO;
-using BibliotecaViva.SAL;
-using BibliotecaViva.SAL.Interface;
+using BLL.Utils;
+using BLL.Interface;
+using DTO;
+using SAL;
+using SAL.Interface;
 
-namespace BibliotecaViva.BLL
+namespace BLL
 {
     public class CadastrarPessoaBLL : ICadastrarPessoaBLL, IDisposable
     {
@@ -34,9 +34,9 @@ namespace BibliotecaViva.BLL
             var pessoa = new PessoaDTO()
             {
                 Nome = nome,
-                Sobrenome = sobrenome,
+                //Sobrenome = sobrenome,
                 Apelido = apelido,
-                Genero = genero,
+                //Genero = genero,
                 Relacoes = relacoes
             };
 

@@ -1,9 +1,9 @@
 using Godot;
 using System.Collections.Generic;
 
-using BibliotecaViva.DTO;
+using DTO;
 
-namespace BibliotecaViva.BLL.Interface
+namespace BLL.Interface
 {
     public interface ICadastrarRegistroBLL
     {

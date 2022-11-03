@@ -1,0 +1,234 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/Skin.cs" type="Script" id=1]
+[ext_resource path="res://TEMP/Avatar Rodrigo M.Lehnemann.jpg" type="Texture" id=2]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/skin2.png" type="Texture" id=3]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=4]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Fechar.svg" type="Texture" id=5]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/Arrastar.cs" type="Script" id=6]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/FONTES/Lato-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=2]
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/fonts/font = SubResource( 3 )
+
+[node name="Skin2" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fundo" type="Polygon2D" parent="."]
+position = Vector2( 142, 150.151 )
+color = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
+polygon = PoolVector2Array( -69.1171, -92.1561, 92.1561, -87.5483, 115.195, -64.5093, 110.587, 64.5093, 82.9405, 87.5483, -96.7639, 82.9405, -110.587, 50.6859, -110.587, -69.1171 )
+
+[node name="BarraDeTituloJanela" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 312.0
+margin_bottom = 319.0
+focus_mode = 1
+mouse_default_cursor_shape = 13
+size_flags_horizontal = 3
+theme = ExtResource( 4 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="TextureButton" parent="BarraDeTituloJanela"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = 53.0
+margin_right = -105.0
+margin_bottom = -259.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.05
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nome" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 64.5
+margin_top = 83.6515
+margin_right = 219.5
+margin_bottom = 216.651
+mouse_filter = 2
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Nome"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -106.0
+margin_top = -83.0
+margin_right = 110.0
+margin_bottom = 74.0
+text = "Rodrigo
+Lehnemann"
+align = 1
+valign = 1
+
+[node name="Foto" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 125.0
+margin_top = 124.0
+margin_right = 165.0
+margin_bottom = 164.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AvatarRodrigoMLehnemann" type="Sprite" parent="Foto"]
+position = Vector2( 20, 20 )
+scale = Vector2( 0.203922, 0.203922 )
+texture = ExtResource( 2 )
+
+[node name="Descricao" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 125.0
+margin_top = 124.0
+margin_right = 165.0
+margin_bottom = 164.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Descricao"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -71.0
+margin_top = -78.0
+margin_right = 90.0
+margin_bottom = 75.0
+text = "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 177, 152.151 )
+scale = Vector2( 1.39394, 1.39394 )
+texture = ExtResource( 3 )
+
+[node name="ButtonDescricao" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 128.0
+margin_top = 248.151
+margin_right = 159.0
+margin_bottom = 285.151
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonDescricao2" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 273.0
+margin_top = 151.151
+margin_right = 298.0
+margin_bottom = 177.151
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonVoltar" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 16.0
+margin_top = 132.151
+margin_right = 44.0
+margin_bottom = 164.151
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonVoltar2" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 246.0
+margin_top = 206.151
+margin_right = 264.0
+margin_bottom = 227.151
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonFoto" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 267.0
+margin_top = 102.151
+margin_right = 295.0
+margin_bottom = 134.151
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="BarraDeTituloJanela" to="BarraDeTituloJanela" method="_on_BarraDeTituloJanela_mouse_entered"]
+[connection signal="mouse_exited" from="BarraDeTituloJanela" to="BarraDeTituloJanela" method="_on_BarraDeTituloJanela_mouse_exited"]
+[connection signal="pressed" from="BarraDeTituloJanela/CloseButton" to="BarraDeTituloJanela" method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="ButtonDescricao" to="." method="_on_ButtonDescricao_pressed"]
+[connection signal="pressed" from="ButtonDescricao2" to="." method="_on_ButtonDescricao_pressed"]
+[connection signal="pressed" from="ButtonVoltar" to="." method="_on_ButtonVoltar_pressed"]
+[connection signal="pressed" from="ButtonVoltar2" to="." method="_on_ButtonVoltar_pressed"]
+[connection signal="pressed" from="ButtonFoto" to="." method="_on_ButtonFoto_pressed"]

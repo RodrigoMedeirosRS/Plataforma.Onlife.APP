@@ -1,11 +1,11 @@
 using Godot;
 
-using BibliotecaViva.DTO;
-using BibliotecaViva.BLL;
-using BibliotecaViva.BLL.Interface;
-using BibliotecaViva.CTRL.Interface;
+using DTO;
+using BLL;
+using BLL.Interface;
+using CTRL.Interface;
 
-namespace BibliotecaViva.CTRL
+namespace CTRL
 {
 	public class MainCTRL : Control, IDisposableCTRL
 	{ 
@@ -44,7 +44,7 @@ namespace BibliotecaViva.CTRL
 		}
 		public static void EditarPessoa(PessoaDTO pessoaDTO)
 		{
-			var tab = BLL.IntanciarTab(pessoaDTO.Nome + " " + pessoaDTO.Sobrenome, "res://RES/CENAS/TabCadastrarPessoa.tscn");
+			var tab = BLL.IntanciarTab(pessoaDTO.Nome, "res://RES/CENAS/TabCadastrarPessoa.tscn");
 			if (tab != null)
 				(tab as TabCadastrarPessoaCTRL).PopularPreenchiento(pessoaDTO);
 		}

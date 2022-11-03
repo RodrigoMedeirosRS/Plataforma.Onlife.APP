@@ -1,15 +1,18 @@
 using Godot;
 using System;
 
-public class AbrirPopup : WindowDialog
+namespace Onlife.CTRL
 {
-    public override void _Ready()
+    public class AbrirPopup : WindowDialog
     {
-        GD.Print("Popup!");
-        Show();
+        public override void _Ready()
+        {
+            GD.Print("Popup!");
+            Show();
 
-        //Godot.WindowDialog.popup();
-        //GD.WindowDialog.popup();
+            //Godot.WindowDialog.popup();
+            //GD.WindowDialog.popup();
+        }
+
     }
-
 }

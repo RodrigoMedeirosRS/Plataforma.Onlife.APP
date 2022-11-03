@@ -1,8 +1,8 @@
 using System;
 using Godot;
-using BibliotecaViva.DTO;
+using DTO;
 
-namespace BibliotecaViva.BLL.Utils
+namespace BLL.Utils
 {
     public static class ImportadorDeBinariosUtil
     {
@@ -36,16 +36,19 @@ namespace BibliotecaViva.BLL.Utils
             var caminho = CarregarBinario(nomeImagem, formato, base64);
             return BuscarImagem(nomeImagem, formato, caminho);
         }
-        public static Texture BuscarImagem(string nomeImagem, string formato, string caminho)
+        public static Texture BuscarImagem(string nomeImagem, string formato, string caminho, bool apagarArquivosTemporario = true)
         {
             var imagem = new Image();
             var texturaDaImagem = new ImageTexture();
-            var caminhoComFormato = caminho + nomeImagem + "." + formato;
+            var caminhoComFormato = caminho + nomeImagem;
+            if (!string.IsNullOrEmpty(formato))
+                caminhoComFormato += "." + formato;
             var caminhoImport = caminhoComFormato + ".import";
 
             imagem.Load(caminhoComFormato);
             texturaDaImagem.CreateFromImage(imagem);
-            LimparArquivosTemporarios(caminhoComFormato, caminhoImport);
+            if (apagarArquivosTemporario)
+                LimparArquivosTemporarios(caminhoComFormato, caminhoImport);
             
             return texturaDaImagem;
         }

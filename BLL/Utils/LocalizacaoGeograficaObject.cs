@@ -1,13 +1,13 @@
 using Godot;
 
-namespace BibliotecaViva.DTO
+namespace DTO
 {
     public class LocalizacaoGeograficaObject : Object
     {
-        public LocalizacaoGeograficaObject(LocalizacaoGeograficaDTO localizacaoGeografica)
+        public LocalizacaoGeograficaObject(LocalidadeDTO localizacaoGeografica)
         {
             Localizacao = localizacaoGeografica;
         }
-        public LocalizacaoGeograficaDTO Localizacao { get; set; }
+        public LocalidadeDTO Localizacao { get; set; }
     }
 }

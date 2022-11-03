@@ -4,20 +4,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-using BibliotecaViva.DTO;
-using BibliotecaViva.BLL;
-using BibliotecaViva.BLL.Utils;
-using BibliotecaViva.DTO.Utils;
-using BibliotecaViva.BLL.Interface;
-using BibliotecaViva.CTRL.Interface;
+using DTO;
+using BLL;
+using BLL.Utils;
+using DTO.Utils;
+using BLL.Interface;
+using CTRL.Interface;
 
-namespace BibliotecaViva.CTRL
+namespace CTRL
 {
 	public class RegistroBoxCTRL : Panel, IDisposableCTRL
 	{
 		public int Coluna { get; set; }
 		public TabBuscarCTRL TabBuscar { get; set; }
-		public TabSonarCTRL TabSonar { get; set; }
 
 		private bool Maximizado { get; set; }
 		private Label Nome { get; set; }
@@ -103,8 +102,6 @@ namespace BibliotecaViva.CTRL
 		{
 			if (TabBuscar != null)
 				Task.Run(async () => await TabBuscar.BuscarRelacoes(Registro, Coluna, this));
-			else
-				Task.Run(async () => await TabSonar.BuscarRelacoes(Registro, Coluna, this));
 		}
 		private void _on_Maximizar_button_up()
 		{

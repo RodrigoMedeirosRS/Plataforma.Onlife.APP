@@ -2,13 +2,13 @@ using Godot;
 using System;
 using System.Threading.Tasks;
 
-using BibliotecaViva.DTO;
-using BibliotecaViva.BLL;
-using BibliotecaViva.DTO.Dominio;
-using BibliotecaViva.BLL.Interface;
-using BibliotecaViva.CTRL.Interface;
+using DTO;
+using BLL;
+using DTO.Dominio;
+using BLL.Interface;
+using CTRL.Interface;
 
-namespace BibliotecaViva.CTRL
+namespace CTRL
 {
 	public class TabBuscarCTRL : Tabs, IDisposableCTRL
 	{
@@ -74,7 +74,6 @@ namespace BibliotecaViva.CTRL
 			var resultado = PessoaBLL.RealizarConsulta(new PessoaConsulta()
 			{
 				Nome = Pesquisa.Nome.Text,
-				Sobrenome = Pesquisa.Sobrenome.Text,
 				Apelido = Pesquisa.Apelido.Text
 			});
 			foreach (var pessoa in resultado)
@@ -119,7 +118,7 @@ namespace BibliotecaViva.CTRL
 		}
 		private void InstanciarColuna()
 		{
-			BuscarBLL.InstanciarColuna();
+			BuscarBLL.InstanciarColuna("res://RES/EDUCACAO_OnLIFE/CENAS/Linha.tscn");
 		}
 		private bool ValidarPessoaJaInstanciadaNaColuna(PessoaDTO pessoa, int coluna)
 		{
@@ -145,7 +144,7 @@ namespace BibliotecaViva.CTRL
 		{
 			if (BuscarBLL.ValidarColuna(coluna))
 			{
-				BuscarBLL.InstanciarColuna();
+				BuscarBLL.InstanciarColuna("res://RES/EDUCACAO_OnLIFE/CENAS/Linha.tscn");
 				System.Threading.Thread.Sleep(100);
 			}
 			return Coluna.GetChild(coluna).GetChild<VBoxContainer>(0);
