@@ -12,8 +12,6 @@ config_version=4
 
 config/name="Plataforma.OnLIFE.APP"
 run/main_scene="res://RES/EDUCACAO_OnLIFE/CENAS/Main.tscn"
-run/disable_stdout=true
-run/disable_stderr=true
 config/icon="res://icon.png"
 
 [display]

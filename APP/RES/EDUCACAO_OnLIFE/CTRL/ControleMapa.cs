@@ -1,12 +1,13 @@
 using Godot;
 using System;
 
+using DTO;
 public class ControleMapa : Spatial
 {
 	private Vector2 Direcao { get; set; }
 	private Spatial Globo { get; set; }
 	private Sprite Rot { get; set; }
-	private Camera Camera { get; set; }
+	private Camera Cam { get; set; }
 	private VSlider Zoom { get; set; }
 	private TextureButton Up { get; set; }
 	private TextureButton Down { get; set; }
@@ -20,13 +21,13 @@ public class ControleMapa : Spatial
 	}
 	private void DefinirValoresIniciais()
 	{
-		Camera.Size = Convert.ToSingle(Zoom.Value);
+		Cam.Size = Convert.ToSingle(Zoom.Value);
 	}
 	private void PopularNodes()
 	{
 		Rot = GetNode<Sprite>("./Sprites/Rot");
 		Globo = GetNode<Spatial>("./Globo");
-		Camera = GetNode<Camera>("./Camera");
+		Cam = GetNode<Camera>("./Camera");
 		Zoom = GetNode<VSlider>("./Botoes/Zoom");
 		Up = GetNode<TextureButton>("./Botoes/Up");
 		Down = GetNode<TextureButton>("./Botoes/Down");
@@ -35,22 +36,51 @@ public class ControleMapa : Spatial
 	}
 	public override void _PhysicsProcess(float delta)
 	{
-		if (Up.Pressed)
-			Globo.RotateX(0.5f*delta);
-		if (Down.Pressed)
-			Globo.RotateX(-0.5f*delta);
-		if (Left.Pressed)
-			Globo.RotateY(0.5f*delta);
-		if (Right.Pressed)
-			Globo.RotateY(-0.5f*delta);
+		RotacionarGlobo(delta);
+		var objeto = CapturarObjectoComClique();
+		if (objeto != null)
+			GD.Print(objeto.Ponto.Name);
+		else
+			GD.Print("");
 	}
+
+	private void RotacionarGlobo(float delta)
+	{
+		if (Up.Pressed)
+			Globo.RotateX(0.5f * delta);
+		if (Down.Pressed)
+			Globo.RotateX(-0.5f * delta);
+		if (Left.Pressed)
+			Globo.RotateY(0.5f * delta);
+		if (Right.Pressed)
+			Globo.RotateY(-0.5f * delta);
+	}
+
 	private void _on_Rotacao_value_changed(float value)
 	{
-		Camera.RotationDegrees = new Vector3(0,0,value);
+		Cam.RotationDegrees = new Vector3(0,0,value);
 		Rot.RotationDegrees = value;
 	}
 	private void _on_Zoom_value_changed(float value)
 	{
-		Camera.Size = value;
+		Cam.Size = value;
+	}
+	private ColisaoDTO CapturarObjectoComClique()
+	{
+		var spacestate = GetWorld().DirectSpaceState;
+		var mousePosition = GetViewport().GetMousePosition();
+		var rayOrigin = Cam.ProjectRayOrigin(mousePosition);
+		var rayEnd = rayOrigin + Cam.ProjectRayNormal(mousePosition) * 2000;
+		var intersecao = spacestate.IntersectRay(rayOrigin, rayEnd);
+
+		if (intersecao.Count > 0)
+		{
+			return new ColisaoDTO()
+			{
+				Posicao = (Vector3)intersecao["position"],
+				Ponto = (Spatial)intersecao["collider"]
+			};
+		}
+		return null;
 	}
 }
