@@ -153,3 +153,4 @@ text = "Clique na imagem para alterar a foto."
 
 [connection signal="about_to_show" from="." to="." method="_on_CadastroDePessoa_about_to_show"]
 [connection signal="confirmed" from="." to="." method="_on_CadastroDePessoa_confirmed"]
+[connection signal="button_up" from="Control/FotoDePerfil" to="." method="_on_FotoDePerfil_button_up"]

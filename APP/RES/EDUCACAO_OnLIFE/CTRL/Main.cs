@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 using DTO;
 using BLL.Utils;
@@ -10,9 +11,11 @@ public class Main : Node2D
 	private static ConfirmationDialog CaixaDePergunta { get; set; }
 	private static FileDialog CaixaDeArquivos { get; set; }
 	private static CadastroDePistaViva CadastroDePistaViva { get; set; }
-	public static bool AguardandoDialogo { get; set; }
-	public static string AguardandoPergunta { get; set; }
-	public static string AguardandoArquivo { get; set; }
+	private const int LimiteArquivo = 2097152;
+
+	[Signal] public delegate void DialogoFinalizado();
+	[Signal] public delegate void PerguntaRespondida(string resposta);
+	[Signal] public delegate void ArquivoEscolhido(string base64);
 
 	public override void _Ready()
 	{
@@ -24,25 +27,19 @@ public class Main : Node2D
 		CaixaDePergunta = GetNode<ConfirmationDialog>("./Interface/Popups/CaixadeConfirmacao");
 		CaixaDeArquivos = GetNode<FileDialog>("./Interface/Popups/FileDialog");
 		CadastroDePistaViva = GetNode<CadastroDePistaViva>("./Interface/Popups/CadastroDePessoa");
-		AguardandoDialogo = false;
-		AguardandoPergunta = "inicial";
-		AguardandoArquivo = "inicial";
 	}
 	public static void DispararDialogo(string mensagem)
 	{
-		AguardandoDialogo = true;
 		CaixaDeDialogo.DialogText = mensagem;
 		CaixaDeDialogo.Popup_();
 	}
 	public static void DispararPergunta(string mensagem)
 	{
-		AguardandoPergunta = string.Empty;
 		CaixaDePergunta.DialogText = mensagem;
 		CaixaDePergunta.Popup_();
 	}
 	public static void DispararArquivo(string[] filtros)
 	{
-		AguardandoArquivo = string.Empty;
 		CaixaDeArquivos.Filters = filtros;
 		CaixaDeArquivos.Popup_();
 	}
@@ -55,11 +52,11 @@ public class Main : Node2D
 	}
 	private void _on_CaixaDeDialog_confirmed()
 	{
-		AguardandoDialogo = false;
+		EmitSignal("DialogoFinalizado");
 	}
 	private void _on_CaixadeConfirmacao_custom_action(String action)
 	{
-		AguardandoPergunta = action;
+		EmitSignal("PerguntaRespondida", action.ToString());
 	}
 	private void _on_FileDialog_file_selected(String path)
 	{
@@ -74,15 +71,18 @@ public class Main : Node2D
 	}
 	private void ValidarTamanho(string base64)
 	{
-		var bytes = (base64.Length - 814) / 1.37;
-		if (bytes > 2048)
-		{
+		if (GetOriginalLengthInBytes(base64) > LimiteArquivo)
 			DispararDialogo("Desculpe, infelizmente o arquivo excede o limite de 2mb. Sugerimos que faça o upload na nuvem e compartilhe aqui como link.");
-			AguardandoArquivo = "inicial";
-		}
 		else
-		{
-			AguardandoArquivo = base64;
-		}
+			EmitSignal("ArquivoEscolhido", base64);
+	}
+	public int GetOriginalLengthInBytes(string base64)
+	{
+		if (string.IsNullOrEmpty(base64)) { return 0; }
+
+		var characterCount = base64.Length;
+		var paddingCount = base64.Substring(characterCount - 2, 2)
+									.Count(c => c == '=');
+		return (3 * (characterCount / 4)) - paddingCount;
 	}
 }

@@ -38,10 +38,12 @@ public class ControleMapa : Spatial
 	{
 		RotacionarGlobo(delta);
 		var objeto = CapturarObjectoComClique();
+		/*
 		if (objeto != null)
 			GD.Print(objeto.Ponto.Name);
 		else
 			GD.Print("");
+		*/
 	}
 
 	private void RotacionarGlobo(float delta)

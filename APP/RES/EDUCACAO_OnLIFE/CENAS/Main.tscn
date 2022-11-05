@@ -45,19 +45,19 @@ __meta__ = {
 }
 
 [node name="FileDialog" type="FileDialog" parent="Interface/Popups"]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -332.5
-margin_top = -360.5
-margin_right = 332.5
-margin_bottom = 360.5
+margin_left = -432.0
+margin_top = -360.0
+margin_right = 352.0
+margin_bottom = 361.0
 theme = ExtResource( 2 )
-window_title = ""
-__meta__ = {
-"_edit_use_anchors_": true
-}
+window_title = "Abrir um Arquivo"
+mode = 0
+access = 2
 
 [node name="CaixadeConfirmacao" type="ConfirmationDialog" parent="Interface/Popups"]
 anchor_left = 0.5
@@ -89,6 +89,7 @@ window_title = ""
 dialog_text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 dialog_autowrap = true
 
+[connection signal="ArquivoEscolhido" from="." to="Interface/Popups/CadastroDePessoa" method="_on_Main_ArquivoEscolhido"]
 [connection signal="file_selected" from="Interface/Popups/FileDialog" to="." method="_on_FileDialog_file_selected"]
 [connection signal="custom_action" from="Interface/Popups/CaixadeConfirmacao" to="." method="_on_CaixadeConfirmacao_custom_action"]
 [connection signal="confirmed" from="Interface/Popups/CaixaDeDialog" to="." method="_on_CaixaDeDialog_confirmed"]

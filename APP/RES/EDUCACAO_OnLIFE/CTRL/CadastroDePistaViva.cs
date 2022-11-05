@@ -93,4 +93,17 @@ public class CadastroDePistaViva : ConfirmationDialog
 	{
 		LimparTela();
 	}
+	private void _on_FotoDePerfil_button_up()
+	{
+		Main.DispararArquivo(new string[]{ "*.jpg, *.jpeg ; JPG Images" });
+	}
+	private void _on_Main_ArquivoEscolhido(string base64)
+	{
+		if (this.Visible)
+		{
+			PistaViva.Foto = base64;
+			var nome = string.IsNullOrEmpty(Nome.Text) ? "FotoPerfilTemp" : Nome.Text;
+			FotoPerfil.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(nome, ".jpg", base64); 
+		}
+	}
 }
