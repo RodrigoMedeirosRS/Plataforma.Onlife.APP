@@ -67,7 +67,7 @@ public class CadastroDePistaViva : ConfirmationDialog
 			LinkedIn.Text = pistaviva.Lattes;
 			ResearchGate.Text = pistaviva.ResearchGate;
 			if (!string.IsNullOrEmpty(pistaviva.Foto))
-				FotoPerfil.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(Nome.Text, ".jpg", pistaviva.Foto);
+				FotoPerfil.TextureNormal = ImportadorDeBinariosUtil.GerarImagem("temp", ".jpg", pistaviva.Foto);
 		}
 		catch
 		{
@@ -102,8 +102,7 @@ public class CadastroDePistaViva : ConfirmationDialog
 		if (this.Visible)
 		{
 			PistaViva.Foto = base64;
-			var nome = string.IsNullOrEmpty(Nome.Text) ? "FotoPerfilTemp" : Nome.Text;
-			FotoPerfil.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(nome, ".jpg", base64); 
+			FotoPerfil.TextureNormal = ImportadorDeBinariosUtil.GerarImagem("temp", ".jpg", base64); 
 		}
 	}
 }

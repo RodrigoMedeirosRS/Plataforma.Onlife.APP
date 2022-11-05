@@ -46,7 +46,7 @@ margin_bottom = 145.0
 
 [node name="NovaPistaViva" type="Button" parent="VBoxContainer"]
 margin_right = 278.0
-margin_bottom = 25.0
+margin_bottom = 14.0
 size_flags_vertical = 4
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_styles/hover = ExtResource( 2 )
@@ -59,9 +59,9 @@ icon = ExtResource( 3 )
 expand_icon = true
 
 [node name="NovoRegistro" type="Button" parent="VBoxContainer"]
-margin_top = 33.0
+margin_top = 18.0
 margin_right = 278.0
-margin_bottom = 58.0
+margin_bottom = 32.0
 size_flags_vertical = 4
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_styles/hover = ExtResource( 2 )
@@ -74,16 +74,16 @@ icon = ExtResource( 1 )
 expand_icon = true
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 66.0
+margin_top = 36.0
 margin_right = 278.0
-margin_bottom = 68.0
+margin_bottom = 38.0
 custom_constants/separation = 2
 custom_styles/separator = SubResource( 2 )
 
 [node name="Buscar" type="Button" parent="VBoxContainer"]
-margin_top = 76.0
+margin_top = 42.0
 margin_right = 278.0
-margin_bottom = 101.0
+margin_bottom = 56.0
 size_flags_vertical = 4
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_styles/hover = ExtResource( 2 )
@@ -97,9 +97,9 @@ icon = ExtResource( 4 )
 expand_icon = true
 
 [node name="Explorar" type="Button" parent="VBoxContainer"]
-margin_top = 109.0
+margin_top = 60.0
 margin_right = 278.0
-margin_bottom = 134.0
+margin_bottom = 74.0
 size_flags_vertical = 4
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_styles/hover = ExtResource( 2 )
