@@ -47,18 +47,27 @@ public class CadastroDePistaViva : ConfirmationDialog
 		FotoPerfil.TextureNormal = FotoPadrao;
 		PistaViva = new PessoaDTO();
 	}
+	private void PopularDTO()
+	{
+		PistaViva.Nome = Nome.Text;
+		PistaViva.Apelido = Apelido.Text;
+		PistaViva.Lattes = Lattes.Text;
+		PistaViva.ResearchGate = ResearchGate.Text;
+		PistaViva.LinkedIn = LinkedIn.Text;
+	}
 	public void CarregarEdicao(PessoaDTO pistaviva)
 	{
 		try
 		{
+			this.Popup_();
 			PistaViva = pistaviva;
 			Nome.Text = pistaviva.Nome;
 			Apelido.Text = pistaviva.Apelido;
 			Lattes.Text = pistaviva.Lattes;
 			LinkedIn.Text = pistaviva.Lattes;
 			ResearchGate.Text = pistaviva.ResearchGate;
-			FotoPerfil.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(Nome.Text, ".jpg", pistaviva.Foto);
-			this.Popup_();
+			if (!string.IsNullOrEmpty(pistaviva.Foto))
+				FotoPerfil.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(Nome.Text, ".jpg", pistaviva.Foto);
 		}
 		catch
 		{
@@ -69,13 +78,19 @@ public class CadastroDePistaViva : ConfirmationDialog
 	{
 		try
 		{
+			PopularDTO();
 			BLL.CadastrarPessoa(PistaViva);
 			LimparTela();
 		}
 		catch(Exception ex)
 		{
-			this.Popup_();
+			var pessoa = PistaViva;
+			CarregarEdicao(pessoa);
 			Main.DispararDialogo(ex.Message);
 		}
+	}
+	private void _on_CadastroDePessoa_about_to_show()
+	{
+		LimparTela();
 	}
 }

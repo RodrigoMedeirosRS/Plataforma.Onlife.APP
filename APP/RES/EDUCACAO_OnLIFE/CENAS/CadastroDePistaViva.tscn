@@ -151,4 +151,5 @@ margin_bottom = 280.0
 custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
 text = "Clique na imagem para alterar a foto."
 
+[connection signal="about_to_show" from="." to="." method="_on_CadastroDePessoa_about_to_show"]
 [connection signal="confirmed" from="." to="." method="_on_CadastroDePessoa_confirmed"]
