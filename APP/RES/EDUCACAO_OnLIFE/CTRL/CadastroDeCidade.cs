@@ -7,6 +7,7 @@ using BLL.Interface;
 
 public class CadastroDeCidade : ConfirmationDialog
 {
+	private ICadastrarCidadeBLL BLL { get; set; }
 	private LineEdit Nome { get; set; }
 	private RichTextLabel Descricao { get; set; }
 	private TextureButton Mapa { get; set; }
@@ -20,7 +21,7 @@ public class CadastroDeCidade : ConfirmationDialog
 	}
 	private void RealizarInjecaoDeDependencias()
 	{
-		//BLL = new BLL.CadastrarPessoaBLL();
+		BLL = new BLL.CadastrarCidadeBLL();
 	}
 	private void PopularNodes()
 	{
@@ -71,7 +72,7 @@ public class CadastroDeCidade : ConfirmationDialog
 		try
 		{
 			PopularDTO();
-			//BLL.CadastrarPessoa(PistaViva);
+			BLL.CadastrarCidade(Localidade);
 			LimparTela();
 		}
 		catch(Exception ex)

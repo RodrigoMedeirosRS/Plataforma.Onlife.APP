@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Generic;
 
 using BLL.Utils;
 using BLL.Interface;
 using DTO;
-using SAL;
 using SAL.Interface;
 
 namespace BLL
@@ -16,14 +14,14 @@ namespace BLL
         public CadastrarPessoaBLL()
         {
             URLCadastroPessoa = Apontamentos.URLApi + "/Pessoa/Cadastrar";
-            SAL = new Requisicao();
+            SAL = new SAL.Requisicao();
         }
         public void CadastrarPessoa(PessoaDTO pessoa)
         {
             ValidarPreenchimento(pessoa.Nome, pessoa.Foto);
             var resposta = SAL.ExecutarPost<PessoaDTO, string>(URLCadastroPessoa, pessoa);
             if (!resposta.ToLower().Contains("sucesso"))
-                throw new Exception("Erro ao cadastrar pista viva.");
+                throw new Exception("Erro interno no sistema.");
         }
         private void ValidarPreenchimento(string nome, string foto)
         {
