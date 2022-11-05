@@ -5,18 +5,13 @@ namespace Onlife.CTRL
 {
 	public class InterfaceSobreposta : Control
 	{
-		private AcceptDialog CaixaDeDialogo { get; set; }
-		private ConfirmationDialog CaixaDePergunta { get; set; }
-		private FileDialog CaixaDeArquivos { get; set; }
 		public override void _Ready()
 		{
 			PopularNodes();
 		}
 		private void PopularNodes()
 		{
-			CaixaDeDialogo = GetNode<AcceptDialog>("../Popups/CaixaDeDialog");
-			CaixaDePergunta = GetNode<ConfirmationDialog>("../Popups/CaixadeConfirmacao");
-			CaixaDeArquivos = GetNode<FileDialog>("./Popups/FileDialog");
+
 		}
 		public void _on_ExpandirButton_pressed()
 		{
@@ -29,7 +24,7 @@ namespace Onlife.CTRL
 		}
 		private void _on_NovaPistaViva_button_up()
 		{
-			// Replace with function body.
+			Main.DispararPistaViva();
 		}
 		private void _on_NovoRegistro_button_up()
 		{
@@ -37,13 +32,11 @@ namespace Onlife.CTRL
 		}
 		private void _on_NovaCidade_button_up()
 		{
-			DispararDialogo( "Por favor, clique sobre o globo marcando a posição aproximada da cidade que você quer cadastrar.");
+			Main.DispararDialogo( "Por favor, clique sobre o globo marcando a posição aproximada da cidade que você quer cadastrar.");
 		}
-
-		private void DispararDialogo(string mensagem)
+		private void _on_Buscar_button_up()
 		{
-			CaixaDeDialogo.DialogText = mensagem;
-			CaixaDeDialogo.Popup_();
+			// Replace with function body.
 		}
 	}
 }

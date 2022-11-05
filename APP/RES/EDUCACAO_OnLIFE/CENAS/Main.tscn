@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Mapa3D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=2]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/Main.cs" type="Script" id=3]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/CadastroDePistaViva.tscn" type="PackedScene" id=4]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/InterfaceSobreposta.tscn" type="PackedScene" id=23]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -18,35 +21,74 @@ __meta__ = {
 [node name="InterfaceSobreposta" parent="Interface" instance=ExtResource( 23 )]
 
 [node name="Popups" type="Control" parent="Interface"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
 rect_scale = Vector2( 0.75, 0.75 )
 
+[node name="CadastroDePessoa" parent="Interface/Popups" instance=ExtResource( 4 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -412.0
+margin_top = -190.0
+margin_right = 412.0
+margin_bottom = 190.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="FileDialog" type="FileDialog" parent="Interface/Popups"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -332.5
+margin_top = -360.5
+margin_right = 332.5
+margin_bottom = 360.5
+theme = ExtResource( 2 )
+window_title = ""
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CaixadeConfirmacao" type="ConfirmationDialog" parent="Interface/Popups"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -146.0
+margin_top = -75.5
+margin_right = 146.0
+margin_bottom = 75.5
+theme = ExtResource( 2 )
+window_title = ""
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="CaixaDeDialog" type="AcceptDialog" parent="Interface/Popups"]
-margin_left = 498.667
-margin_top = 304.0
-margin_right = 909.667
-margin_bottom = 467.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -205.5
+margin_top = -81.5
+margin_right = 205.5
+margin_bottom = 81.5
 theme = ExtResource( 2 )
 window_title = ""
 dialog_text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 dialog_autowrap = true
 
-[node name="CaixadeConfirmacao" type="ConfirmationDialog" parent="Interface/Popups"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 489.333
-margin_top = 242.667
-margin_right = 741.333
-margin_bottom = 353.667
-theme = ExtResource( 2 )
-window_title = ""
-dialog_autowrap = true
-
-[node name="FileDialog" type="FileDialog" parent="Interface/Popups"]
-margin_left = 384.0
-margin_top = 22.6667
-margin_right = 1049.0
-margin_bottom = 743.667
-theme = ExtResource( 2 )
-window_title = ""
+[connection signal="file_selected" from="Interface/Popups/FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="custom_action" from="Interface/Popups/CaixadeConfirmacao" to="." method="_on_CaixadeConfirmacao_custom_action"]
+[connection signal="confirmed" from="Interface/Popups/CaixaDeDialog" to="." method="_on_CaixaDeDialog_confirmed"]

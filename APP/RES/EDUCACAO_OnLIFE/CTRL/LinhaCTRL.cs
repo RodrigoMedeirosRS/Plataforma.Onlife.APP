@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using Onlife.CTRL.Interface;
+using CTRL.Interface;
 
 namespace Onlife.CTRL
 {

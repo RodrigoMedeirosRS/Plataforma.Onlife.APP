@@ -19,10 +19,6 @@ config/icon="res://icon.png"
 window/size/width=1920
 window/size/height=1080
 
-[gui]
-
-theme/use_hidpi=true
-
 [input]
 
 ui_accept={
@@ -83,6 +79,10 @@ restaurar_zoom={
  ]
 }
 
+[locale]
+
+fallback="pt_BR"
+
 [mono]
 
 project/assembly_name="Plataforma.OnLIFE.APP"
@@ -98,10 +98,6 @@ common/enable_object_picking=false
 
 quality/driver/driver_name="GLES2"
 quality/intended_usage/framebuffer_allocation.mobile=2
-vram_compression/import_etc=true
-vram_compression/import_etc2=false
 quality/reflections/high_quality_ggx=false
 quality/lightmapping/use_bicubic_sampling=false
-quality/filters/use_fxaa=true
 quality/depth/hdr=false
-environment/default_environment="res://default_env.tres"

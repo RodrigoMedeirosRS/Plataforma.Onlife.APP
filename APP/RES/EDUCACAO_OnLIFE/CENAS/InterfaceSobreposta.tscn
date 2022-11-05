@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/MenuSuperior.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Rodape.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://RES/ICONES/CadastrarRegistro.png" type="Texture" id=8]
 [ext_resource path="res://RES/ICONES/CadastrarPessoa.png" type="Texture" id=9]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/ButtonHover.tres" type="StyleBox" id=10]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/busca.png" type="Texture" id=11]
 
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 1, 0, 0, 1 )
@@ -347,14 +348,14 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -9.0
-margin_right = 69120.0
-margin_bottom = 38871.0
+margin_right = 76800.0
+margin_bottom = 43191.0
 rect_min_size = Vector2( 175, 139 )
 mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="SideBar"]
 margin_right = 175.0
-margin_bottom = 107.0
+margin_bottom = 127.0
 custom_styles/panel = SubResource( 11 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SideBar"]
@@ -380,9 +381,9 @@ icon = ExtResource( 9 )
 expand_icon = true
 
 [node name="NovoRegistro" type="Button" parent="SideBar/VBoxContainer"]
-margin_top = 28.0
+margin_top = 24.0
 margin_right = 153.0
-margin_bottom = 48.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_vertical = 4
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -397,9 +398,9 @@ icon = ExtResource( 8 )
 expand_icon = true
 
 [node name="NovaCidade" type="Button" parent="SideBar/VBoxContainer"]
-margin_top = 56.0
+margin_top = 48.0
 margin_right = 153.0
-margin_bottom = 76.0
+margin_bottom = 68.0
 focus_mode = 0
 size_flags_vertical = 4
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -411,6 +412,28 @@ custom_styles/normal = SubResource( 10 )
 enabled_focus_mode = 0
 text = "Nova Cidade"
 icon = ExtResource( 3 )
+expand_icon = true
+
+[node name="HSeparator" type="HSeparator" parent="SideBar/VBoxContainer"]
+margin_top = 72.0
+margin_right = 153.0
+margin_bottom = 76.0
+
+[node name="Buscar" type="Button" parent="SideBar/VBoxContainer"]
+margin_top = 80.0
+margin_right = 153.0
+margin_bottom = 100.0
+focus_mode = 0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+enabled_focus_mode = 0
+text = "Buscar"
+icon = ExtResource( 11 )
 expand_icon = true
 
 [node name="InterfaceExpandida" type="Control" parent="."]
@@ -539,6 +562,7 @@ anims/Retrair = SubResource( 6 )
 [connection signal="button_up" from="SideBar/VBoxContainer/NovaPistaViva" to="." method="_on_NovaPistaViva_button_up"]
 [connection signal="button_up" from="SideBar/VBoxContainer/NovoRegistro" to="." method="_on_NovoRegistro_button_up"]
 [connection signal="button_up" from="SideBar/VBoxContainer/NovaCidade" to="." method="_on_NovaCidade_button_up"]
+[connection signal="button_up" from="SideBar/VBoxContainer/Buscar" to="." method="_on_Buscar_button_up"]
 [connection signal="pressed" from="InterfaceExpandida/MenuSuperior/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Panel/ExpandirButton" to="." method="_on_ExpandirButton_pressed"]
 

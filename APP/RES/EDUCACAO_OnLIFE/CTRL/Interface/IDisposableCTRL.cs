@@ -1,4 +1,4 @@
-namespace Onlife.CTRL.Interface
+namespace CTRL.Interface
 {
     public interface IDisposableCTRL
     {

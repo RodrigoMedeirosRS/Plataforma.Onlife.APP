@@ -10,26 +10,28 @@
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/lattes.png" type="Texture" id=8]
 
 [node name="CadastroDePessoa" type="ConfirmationDialog"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1096.0
+margin_left = 4.0
+margin_right = -1092.0
 margin_bottom = -700.0
+rect_min_size = Vector2( 824, 380 )
 theme = ExtResource( 1 )
 window_title = ""
 script = ExtResource( 3 )
 
 [node name="Control" type="Control" parent="."]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 808.0
-margin_bottom = 328.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 816.0
+margin_bottom = 344.0
 
 [node name="Nome" type="LineEdit" parent="Control"]
 margin_top = 15.0
 margin_right = 496.0
 margin_bottom = 47.0
-text = "Digite aqui o nome completo da pista viva."
+max_length = 50
+placeholder_text = "Digite aqui o nome completo da pista viva."
 
 [node name="Label" type="Label" parent="Control/Nome"]
 margin_left = 29.0
@@ -51,7 +53,8 @@ expand = true
 margin_top = 73.0
 margin_right = 496.0
 margin_bottom = 105.0
-text = "Digite aqui o apelido da pista viva."
+max_length = 50
+placeholder_text = "Digite aqui o apelido da pista viva."
 
 [node name="Label" type="Label" parent="Control/Apelido"]
 margin_left = 29.0
@@ -73,7 +76,7 @@ expand = true
 margin_top = 130.0
 margin_right = 496.0
 margin_bottom = 162.0
-text = "Digite aqui o link para o Lattes da pista viva."
+placeholder_text = "Digite aqui o link para o Lattes da pista viva."
 
 [node name="Label" type="Label" parent="Control/Lattes"]
 margin_left = 29.0
@@ -94,7 +97,7 @@ expand = true
 margin_top = 190.0
 margin_right = 496.0
 margin_bottom = 222.0
-text = "Digite aqui o link para o Research Gate da pista viva."
+placeholder_text = "Digite aqui o link para o Research Gate da pista viva."
 
 [node name="Label" type="Label" parent="Control/ResearchGate"]
 margin_left = 29.0
@@ -115,7 +118,7 @@ expand = true
 margin_top = 250.0
 margin_right = 496.0
 margin_bottom = 282.0
-text = "Digite aqui o link para o LinkedIn da pista viva."
+placeholder_text = "Digite aqui o link para o LinkedIn da pista viva."
 
 [node name="Label" type="Label" parent="Control/LinkedIn"]
 margin_left = 29.0
@@ -133,9 +136,19 @@ texture = ExtResource( 7 )
 expand = true
 
 [node name="FotoDePerfil" type="TextureButton" parent="Control"]
-margin_left = 521.0
-margin_top = 18.0
-margin_right = 792.0
-margin_bottom = 278.0
+margin_left = 526.0
+margin_right = 782.0
+margin_bottom = 252.0
 texture_normal = ExtResource( 2 )
 expand = true
+
+[node name="Label" type="Label" parent="Control/FotoDePerfil"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_left = 15.0
+margin_top = 263.0
+margin_right = 244.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+text = "Clique na imagem para alterar a foto."
+
+[connection signal="confirmed" from="." to="." method="_on_CadastroDePessoa_confirmed"]

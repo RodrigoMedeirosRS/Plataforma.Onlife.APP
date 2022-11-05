@@ -25,7 +25,7 @@ public class ControleMapa : Spatial
 	}
 	private void PopularNodes()
 	{
-		Rot = GetNode<Sprite>("./Sprites/Rot");
+		Rot = GetNode<Sprite>("./Botoes/Sprites/Rotation");
 		Globo = GetNode<Spatial>("./Globo");
 		Cam = GetNode<Camera>("./Camera");
 		Zoom = GetNode<VSlider>("./Botoes/Zoom");

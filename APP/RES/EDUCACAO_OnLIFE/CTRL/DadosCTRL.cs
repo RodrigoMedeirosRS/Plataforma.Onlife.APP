@@ -5,7 +5,7 @@ using DTO.Dominio;
 
 using DTO;
 using BLL;
-using Onlife.CTRL.Interface;
+using CTRL.Interface;
 using BLL.Interface;
 
 namespace Onlife.CTRL

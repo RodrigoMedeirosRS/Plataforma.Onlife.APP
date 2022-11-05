@@ -18,36 +18,19 @@ namespace BLL
             URLCadastroPessoa = Apontamentos.URLApi + "/Pessoa/Cadastrar";
             SAL = new Requisicao();
         }
-        private void ValidarPreenchimento(string nome, string sobrenome, string genero)
+        public void CadastrarPessoa(PessoaDTO pessoa)
+        {
+            ValidarPreenchimento(pessoa.Nome, pessoa.Foto);
+            var resposta = SAL.ExecutarPost<PessoaDTO, string>(URLCadastroPessoa, pessoa);
+            if (!resposta.ToLower().Contains("sucesso"))
+                throw new Exception("Erro ao cadastrar pista viva.");
+        }
+        private void ValidarPreenchimento(string nome, string foto)
         {
             if (string.IsNullOrEmpty(nome))
-            	throw new Exception("Por favor preencher o Nome.");
-            if (string.IsNullOrEmpty(sobrenome))
-            	throw new Exception("Por favor preencher o Sobrenome.");
-            if (string.IsNullOrEmpty(genero))
-            	throw new Exception("Por favor escolha uma opção de Gênero.");
-        }
-        public PessoaDTO PopularPessoa(string nome, string sobrenome, string genero, string apelido, int codigoPessoa, List<RelacaoDTO> relacoes)
-        {
-            ValidarPreenchimento(nome, sobrenome, genero);
-
-            var pessoa = new PessoaDTO()
-            {
-                Nome = nome,
-                //Sobrenome = sobrenome,
-                Apelido = apelido,
-                //Genero = genero,
-                Relacoes = relacoes
-            };
-
-            if (codigoPessoa != 0)
-                pessoa.Codigo = codigoPessoa;
-
-            return pessoa;
-        }
-        public string CadastrarPessoa(PessoaDTO pessoa)
-        {    
-            return SAL.ExecutarPost<PessoaDTO, string>(URLCadastroPessoa, pessoa);
+            	throw new Exception("Por favor preencha o nome completo da pista viva.");
+            if (string.IsNullOrEmpty(foto))
+            	throw new Exception("Por favor escolha uma foto de perfil para a pista viva.");
         }
         public void Dispose()
         {

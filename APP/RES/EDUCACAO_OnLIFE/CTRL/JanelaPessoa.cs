@@ -175,8 +175,8 @@ namespace Onlife.CTRL
 		}
 		private string RegistrarPessoa(List<RelacaoDTO> relacoes)
 		{
-			var pessoa = CadastroPessoaBLL.PopularPessoa(Nome.Text, Sobrenome.Text, "Prefiro não Declarar", Apelido.Text, CodPessoa, relacoes);
-			return CadastroPessoaBLL.CadastrarPessoa(pessoa);
+			//var pessoa = CadastroPessoaBLL.PopularPessoa(Nome.Text, Sobrenome.Text, "Prefiro não Declarar", Apelido.Text, CodPessoa, relacoes);
+			return "";//CadastroPessoaBLL.CadastrarPessoa(pessoa);
 		}
 		private List<RelacaoDTO> CadastrarDadosComplementares()
 		{

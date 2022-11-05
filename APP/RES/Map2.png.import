@@ -3,16 +3,16 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Map2.png-304cb65bc59ac35a92e5195825cfa5a2.s3tc.stex"
-path.etc="res://.import/Map2.png-304cb65bc59ac35a92e5195825cfa5a2.etc.stex"
+path.etc2="res://.import/Map2.png-304cb65bc59ac35a92e5195825cfa5a2.etc2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://RES/Map2.png"
-dest_files=[ "res://.import/Map2.png-304cb65bc59ac35a92e5195825cfa5a2.s3tc.stex", "res://.import/Map2.png-304cb65bc59ac35a92e5195825cfa5a2.etc.stex" ]
+dest_files=[ "res://.import/Map2.png-304cb65bc59ac35a92e5195825cfa5a2.s3tc.stex", "res://.import/Map2.png-304cb65bc59ac35a92e5195825cfa5a2.etc2.stex" ]
 
 [params]
 
