@@ -32,6 +32,7 @@ margin_right = 496.0
 margin_bottom = 47.0
 max_length = 50
 placeholder_text = "Digite aqui o nome completo da pista viva."
+caret_blink = true
 
 [node name="Label" type="Label" parent="Control/Nome"]
 margin_left = 29.0
@@ -55,6 +56,7 @@ margin_right = 496.0
 margin_bottom = 105.0
 max_length = 50
 placeholder_text = "Digite aqui o apelido da pista viva."
+caret_blink = true
 
 [node name="Label" type="Label" parent="Control/Apelido"]
 margin_left = 29.0
@@ -77,6 +79,7 @@ margin_top = 130.0
 margin_right = 496.0
 margin_bottom = 162.0
 placeholder_text = "Digite aqui o link para o Lattes da pista viva."
+caret_blink = true
 
 [node name="Label" type="Label" parent="Control/Lattes"]
 margin_left = 29.0
@@ -98,6 +101,7 @@ margin_top = 190.0
 margin_right = 496.0
 margin_bottom = 222.0
 placeholder_text = "Digite aqui o link para o Research Gate da pista viva."
+caret_blink = true
 
 [node name="Label" type="Label" parent="Control/ResearchGate"]
 margin_left = 29.0
@@ -119,6 +123,7 @@ margin_top = 250.0
 margin_right = 496.0
 margin_bottom = 282.0
 placeholder_text = "Digite aqui o link para o LinkedIn da pista viva."
+caret_blink = true
 
 [node name="Label" type="Label" parent="Control/LinkedIn"]
 margin_left = 29.0

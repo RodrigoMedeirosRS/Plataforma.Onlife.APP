@@ -9,7 +9,7 @@ public class CadastroDeCidade : ConfirmationDialog
 {
 	private ICadastrarCidadeBLL BLL { get; set; }
 	private LineEdit Nome { get; set; }
-	private RichTextLabel Descricao { get; set; }
+	private TextEdit Descricao { get; set; }
 	private TextureButton Mapa { get; set; }
 	private Texture ImagemPadrao { get; set; }
 	private LocalidadeDTO Localidade { get; set; }
@@ -26,7 +26,7 @@ public class CadastroDeCidade : ConfirmationDialog
 	private void PopularNodes()
 	{
 		Nome = GetNode<LineEdit>("./Control/Nome");
-		Descricao = GetNode<RichTextLabel>("./Control/Label/Descricao");
+		Descricao = GetNode<TextEdit>("./Control/Label/Descricao");
 		Mapa = GetNode<TextureButton>("./Control/ImageMapa");
 		ImagemPadrao = Mapa.TextureNormal;
 		Localidade = new LocalidadeDTO();
@@ -34,14 +34,14 @@ public class CadastroDeCidade : ConfirmationDialog
 	public void LimparTela()
 	{
 		Nome.Text = string.Empty;
-		Descricao.BbcodeText = string.Empty;
+		Descricao.Text = string.Empty;
 		Mapa.TextureNormal = ImagemPadrao;
 		Localidade = new LocalidadeDTO();
 	}
 	private void PopularDTO()
 	{
 		Localidade.Nome = Nome.Text;
-		Localidade.Descricao = Descricao.BbcodeText;
+		Localidade.Descricao = Descricao.Text;
 	}
 	public void Popup(Vector3 posicao)
 	{
@@ -49,6 +49,7 @@ public class CadastroDeCidade : ConfirmationDialog
 		Localidade.X = posicao.x;
 		Localidade.Y = posicao.y;
 		Localidade.Z = posicao.z;
+		this.Popup_();
 	}
 	public void CarregarEdicao(LocalidadeDTO localidade)
 	{
@@ -58,7 +59,7 @@ public class CadastroDeCidade : ConfirmationDialog
 			this.Popup_();
 			Localidade = localidade;
 			Nome.Text = localidade.Nome;
-			Descricao.BbcodeText = localidade.Descricao;
+			Descricao.Text = localidade.Descricao;
 			if (!string.IsNullOrEmpty(localidade.Mapa))
 				Mapa.TextureNormal = ImportadorDeBinariosUtil.GerarImagem("temp", ".jpg", localidade.Mapa);
 		}

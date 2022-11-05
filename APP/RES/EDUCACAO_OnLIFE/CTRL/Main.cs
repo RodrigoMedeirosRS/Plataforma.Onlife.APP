@@ -11,7 +11,9 @@ public class Main : Node2D
 	private static ConfirmationDialog CaixaDePergunta { get; set; }
 	private static FileDialog CaixaDeArquivos { get; set; }
 	private static CadastroDePistaViva CadastroDePistaViva { get; set; }
+	private static CadastroDeCidade CadastroDeCidade { get; set; }
 	private const int LimiteArquivo = 2097152;
+	private static bool AguardandoSelecaoDePonto { get; set; }
 
 	[Signal] public delegate void DialogoFinalizado();
 	[Signal] public delegate void PerguntaRespondida(string resposta);
@@ -27,6 +29,8 @@ public class Main : Node2D
 		CaixaDePergunta = GetNode<ConfirmationDialog>("./Interface/Popups/CaixadeConfirmacao");
 		CaixaDeArquivos = GetNode<FileDialog>("./Interface/Popups/FileDialog");
 		CadastroDePistaViva = GetNode<CadastroDePistaViva>("./Interface/Popups/CadastroDePessoa");
+		CadastroDeCidade = GetNode<CadastroDeCidade>("./Interface/Popups/CadastroDeCidade");
+		AguardandoSelecaoDePonto = false;
 	}
 	public static void DispararDialogo(string mensagem)
 	{
@@ -45,14 +49,24 @@ public class Main : Node2D
 	}
 	public static void DispararPistaViva(PessoaDTO pessoaDTO = null)
 	{
+		AguardandoSelecaoDePonto = false;
 		if (pessoaDTO != null)
 			CadastroDePistaViva.CarregarEdicao(pessoaDTO);
 		else
 			CadastroDePistaViva.Popup_();
 	}
+	public static void DispararLocalidade(Vector3 posicao)
+	{
+		if (AguardandoSelecaoDePonto)
+		{
+			AguardandoSelecaoDePonto = false;
+			CadastroDeCidade.Popup(posicao);
+		}
+	}
 	private void _on_CaixaDeDialog_confirmed()
 	{
 		EmitSignal("DialogoFinalizado");
+		AguardandoSelecaoDePonto = CaixaDeDialogo.DialogText.Contains("Por favor, clique com o botão direito do mouse sobre o globo marcando a posição aproximada da cidade que você quer cadastrar.");
 	}
 	private void _on_CaixadeConfirmacao_custom_action(String action)
 	{

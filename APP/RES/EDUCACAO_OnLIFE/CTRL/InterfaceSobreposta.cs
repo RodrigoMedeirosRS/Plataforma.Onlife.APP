@@ -32,7 +32,7 @@ namespace Onlife.CTRL
 		}
 		private void _on_NovaCidade_button_up()
 		{
-			Main.DispararDialogo( "Por favor, clique sobre o globo marcando a posição aproximada da cidade que você quer cadastrar.");
+			Main.DispararDialogo("Por favor, clique com o botão direito do mouse sobre o globo marcando a posição aproximada da cidade que você quer cadastrar.");
 		}
 		private void _on_Buscar_button_up()
 		{

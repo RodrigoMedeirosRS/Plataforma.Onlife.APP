@@ -37,13 +37,12 @@ public class ControleMapa : Spatial
 	public override void _PhysicsProcess(float delta)
 	{
 		RotacionarGlobo(delta);
-		var objeto = CapturarObjectoComClique();
-		/*
-		if (objeto != null)
-			GD.Print(objeto.Ponto.Name);
-		else
-			GD.Print("");
-		*/
+		if (Input.IsActionPressed("clique"))
+		{
+			var localizacao = CapturarObjectoComClique();
+			if (localizacao != null)
+				Main.DispararLocalidade(localizacao.Posicao);
+		}
 	}
 
 	private void RotacionarGlobo(float delta)
