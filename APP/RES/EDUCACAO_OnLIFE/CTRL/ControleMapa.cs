@@ -26,8 +26,8 @@ public class ControleMapa : Spatial
 	private void PopularNodes()
 	{
 		Rot = GetNode<Sprite>("./Botoes/Sprites/Rotation");
-		Globo = GetNode<Spatial>("./Globo");
-		Cam = GetNode<Camera>("./Camera");
+		Globo = GetNode<Spatial>("./CameraArm");
+		Cam = GetNode<Camera>("./CameraArm/Camera");
 		Zoom = GetNode<VSlider>("./Botoes/Zoom");
 		Up = GetNode<TextureButton>("./Botoes/Up");
 		Down = GetNode<TextureButton>("./Botoes/Down");
@@ -41,16 +41,19 @@ public class ControleMapa : Spatial
 		{
 			var localizacao = CapturarObjectoComClique();
 			if (localizacao != null)
-				Main.DispararLocalidade(localizacao.Posicao);
+			{
+				var localizacaoFinal = localizacao.Posicao + Main.Localidades.Translation;
+				Main.DispararLocalidade(localizacaoFinal);
+			}
 		}
 	}
 
 	private void RotacionarGlobo(float delta)
 	{
 		if (Up.Pressed)
-			Globo.RotateX(0.5f * delta);
-		if (Down.Pressed)
 			Globo.RotateX(-0.5f * delta);
+		if (Down.Pressed)
+			Globo.RotateX(0.5f * delta);
 		if (Left.Pressed)
 			Globo.RotateY(0.5f * delta);
 		if (Right.Pressed)

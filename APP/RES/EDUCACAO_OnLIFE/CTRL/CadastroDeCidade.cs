@@ -75,6 +75,7 @@ public class CadastroDeCidade : ConfirmationDialog
 			PopularDTO();
 			BLL.CadastrarCidade(Localidade);
 			LimparTela();
+			Main.AtualizarCidades();
 		}
 		catch(Exception ex)
 		{

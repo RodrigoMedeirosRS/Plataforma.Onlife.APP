@@ -4,6 +4,7 @@ using System.Linq;
 
 using DTO;
 using BLL.Utils;
+using BLL.Interface;
 
 public class Main : Node2D
 {
@@ -12,16 +13,25 @@ public class Main : Node2D
 	private static FileDialog CaixaDeArquivos { get; set; }
 	private static CadastroDePistaViva CadastroDePistaViva { get; set; }
 	private static CadastroDeCidade CadastroDeCidade { get; set; }
-	private const int LimiteArquivo = 2097152;
 	private static bool AguardandoSelecaoDePonto { get; set; }
+	private static PackedScene Cidade { get; set; }
+	private static IConsultarCidadeBLL ConsultarCidadeBLL { get; set; }
+	public static Spatial Localidades { get; private set; }
 
 	[Signal] public delegate void DialogoFinalizado();
 	[Signal] public delegate void PerguntaRespondida(string resposta);
 	[Signal] public delegate void ArquivoEscolhido(string base64);
+	private const int LimiteArquivo = 2097152;
 
 	public override void _Ready()
 	{
+		RealizarInjecaoDependecias();
 		PopularNodes();
+		AtualizarCidades();
+	}
+	private void RealizarInjecaoDependecias()
+	{
+		ConsultarCidadeBLL = new BLL.ConsultarCidadeBLL();
 	}
 	private void PopularNodes()
 	{
@@ -30,6 +40,8 @@ public class Main : Node2D
 		CaixaDeArquivos = GetNode<FileDialog>("./Interface/Popups/FileDialog");
 		CadastroDePistaViva = GetNode<CadastroDePistaViva>("./Interface/Popups/CadastroDePessoa");
 		CadastroDeCidade = GetNode<CadastroDeCidade>("./Interface/Popups/CadastroDeCidade");
+		Localidades = GetNode<Spatial>("./CanvasLayer/Mapa3D/Globo/Localidades");
+		Cidade = BLL.Utils.InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/Cidade.tscn");
 		AguardandoSelecaoDePonto = false;
 	}
 	public static void DispararDialogo(string mensagem)
@@ -63,6 +75,14 @@ public class Main : Node2D
 			CadastroDeCidade.Popup(posicao);
 		}
 	}
+	public static void AtualizarCidades()
+	{
+		foreach(var cidade in ConsultarCidadeBLL.ListarCidades())
+		{
+			var posicao = new Vector3(cidade.X, cidade.Y, cidade.Z);
+			BLL.Utils.InstanciadorUtil.InstanciarObjeto(Localidades, Cidade, posicao);
+		}
+	}
 	private void _on_CaixaDeDialog_confirmed()
 	{
 		EmitSignal("DialogoFinalizado");
@@ -76,15 +96,16 @@ public class Main : Node2D
 	{
 		try
 		{
-			ValidarTamanho(ImportadorDeBinariosUtil.ObterBase64(path));
+			ValidarTamanho(path);
 		}
 		catch (Exception ex)
 		{
 			DispararDialogo("Erro: " + ex.Message);
 		}
 	}
-	private void ValidarTamanho(string base64)
+	private void ValidarTamanho(string caminho)
 	{
+		var base64 = ImportadorDeBinariosUtil.ObterBase64(caminho);
 		if (GetOriginalLengthInBytes(base64) > LimiteArquivo)
 			DispararDialogo("Desculpe, infelizmente o arquivo excede o limite de 2mb. Sugerimos que faça o upload na nuvem e compartilhe aqui como link.");
 		else
