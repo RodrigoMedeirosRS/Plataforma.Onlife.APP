@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://RES/DPad.png" type="Texture" id=1]
 [ext_resource path="res://RES/BUTTON/UP.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://RES/Zoom.png" type="Texture" id=7]
 [ext_resource path="res://RES/Rotation.png" type="Texture" id=8]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/FlatUI/kenneyUI.tres" type="Theme" id=9]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Cidade.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SphereShape" id=2]
 radius = 0.65
@@ -34,9 +33,6 @@ script = ExtResource( 3 )
 
 [node name="Globo" type="Spatial" parent="."]
 
-[node name="Cidade" parent="Globo" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000685468, -0.100268, 0.648596 )
-
 [node name="Mundo" type="StaticBody" parent="Globo" groups=["Mundo"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Globo/Mundo"]
@@ -48,6 +44,8 @@ transform = Transform( -0.761277, 0.648421, -0.00268619, -0.219846, -0.262002, -
 mesh = SubResource( 1 )
 skeleton = NodePath("../../..")
 
+[node name="Localidades" type="Spatial" parent="Globo"]
+
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 projection = 1
@@ -55,7 +53,7 @@ fov = 20.0
 size = 2.0
 
 [node name="Sprites" type="Node2D" parent="."]
-position = Vector2( 1293, 724 )
+position = Vector2( 1292, 724 )
 
 [node name="Rot" type="Sprite" parent="Sprites"]
 scale = Vector2( 1.1, 1.1 )
@@ -75,9 +73,9 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 8 )
 
 [node name="Botoes" type="Control" parent="."]
-margin_left = 1171.0
+margin_left = 1170.0
 margin_top = 583.0
-margin_right = 1413.0
+margin_right = 1412.0
 margin_bottom = 842.0
 grow_horizontal = 2
 grow_vertical = 2

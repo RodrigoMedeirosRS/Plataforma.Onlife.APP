@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Profile.png" type="Texture" id=2]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/CadastroDePistaViva.cs" type="Script" id=3]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/emoticon-happy.png" type="Texture" id=4]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/ResearchGate_.png" type="Texture" id=5]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/account-box.png" type="Texture" id=6]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/linkedin.png" type="Texture" id=7]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/lattes.png" type="Texture" id=8]
+
+[node name="CadastroDePessoa" type="ConfirmationDialog"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1096.0
+margin_bottom = -700.0
+theme = ExtResource( 1 )
+window_title = ""
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 808.0
+margin_bottom = 328.0
+
+[node name="Nome" type="LineEdit" parent="Control"]
+margin_top = 15.0
+margin_right = 496.0
+margin_bottom = 47.0
+text = "Digite aqui o nome completo da pista viva."
+
+[node name="Label" type="Label" parent="Control/Nome"]
+margin_left = 29.0
+margin_top = -21.0
+margin_right = 71.0
+margin_bottom = -4.0
+text = "Nome:"
+
+[node name="Icone" type="TextureRect" parent="Control/Nome/Label"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_left = -19.0
+margin_top = 1.0
+margin_right = -3.0
+margin_bottom = 17.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Apelido" type="LineEdit" parent="Control"]
+margin_top = 73.0
+margin_right = 496.0
+margin_bottom = 105.0
+text = "Digite aqui o apelido da pista viva."
+
+[node name="Label" type="Label" parent="Control/Apelido"]
+margin_left = 29.0
+margin_top = -21.0
+margin_right = 82.0
+margin_bottom = -4.0
+text = "Apelido:"
+
+[node name="Icone" type="TextureRect" parent="Control/Apelido/Label"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_left = -19.0
+margin_top = 1.0
+margin_right = -3.0
+margin_bottom = 17.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Lattes" type="LineEdit" parent="Control"]
+margin_top = 130.0
+margin_right = 496.0
+margin_bottom = 162.0
+text = "Digite aqui o link para o Lattes da pista viva."
+
+[node name="Label" type="Label" parent="Control/Lattes"]
+margin_left = 29.0
+margin_top = -22.0
+margin_right = 70.0
+margin_bottom = -5.0
+text = "Lattes:"
+
+[node name="Icone" type="TextureRect" parent="Control/Lattes/Label"]
+margin_left = -19.0
+margin_top = 1.0
+margin_right = -3.0
+margin_bottom = 17.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="ResearchGate" type="LineEdit" parent="Control"]
+margin_top = 190.0
+margin_right = 496.0
+margin_bottom = 222.0
+text = "Digite aqui o link para o Research Gate da pista viva."
+
+[node name="Label" type="Label" parent="Control/ResearchGate"]
+margin_left = 29.0
+margin_top = -21.0
+margin_right = 122.0
+margin_bottom = -4.0
+text = "Research Gate:"
+
+[node name="Icone" type="TextureRect" parent="Control/ResearchGate/Label"]
+margin_left = -19.0
+margin_top = 1.0
+margin_right = -3.0
+margin_bottom = 17.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="LinkedIn" type="LineEdit" parent="Control"]
+margin_top = 250.0
+margin_right = 496.0
+margin_bottom = 282.0
+text = "Digite aqui o link para o LinkedIn da pista viva."
+
+[node name="Label" type="Label" parent="Control/LinkedIn"]
+margin_left = 29.0
+margin_top = -21.0
+margin_right = 86.0
+margin_bottom = -4.0
+text = "Linkedin:"
+
+[node name="Icone" type="TextureRect" parent="Control/LinkedIn/Label"]
+margin_left = -19.0
+margin_top = 1.0
+margin_right = -3.0
+margin_bottom = 17.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="FotoDePerfil" type="TextureButton" parent="Control"]
+margin_left = 521.0
+margin_top = 18.0
+margin_right = 792.0
+margin_bottom = 278.0
+texture_normal = ExtResource( 2 )
+expand = true

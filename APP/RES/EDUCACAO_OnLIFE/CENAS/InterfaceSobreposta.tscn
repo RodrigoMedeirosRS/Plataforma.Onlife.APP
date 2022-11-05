@@ -1,21 +1,31 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/MenuSuperior.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Rodape.tscn" type="PackedScene" id=2]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/SideBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://RES/ICONES/Cidade.png" type="Texture" id=3]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/noun-menu.svg" type="Texture" id=4]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=5]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/InterfaceSobreposta.cs" type="Script" id=6]
 [ext_resource path="res://RES/ICONES/Fechar.png" type="Texture" id=7]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/DadosCTRL.cs" type="Script" id=8]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Coluna.tscn" type="PackedScene" id=9]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaRegistro.tscn" type="PackedScene" id=10]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaPessoa.tscn" type="PackedScene" id=11]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaSobre.tscn" type="PackedScene" id=12]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaGPedU.tscn" type="PackedScene" id=13]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/Buscar.tscn" type="PackedScene" id=14]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaContato.tscn" type="PackedScene" id=15]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaEquipe.tscn" type="PackedScene" id=16]
+[ext_resource path="res://RES/ICONES/CadastrarRegistro.png" type="Texture" id=8]
+[ext_resource path="res://RES/ICONES/CadastrarPessoa.png" type="Texture" id=9]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/ButtonHover.tres" type="StyleBox" id=10]
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 0, 0, 1 )
+corner_radius_bottom_right = 50
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 1, 1, 1, 1 )
@@ -25,8 +35,7 @@ shadow_color = Color( 0, 0, 0, 0.0392157 )
 shadow_size = 6
 shadow_offset = Vector2( 1, 2 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "Expandir"
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Panel:visible")
 tracks/0/interp = 1
@@ -124,7 +133,7 @@ tracks/7/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=13]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Panel:visible")
@@ -333,127 +342,76 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Dados" type="Control" parent="."]
+[node name="SideBar" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1920, 1020 )
-mouse_filter = 2
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Coluna" parent="Dados" instance=ExtResource( 9 )]
-mouse_filter = 2
-
-[node name="Colunas" parent="Dados/Coluna" index="0"]
-mouse_filter = 2
-
-[node name="PopErro" type="AcceptDialog" parent="Dados"]
-margin_left = 742.0
-margin_top = 492.0
-margin_right = 1159.0
-margin_bottom = 698.0
-window_title = "Erro"
-
-[node name="JanelaRegistro" parent="Dados" instance=ExtResource( 10 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 90000.0
-margin_top = 366.0
-margin_right = 90000.0
-margin_bottom = 366.0
-
-[node name="JanelaPessoa" parent="Dados" instance=ExtResource( 11 )]
-margin_left = 89040.0
-margin_top = -114.5
-margin_right = 89540.0
-margin_bottom = 164.5
-
-[node name="JanelaSobre" parent="Dados" instance=ExtResource( 12 )]
-margin_left = 89040.0
-margin_top = -121.0
-margin_right = 89532.0
-margin_bottom = 241.0
-
-[node name="JanelaGPedU" parent="Dados" instance=ExtResource( 13 )]
-margin_left = 89040.0
-margin_top = -10.0
-margin_right = 89532.0
-margin_bottom = 352.0
-
-[node name="JanelaEquipe" parent="Dados" instance=ExtResource( 16 )]
-margin_left = -821.0
-margin_top = -1094.0
-margin_right = -321.0
-margin_bottom = -732.0
-
-[node name="JanelaContato" parent="Dados" instance=ExtResource( 15 )]
-margin_left = 232.0
-margin_top = -1128.0
-margin_right = 732.0
-margin_bottom = -766.0
-
-[node name="BarraDeBusca" parent="." instance=ExtResource( 14 )]
-margin_left = 205.0
-margin_top = 145.0
-margin_right = -397.0
-margin_bottom = -895.0
-
-[node name="BtnBuscar" parent="BarraDeBusca" index="1"]
-margin_left = 1050.0
-margin_right = 1152.0
-
-[node name="SideBar" parent="." instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 margin_top = -9.0
-margin_right = 63360.0
-margin_bottom = 35631.0
+margin_right = 69120.0
+margin_bottom = 38871.0
 rect_min_size = Vector2( 175, 139 )
 mouse_filter = 2
 
-[node name="Panel" parent="SideBar" index="0"]
+[node name="Panel" type="Panel" parent="SideBar"]
 margin_right = 175.0
-margin_bottom = 139.0
+margin_bottom = 107.0
+custom_styles/panel = SubResource( 11 )
 
-[node name="VBoxContainer" parent="SideBar" index="1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SideBar"]
+margin_left = 9.0
+margin_top = 11.0
 margin_right = 162.0
+margin_bottom = 145.0
 
-[node name="NovaPistaViva" parent="SideBar/VBoxContainer" index="0"]
+[node name="NovaPistaViva" type="Button" parent="SideBar/VBoxContainer"]
 margin_right = 153.0
 margin_bottom = 20.0
 focus_mode = 0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 enabled_focus_mode = 0
+text = "Nova Pista Viva"
+icon = ExtResource( 9 )
+expand_icon = true
 
-[node name="NovoRegistro" parent="SideBar/VBoxContainer" index="1"]
+[node name="NovoRegistro" type="Button" parent="SideBar/VBoxContainer"]
 margin_top = 28.0
 margin_right = 153.0
 margin_bottom = 48.0
 focus_mode = 0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 enabled_focus_mode = 0
+text = "Novo Registro"
+icon = ExtResource( 8 )
+expand_icon = true
 
-[node name="HSeparator" parent="SideBar/VBoxContainer" index="2"]
+[node name="NovaCidade" type="Button" parent="SideBar/VBoxContainer"]
 margin_top = 56.0
 margin_right = 153.0
-margin_bottom = 58.0
-
-[node name="Buscar" parent="SideBar/VBoxContainer" index="3"]
-margin_top = 66.0
-margin_right = 153.0
-margin_bottom = 86.0
+margin_bottom = 76.0
 focus_mode = 0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 enabled_focus_mode = 0
-
-[node name="Explorar" parent="SideBar/VBoxContainer" index="4"]
-margin_top = 94.0
-margin_right = 153.0
-margin_bottom = 114.0
-focus_mode = 0
-enabled_focus_mode = 0
+text = "Nova Cidade"
+icon = ExtResource( 3 )
+expand_icon = true
 
 [node name="InterfaceExpandida" type="Control" parent="."]
 anchor_right = 1.0
@@ -574,23 +532,14 @@ __meta__ = {
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 autoplay = "Expandir"
-anims/Expandir = SubResource( 4 )
-anims/RESET = SubResource( 5 )
+anims/Expandir = SubResource( 12 )
+anims/RESET = SubResource( 13 )
 anims/Retrair = SubResource( 6 )
 
-[connection signal="button_up" from="BarraDeBusca/BtnBuscar" to="Dados" method="_on_BtnBuscar_button_up"]
-[connection signal="button_up" from="SideBar/VBoxContainer/NovaPistaViva" to="Dados" method="_on_NovaPistaViva_button_up"]
-[connection signal="button_up" from="SideBar/VBoxContainer/NovoRegistro" to="Dados" method="_on_NovoRegistro_button_up"]
-[connection signal="toggled" from="SideBar/VBoxContainer/Buscar" to="Dados" method="_on_Buscar_toggled"]
-[connection signal="button_up" from="SideBar/VBoxContainer/Explorar" to="Dados" method="_on_Explorar_button_up"]
-[connection signal="button_up" from="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer/Sobre" to="Dados" method="_on_Sobre_button_up"]
-[connection signal="button_up" from="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer/Equipes" to="Dados" method="_on_Equipes_button_up"]
-[connection signal="button_up" from="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer/GPedU" to="Dados" method="_on_GPedU_button_up"]
-[connection signal="button_up" from="InterfaceExpandida/MenuSuperior/MarginContainer/Panel/HBoxContainer/HBoxContainer/Contato" to="Dados" method="_on_Contato_button_up"]
+[connection signal="button_up" from="SideBar/VBoxContainer/NovaPistaViva" to="." method="_on_NovaPistaViva_button_up"]
+[connection signal="button_up" from="SideBar/VBoxContainer/NovoRegistro" to="." method="_on_NovoRegistro_button_up"]
+[connection signal="button_up" from="SideBar/VBoxContainer/NovaCidade" to="." method="_on_NovaCidade_button_up"]
 [connection signal="pressed" from="InterfaceExpandida/MenuSuperior/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Panel/ExpandirButton" to="." method="_on_ExpandirButton_pressed"]
 
-[editable path="Dados/Coluna"]
-[editable path="BarraDeBusca"]
-[editable path="SideBar"]
 [editable path="InterfaceExpandida/MenuSuperior"]
