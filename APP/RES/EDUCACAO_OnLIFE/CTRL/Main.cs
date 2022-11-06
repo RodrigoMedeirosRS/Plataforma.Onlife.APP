@@ -46,6 +46,10 @@ public class Main : Node2D
 		Cidade = BLL.Utils.InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/Cidade.tscn");
 		AguardandoSelecaoDePonto = false;
 	}
+	public static bool ObterModoDeCarga()
+	{
+		return CaixaDeArquivos.Mode == FileDialog.ModeEnum.OpenFile;
+	}
 	public static void DispararDialogo(string mensagem)
 	{
 		CaixaDeDialogo.DialogText = mensagem;
@@ -56,8 +60,9 @@ public class Main : Node2D
 		CaixaDePergunta.DialogText = mensagem;
 		CaixaDePergunta.Popup_();
 	}
-	public static void DispararArquivo(string[] filtros)
+	public static void DispararArquivo(string[] filtros, bool carregarArquivos = true)
 	{
+		CaixaDeArquivos.Mode = carregarArquivos ? FileDialog.ModeEnum.OpenFile : FileDialog.ModeEnum.SaveFile;
 		CaixaDeArquivos.Filters = filtros;
 		CaixaDeArquivos.Popup_();
 	}
@@ -106,7 +111,10 @@ public class Main : Node2D
 	{
 		try
 		{
-			ValidarTamanho(path);
+			if (ObterModoDeCarga())
+				ValidarTamanho(path);
+			else
+				EmitSignal("ArquivoEscolhido", path);
 		}
 		catch (Exception ex)
 		{

@@ -267,6 +267,9 @@ margin_right = 296.0
 margin_bottom = 446.0
 texture_normal = ExtResource( 10 )
 
+[node name="ConteudoAudio" type="AudioStreamPlayer" parent="Control/AudioInput"]
+volume_db = -5.0
+
 [node name="ArquivoInput" type="Control" parent="Control"]
 margin_left = 413.0
 margin_top = -1.0
@@ -357,6 +360,7 @@ expand = true
 [connection signal="confirmed" from="." to="." method="_on_CadastroDeRegistro_confirmed"]
 [connection signal="item_selected" from="Control/Tipo" to="." method="_on_Tipo_item_selected"]
 [connection signal="button_up" from="Control/ImagemInput/ImagemButton" to="." method="_on_ImagemButton_button_up"]
+[connection signal="button_up" from="Control/AudioInput/AudioButton" to="." method="_on_AudioButton_button_up"]
 [connection signal="button_up" from="Control/AudioInput/Stop" to="." method="_on_Stop_button_up"]
 [connection signal="button_up" from="Control/AudioInput/Play" to="." method="_on_Play_button_up"]
 [connection signal="button_up" from="Control/ArquivoInput/FileButton" to="." method="_on_FileButton_button_up"]

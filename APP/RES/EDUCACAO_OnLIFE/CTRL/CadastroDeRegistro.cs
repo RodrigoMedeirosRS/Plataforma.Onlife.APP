@@ -32,6 +32,7 @@ public class CadastroDeRegistro : ConfirmationDialog
 	private TextureButton Download { get; set; }
 	private TextureButton PlayBTN { get; set; }
 	private TextureButton StopBTN { get; set; }
+	private AudioStreamPlayer ConteudoAudio { get; set; }
 
 	private Texture ImagemOriginal { get; set; }
 	private List<TipoDTO> Tipos { get; set; }
@@ -72,6 +73,7 @@ public class CadastroDeRegistro : ConfirmationDialog
 		AbrirURL = GetNode<TextureButton>("./Control/URLInput/Go");
 		Download = GetNode<TextureButton>("./Control/ArquivoInput/Download");
 		ConteudoImagem = GetNode<TextureButton>("./Control/ImagemInput/ImagemButton");
+		ConteudoAudio = GetNode<AudioStreamPlayer>("./Control/AudioInput/ConteudoAudio");
 		PlayBTN = GetNode<TextureButton>("./Control/AudioInput/Play");
 		StopBTN = GetNode<TextureButton>("./Control/AudioInput/Stop");
 
@@ -83,6 +85,10 @@ public class CadastroDeRegistro : ConfirmationDialog
 	public void CarregarEdicao(RegistroDTO registroDTO)
 	{
 		this.Popup_();
+	}
+	private void CarregarArquivoExstensaoVariada()
+	{
+		Main.DispararArquivo(new string[]{ "*" + Tipos[Tipo.Selected].Extensao + " ; " + Tipos[Tipo.Selected].Nome });
 	}
 	private void _on_Tipo_item_selected(int index)
 	{
@@ -134,33 +140,55 @@ public class CadastroDeRegistro : ConfirmationDialog
 	{
 		Main.DispararArquivo(new string[]{ "*.jpg, *.jpeg ; JPG Images" });
 	}
-	private void _on_Main_ArquivoEscolhido(string base64)
+	private void _on_Main_ArquivoEscolhido(string retorno)
 	{
 		if (this.Visible)
 		{
-			Registro.Conteudo = base64;
-			ConteudoImagem.TextureNormal = ImportadorDeBinariosUtil.GerarImagem("temp", ".jpg", base64); 
+			if (Main.ObterModoDeCarga())
+			{
+				Registro.Conteudo = retorno;
+				switch (Tipos[Tipo.Selected].TipoExecucao)
+				{
+					case (TipoExecucao.Imagem):
+						ConteudoImagem.TextureNormal = ImportadorDeBinariosUtil.GerarImagem("temp", Tipos[Tipo.Selected].Extensao, Registro.Conteudo); 
+						break;
+					case (TipoExecucao.Audio):
+						ConteudoAudio.Stream = ImportadorDeBinariosUtil.GerarAudio("temp", Tipos[Tipo.Selected].Extensao, Registro.Conteudo);
+						break;
+				}
+			}
+			else
+			{
+				ImportadorDeBinariosUtil.SalvarBase64(retorno, Registro.Conteudo);
+			}
 		}
 	}
 	private void _on_Stop_button_up()
 	{
-		// Replace with function body.
+		if(ConteudoAudio.Stream != null && !string.IsNullOrEmpty(Registro.Conteudo))
+			ConteudoAudio.Stop();
 	}
 	private void _on_Play_button_up()
 	{
-		// Replace with function body.
+		if(ConteudoAudio.Stream != null && !string.IsNullOrEmpty(Registro.Conteudo))
+			ConteudoAudio.Play();
 	}
 	private void _on_FileButton_button_up()
 	{
-		Main.DispararArquivo(new string[]{ "*" + Tipos[Tipo.Selected].Extensao + " ; " + Tipos[Tipo.Selected].Nome });
+		CarregarArquivoExstensaoVariada();
+	}
+	private void _on_AudioButton_button_up()
+	{
+		CarregarArquivoExstensaoVariada();
 	}
 	private void _on_Download_button_up()
 	{
-		// Replace with function body.
+		Main.DispararArquivo(new string[]{ "*" + Tipos[Tipo.Selected].Extensao + " ; " + Tipos[Tipo.Selected].Nome }, false);
 	}
 	private void _on_Go_button_up()
 	{
-		// Replace with function body.
+		if(!string.IsNullOrEmpty(Registro.Conteudo))
+			OS.ShellOpen(Registro.Conteudo);
 	}
 	public void LimparTela()
 	{
@@ -226,6 +254,7 @@ public class CadastroDeRegistro : ConfirmationDialog
 	}
 	private void DescarregarConteudo()
 	{
+		ConteudoAudio.Stop();
 		Registro.Conteudo = string.Empty;
 		ConteudoImagem.TextureNormal = ImagemOriginal;
 	}
