@@ -57,6 +57,10 @@ public class Main : Node2D
 		CaixaDeDialogo.DialogText = mensagem;
 		CaixaDeDialogo.Popup_();
 	}
+	public static bool LocalidadeMode()
+	{
+		return MapaLocalidade.Visible;
+	}
 	public static void DispararPergunta(string mensagem)
 	{
 		CaixaDePergunta.DialogText = mensagem;

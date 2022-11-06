@@ -41,9 +41,12 @@ public class Mapa3D : Spatial
 	public override void _PhysicsProcess(float delta)
 	{
 		RotacionarGlobo(delta);
-		var localizacao = CapturarObjectoComClique();
-		EscreveTextoMouse(localizacao);
-		SelecionarPosicao(localizacao);
+		if (!Main.LocalidadeMode())
+		{
+			var localizacao = CapturarObjectoComClique();
+			EscreveTextoMouse(localizacao);
+			SelecionarPosicao(localizacao);
+		}
 	}
 	private static void SelecionarPosicao(ColisaoDTO localizacao)
 	{

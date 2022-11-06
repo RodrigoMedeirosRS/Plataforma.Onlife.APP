@@ -9,7 +9,7 @@ using BLL.Utils;
 using DTO.Dominio;
 using CTRL.Interface;
 
-public class Mapa2D : WindowDialog
+public class Mapa2D : Control
 {
 	private LocalidadeDTO Cidade { get; set; }
 	private TextureRect Mapa { get; set; }
@@ -43,7 +43,7 @@ public class Mapa2D : WindowDialog
 	{
 		LimparRegistrosLocalizados();
 		DefinirDadosLocalidade(cidade);
-		this.Popup_();
+		this.Visible = true;
 	}
 	public void DefinirDadosLocalidade(LocalidadeDTO cidade)
 	{
@@ -75,5 +75,9 @@ public class Mapa2D : WindowDialog
 	{
 		foreach(var registro in Registros.GetChildren())
 			(registro as IDisposableCTRL).FecharCTRL();
+	}
+	private void _on_Button_button_up()
+	{
+		this.Visible = false;
 	}
 }
