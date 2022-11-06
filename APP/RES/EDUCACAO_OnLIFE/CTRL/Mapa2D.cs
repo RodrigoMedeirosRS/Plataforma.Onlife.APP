@@ -39,16 +39,20 @@ public class Mapa2D : Control
 	}
 	public override void _Process(float delta)
 	{
-		if (Main.LocalidadeMode() && Main.AguardandoSelecaoDePonto && Input.IsActionPressed("clique"))
+		if (Main.LocalidadeMode())
 		{
-			var mousePosition = GetViewport().GetMousePosition();// + this.RectPosition;
-			var registro = new RegistroDTO()
+			var mousePosition = GetViewport().GetMousePosition();
+			if(Main.AguardandoSelecaoDePonto && Input.IsActionPressed("clique"))
 			{
-				CodigoCidade = Cidade.Codigo,
-				Latitude = mousePosition.x,
-				Longitude = mousePosition.y
-			};
-			Main.DispararRegistro(registro);
+				mousePosition -= this.GetGlobalTransformWithCanvas().origin;			
+				var registro = new RegistroDTO()
+				{
+					CodigoCidade = Cidade.Codigo,
+					Latitude = mousePosition.x,
+					Longitude = mousePosition.y
+				};
+				Main.DispararRegistro(registro);
+			}
 		}
 	}
 	public void Popup(LocalidadeDTO cidade)
