@@ -120,7 +120,8 @@ public class Main : Node2D
 	private void _on_CaixaDeDialog_confirmed()
 	{
 		EmitSignal("DialogoFinalizado");
-		AguardandoSelecaoDePonto = CaixaDeDialogo.DialogText.Contains("Por favor, clique com o botão direito do mouse sobre o globo marcando a posição aproximada da cidade que você quer cadastrar.");
+		AguardandoSelecaoDePonto = CaixaDeDialogo.DialogText.Contains(InterfaceSobreposta.MensagemCidade) || CaixaDeDialogo.DialogText.Contains(InterfaceSobreposta.MensagemRegistro);
+
 	}
 	private void _on_CaixadeConfirmacao_custom_action(String action)
 	{
