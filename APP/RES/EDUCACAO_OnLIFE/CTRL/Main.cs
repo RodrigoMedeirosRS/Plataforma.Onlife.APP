@@ -13,6 +13,7 @@ public class Main : Node2D
 	private static FileDialog CaixaDeArquivos { get; set; }
 	private static CadastroDePistaViva CadastroDePistaViva { get; set; }
 	private static CadastroDeCidade CadastroDeCidade { get; set; }
+	private static CadastroDeRegistro CadastroDeRegistro { get; set; }
 	private static bool AguardandoSelecaoDePonto { get; set; }
 	private static PackedScene Cidade { get; set; }
 	private static IConsultarCidadeBLL ConsultarCidadeBLL { get; set; }
@@ -40,6 +41,7 @@ public class Main : Node2D
 		CaixaDeArquivos = GetNode<FileDialog>("./Interface/Popups/FileDialog");
 		CadastroDePistaViva = GetNode<CadastroDePistaViva>("./Interface/Popups/CadastroDePessoa");
 		CadastroDeCidade = GetNode<CadastroDeCidade>("./Interface/Popups/CadastroDeCidade");
+		CadastroDeRegistro = GetNode<CadastroDeRegistro>("./Interface/Popups/CadastroDeRegistro");
 		Localidades = GetNode<Spatial>("./CanvasLayer/Mapa3D/Globo/Localidades");
 		Cidade = BLL.Utils.InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/Cidade.tscn");
 		AguardandoSelecaoDePonto = false;
@@ -74,6 +76,14 @@ public class Main : Node2D
 			AguardandoSelecaoDePonto = false;
 			CadastroDeCidade.Popup(posicao);
 		}
+	}
+	public static void DispararRegistro(RegistroDTO registroDTO = null)
+	{
+		AguardandoSelecaoDePonto = false;
+		if (registroDTO != null)
+			CadastroDeRegistro.CarregarEdicao(registroDTO);
+		else
+			CadastroDeRegistro.Popup_();
 	}
 	public static void AtualizarCidades()
 	{

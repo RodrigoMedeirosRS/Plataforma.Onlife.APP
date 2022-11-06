@@ -28,7 +28,7 @@ namespace Onlife.CTRL
 		}
 		private void _on_NovoRegistro_button_up()
 		{
-			// Replace with function body.
+			Main.DispararRegistro();
 		}
 		private void _on_NovaCidade_button_up()
 		{

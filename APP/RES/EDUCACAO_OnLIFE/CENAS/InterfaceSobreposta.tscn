@@ -352,8 +352,8 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -9.0
-margin_right = 84480.0
-margin_bottom = 47511.0
+margin_right = 88320.0
+margin_bottom = 49671.0
 rect_min_size = Vector2( 175, 139 )
 mouse_filter = 2
 
