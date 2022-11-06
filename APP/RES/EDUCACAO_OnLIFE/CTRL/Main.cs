@@ -19,10 +19,13 @@ public class Main : Node2D
 	private static IConsultarCidadeBLL ConsultarCidadeBLL { get; set; }
 	private static Mapa2D MapaLocalidade { get; set; }
 	public static Spatial Localidades { get; private set; }
+	
 
 	[Signal] public delegate void DialogoFinalizado();
 	[Signal] public delegate void PerguntaRespondida(string resposta);
 	[Signal] public delegate void ArquivoEscolhido(string base64);
+
+	private Button NovaCidadeBTN { get; set; }
 	private const int LimiteArquivo = 2097152;
 
 	public override void _Ready()
@@ -30,6 +33,10 @@ public class Main : Node2D
 		RealizarInjecaoDependecias();
 		PopularNodes();
 		AtualizarCidades();
+	}
+	public override void _Process(float delta)
+	{
+		NovaCidadeBTN.Disabled = LocalidadeMode();
 	}
 	private void RealizarInjecaoDependecias()
 	{
@@ -46,6 +53,7 @@ public class Main : Node2D
 		Localidades = GetNode<Spatial>("./CanvasLayer/Mapa3D/Globo/Localidades");
 		Cidade = BLL.Utils.InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/Cidade.tscn");
 		MapaLocalidade = GetNode<Mapa2D>("./Cidade/Mapa2D");
+		NovaCidadeBTN = GetNode<Button>("./Toolbar/InterfaceSobreposta/SideBar/VBoxContainer/NovaCidade");
 		AguardandoSelecaoDePonto = false;
 	}
 	public static bool ObterModoDeCarga()
