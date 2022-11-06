@@ -134,7 +134,8 @@ public class CadastroDeRegistro : ConfirmationDialog
 			PopularDTO();
 			CadastrarRegistroBLL.CadastrarRegistro(Registro);
 			LimparTela();
-			Main.AtualizarCidades();
+			if (Main.LocalidadeMode())
+				Main.AutalizarRegistrosLocalizados();
 		}
 		catch(Exception ex)
 		{

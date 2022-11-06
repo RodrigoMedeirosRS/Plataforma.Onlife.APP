@@ -12,6 +12,7 @@ namespace BLL.Interface
         List<RegistroDTO> ValidarConsulta(List<RegistroDTO> retorno);
         List<RegistroDTO> RealizarConsulta(RegistroConsulta pessoaConsulta);
         ReferenciaRetorno RealizarConsultaDeRegistrosRelacionados(RelacaoConsulta relacaoConsulta);
+        List<RegistroDTO> ListarRegistroPorLocalidade(LocalidadeConsulta localidade);
         Node InstanciarRegistroBox(Node Container, Vector2? posicao);
 
         void Dispose();

@@ -117,6 +117,10 @@ public class Main : Node2D
 			(cidadeInstanciada as Cidade).DefinirDadosLocalidade(cidade);
 		}
 	}
+	public static void AutalizarRegistrosLocalizados()
+	{
+		MapaLocalidade.AtualizarRegistrosLocalizados();
+	}
 	private void _on_CaixaDeDialog_confirmed()
 	{
 		EmitSignal("DialogoFinalizado");

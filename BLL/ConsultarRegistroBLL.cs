@@ -16,10 +16,12 @@ namespace BLL
         private IRequisicao SAL { get; set; }
         private string URLConsultarRegistro { get; set; }
         private string URLConsultarRelacao { get; set; }
+        private string URLListarRegistroPorLocalidade { get; set; }
         public ConsultarRegistroBLL()
         {
             URLConsultarRegistro = Apontamentos.URLApi + "/Registro/Consultar";
             URLConsultarRelacao = Apontamentos.URLApi + "/Registro/ObterReferencias";
+            URLListarRegistroPorLocalidade = Apontamentos.URLApi + "/Registro/ListarPorLocalidade";
             SAL = new Requisicao();
         }
         public void ValidarPreenchimento(RegistroConsulta registroConsulta)
@@ -44,6 +46,11 @@ namespace BLL
             ValidarPreenchimento(registroCosnulta);
             var retorno = SAL.ExecutarPost<RegistroConsulta, List<RegistroDTO>>(URLConsultarRegistro, registroCosnulta);
             return ValidarConsulta(retorno);
+        }
+        public List<RegistroDTO> ListarRegistroPorLocalidade(LocalidadeConsulta localidade)
+        {
+            var retorno = SAL.ExecutarPost<LocalidadeConsulta, List<RegistroDTO>>(URLListarRegistroPorLocalidade, localidade);
+            return retorno;
         }
         public ReferenciaRetorno RealizarConsultaDeRegistrosRelacionados(RelacaoConsulta relacaoConsulta)
         {

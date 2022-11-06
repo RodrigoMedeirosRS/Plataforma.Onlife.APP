@@ -9,9 +9,8 @@ using BLL.Utils;
 using DTO.Dominio;
 using CTRL.Interface;
 
-public class Registro : TextureButton
+public class Registro : Control, IDisposableCTRL
 {
-	private LocalidadeDTO Cidade { get; set; }
 	private RegistroDTO RegistroDTO { get; set; }
 	public override void _Ready()
 	{
@@ -19,14 +18,17 @@ public class Registro : TextureButton
 	}
 	public void PopularNodes()
 	{
-		Cidade = new LocalidadeDTO();
 		RegistroDTO = new RegistroDTO();
 	}
-	public void PouparDadosRegistro(LocalidadeDTO cidade, RegistroDTO registro)
+	public void DefinirDadosDoRegistro(RegistroDTO registro)
 	{
-		Cidade = cidade;
 		RegistroDTO = registro;
 		this.HintTooltip = RegistroDTO.Nome;
+	}
+	public void FecharCTRL()
+	{
+		RegistroDTO.Dispose();
+		this.QueueFree();
 	}
 	private void _on_TextureButton_button_up()
 	{

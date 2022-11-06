@@ -15,6 +15,7 @@ public class Mapa2D : Control
 	private TextureRect Mapa { get; set; }
 	private Control Registros { get; set; }
 	private Texture MapaOriginal { get; set; }
+	private PackedScene RegistroLocalizado { get; set; }
 
 	private IConsultarCidadeBLL CidadeBLL { get; set; }
 	private IConsultarRegistroBLL RegistroBLL { get; set; }
@@ -28,6 +29,7 @@ public class Mapa2D : Control
 		Cidade = new LocalidadeDTO();
 		Mapa = GetNode<TextureRect>("./Mapa");
 		Registros = GetNode<Control>("./Registros");
+		RegistroLocalizado = BLL.Utils.InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/Registro.tscn");
 		MapaOriginal = Mapa.Texture;
 	}
 	private void RealizarInjecaoDependecias()
@@ -39,9 +41,10 @@ public class Mapa2D : Control
 	{
 		if (Main.LocalidadeMode() && Main.AguardandoSelecaoDePonto && Input.IsActionPressed("clique"))
 		{
-			var mousePosition = GetViewport().GetMousePosition() + this.RectPosition;
+			var mousePosition = GetViewport().GetMousePosition();// + this.RectPosition;
 			var registro = new RegistroDTO()
 			{
+				CodigoCidade = Cidade.Codigo,
 				Latitude = mousePosition.x,
 				Longitude = mousePosition.y
 			};
@@ -59,7 +62,7 @@ public class Mapa2D : Control
 		try
 		{
 			ConsultarCidade(cidade);
-			PopularRegistrosLocalizados();
+			AtualizarRegistrosLocalizados();
 			Mapa.Texture = ImportadorDeBinariosUtil.GerarImagem("temp", ".jpg", Cidade.Mapa);
 		}
 		catch
@@ -76,9 +79,22 @@ public class Mapa2D : Control
 			Completo = true
 		});
 	}
-	private void PopularRegistrosLocalizados()
+	public void AtualizarRegistrosLocalizados()
 	{
-
+		try
+		{
+			var registros = RegistroBLL.ListarRegistroPorLocalidade(new LocalidadeConsulta(){ Codigo = Cidade.Codigo });
+			foreach(var registro in registros)
+			{
+				var posicao = new Vector2(registro.Latitude, registro.Longitude);
+				var cidadeInstanciada = BLL.Utils.InstanciadorUtil.InstanciarObjeto(Registros, RegistroLocalizado, posicao);
+				(cidadeInstanciada as Registro).DefinirDadosDoRegistro(registro);
+			}
+		}
+		catch
+		{
+			Main.DispararDialogo("Erro interno no sistema");
+		}
 	}
 	private void LimparRegistrosLocalizados()
 	{
