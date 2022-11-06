@@ -2,8 +2,10 @@ using Godot;
 using System;
 
 using DTO;
-public class ControleMapa : Spatial
+public class Mapa3D : Spatial
 {
+	private Control NomeCidade { get; set; }
+	private Label TextoNomeCidade { get; set; }
 	private Vector2 Direcao { get; set; }
 	private Spatial Globo { get; set; }
 	private Sprite Rot { get; set; }
@@ -33,21 +35,39 @@ public class ControleMapa : Spatial
 		Down = GetNode<TextureButton>("./Botoes/Down");
 		Left = GetNode<TextureButton>("./Botoes/Left");
 		Right = GetNode<TextureButton>("./Botoes/Right");
+		NomeCidade = GetNode<Control>("./Nome");
+		TextoNomeCidade = GetNode<Label>("./Nome/NomeCidade");
 	}
 	public override void _PhysicsProcess(float delta)
 	{
 		RotacionarGlobo(delta);
+		var localizacao = CapturarObjectoComClique();
+		EscreveTextoMouse(localizacao);
+		SelecionarPosicao(localizacao);
+	}
+	private static void SelecionarPosicao(ColisaoDTO localizacao)
+	{
 		if (Input.IsActionPressed("clique"))
 		{
-			var localizacao = CapturarObjectoComClique();
 			if (localizacao != null)
 			{
 				var localizacaoFinal = localizacao.Posicao + Main.Localidades.Translation;
 				Main.DispararLocalidade(localizacaoFinal);
 			}
 		}
+		else if (Input.IsActionPressed("selecao"))
+		{
+			if (localizacao != null && localizacao.Ponto.IsInGroup("Cidade"))
+			{
+				Main.DispararCidade((localizacao.Ponto as Cidade).ObterDadosLocalidade());
+			}
+		}
 	}
-
+	private void EscreveTextoMouse(ColisaoDTO localizacao)
+	{
+		var condicao = localizacao != null && localizacao.Ponto.IsInGroup("Cidade");
+		TextoNomeCidade.Text = condicao ? localizacao.Ponto.Name : string.Empty;
+	}
 	private void RotacionarGlobo(float delta)
 	{
 		if (Up.Pressed)
@@ -76,6 +96,8 @@ public class ControleMapa : Spatial
 		var rayOrigin = Cam.ProjectRayOrigin(mousePosition);
 		var rayEnd = rayOrigin + Cam.ProjectRayNormal(mousePosition) * 2000;
 		var intersecao = spacestate.IntersectRay(rayOrigin, rayEnd);
+		
+		MoveTextoMouse(mousePosition);
 
 		if (intersecao.Count > 0)
 		{
@@ -86,5 +108,9 @@ public class ControleMapa : Spatial
 			};
 		}
 		return null;
+	}
+	private void MoveTextoMouse(Vector2 mousePosition)
+	{
+		NomeCidade.RectPosition = mousePosition;
 	}
 }

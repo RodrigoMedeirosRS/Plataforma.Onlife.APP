@@ -20,9 +20,10 @@ namespace BLL.Utils
                 (cenaInstanciada as Control).RectPosition = (Vector2)posicao;
             return cenaInstanciada;
         }
-        public static Node InstanciarObjeto(Node container, PackedScene cena, Vector3 posicao)
+        public static Node InstanciarObjeto(string nome, Node container, PackedScene cena, Vector3 posicao)
         {
             var cenaInstanciada = cena.Instance();
+            cenaInstanciada.Name = nome;
             container.AddChild(cenaInstanciada);
             return SetConstrolData(cenaInstanciada, posicao);
         }

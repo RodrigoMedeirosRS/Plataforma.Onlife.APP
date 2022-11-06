@@ -17,6 +17,7 @@ public class Main : Node2D
 	private static bool AguardandoSelecaoDePonto { get; set; }
 	private static PackedScene Cidade { get; set; }
 	private static IConsultarCidadeBLL ConsultarCidadeBLL { get; set; }
+	private static Mapa2D MapaLocalidade { get; set; }
 	public static Spatial Localidades { get; private set; }
 
 	[Signal] public delegate void DialogoFinalizado();
@@ -44,6 +45,7 @@ public class Main : Node2D
 		CadastroDeRegistro = GetNode<CadastroDeRegistro>("./Interface/Popups/CadastroDeRegistro");
 		Localidades = GetNode<Spatial>("./CanvasLayer/Mapa3D/Globo/Localidades");
 		Cidade = BLL.Utils.InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/Cidade.tscn");
+		MapaLocalidade = GetNode<Mapa2D>("./Cidade/Mapa2D");
 		AguardandoSelecaoDePonto = false;
 	}
 	public static bool ObterModoDeCarga()
@@ -90,12 +92,17 @@ public class Main : Node2D
 		else
 			CadastroDeRegistro.Popup_();
 	}
+	public static void DispararCidade(LocalidadeDTO localidadeDTO)
+	{
+		MapaLocalidade.Popup(localidadeDTO);
+	}
 	public static void AtualizarCidades()
 	{
 		foreach(var cidade in ConsultarCidadeBLL.ListarCidades())
 		{
 			var posicao = new Vector3(cidade.X, cidade.Y, cidade.Z);
-			BLL.Utils.InstanciadorUtil.InstanciarObjeto(Localidades, Cidade, posicao);
+			var cidadeInstanciada = BLL.Utils.InstanciadorUtil.InstanciarObjeto(cidade.Nome, Localidades, Cidade, posicao);
+			(cidadeInstanciada as Cidade).DefinirDadosLocalidade(cidade);
 		}
 	}
 	private void _on_CaixaDeDialog_confirmed()

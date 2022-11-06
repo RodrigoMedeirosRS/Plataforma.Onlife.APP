@@ -5,22 +5,32 @@ namespace Onlife.CTRL
 {
 	public class InterfaceSobreposta : Control
 	{
+		private AnimationPlayer Anim { get; set; }
 		public override void _Ready()
 		{
 			PopularNodes();
 		}
+		public override void _Process(float delta)
+		{
+			if(Input.IsActionPressed("sair"))
+				ExpandirRetrair(false);
+		}
 		private void PopularNodes()
 		{
-
+			Anim = GetNode<AnimationPlayer>("Anim");
 		}
 		public void _on_ExpandirButton_pressed()
 		{
-			GetNode<AnimationPlayer>("Anim").Play("Expandir");
+			ExpandirRetrair(true);
 		}
-
 		public void _on_CloseButton_pressed()
 		{
-			GetNode<AnimationPlayer>("Anim").Play("Retrair");
+			ExpandirRetrair(false);
+		}
+		private void ExpandirRetrair(bool expandir)
+		{
+			var acao = expandir ? "Expandir" : "Retrair";
+			Anim.Play(acao);
 		}
 		private void _on_NovaPistaViva_button_up()
 		{
