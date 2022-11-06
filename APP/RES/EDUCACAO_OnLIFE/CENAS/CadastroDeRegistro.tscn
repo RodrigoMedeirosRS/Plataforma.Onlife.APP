@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/application-braces.png" type="Texture" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=2]
@@ -16,9 +16,9 @@
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/download.png" type="Texture" id=14]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/URLbIG.png" type="Texture" id=15]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/open-in-new.png" type="Texture" id=16]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/web.png" type="Texture" id=17]
 
 [node name="CadastroDeRegistro" type="ConfirmationDialog"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1014.0
@@ -29,10 +29,11 @@ window_title = ""
 script = ExtResource( 8 )
 
 [node name="Control" type="Control" parent="."]
+anchor_left = -0.523179
 anchor_right = -0.523179
-margin_left = 8.0
+margin_left = 482.0
 margin_top = 8.0
-margin_right = 898.0
+margin_right = 1372.0
 margin_bottom = 516.0
 
 [node name="Nome" type="LineEdit" parent="Control"]
@@ -185,7 +186,7 @@ margin_right = 99.0
 margin_bottom = 15.0
 text = "Texto:"
 
-[node name="Descricao" type="TextEdit" parent="Control/TextoInput"]
+[node name="Conteudo" type="TextEdit" parent="Control/TextoInput"]
 margin_left = 6.0
 margin_top = 19.0
 margin_right = 462.0
@@ -267,7 +268,6 @@ margin_bottom = 446.0
 texture_normal = ExtResource( 10 )
 
 [node name="ArquivoInput" type="Control" parent="Control"]
-visible = false
 margin_left = 413.0
 margin_top = -1.0
 margin_right = 883.0
@@ -312,30 +312,53 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="URLButton" type="TextureButton" parent="Control/URLInput"]
-margin_left = 53.0
-margin_top = 4.0
-margin_right = 433.0
-margin_bottom = 384.0
-texture_normal = ExtResource( 15 )
+[node name="URLButton" type="TextureRect" parent="Control/URLInput"]
+margin_left = 60.0
+margin_top = 8.0
+margin_right = 435.0
+margin_bottom = 383.0
+texture = ExtResource( 15 )
 expand = true
-
-[node name="Label" type="Label" parent="Control/URLInput"]
-margin_left = 33.0
-margin_top = 453.0
-margin_right = 465.0
-margin_bottom = 499.0
-text = "Clique na imagem acima para selecione o arquivo que você quer registrar. Lembre-se o tamanho máximo é de 2mb."
-align = 3
-valign = 1
-autowrap = true
 
 [node name="Go" type="TextureButton" parent="Control/URLInput"]
 self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
-margin_left = 221.0
-margin_top = 398.0
-margin_right = 269.0
-margin_bottom = 446.0
+margin_left = 400.0
+margin_top = 401.0
+margin_right = 448.0
+margin_bottom = 449.0
 texture_normal = ExtResource( 16 )
 
+[node name="URL" type="LineEdit" parent="Control/URLInput"]
+margin_left = 49.0
+margin_top = 411.0
+margin_right = 387.0
+margin_bottom = 443.0
+max_length = 50
+placeholder_text = "Digite aqui o endereço do link."
+caret_blink = true
+
+[node name="Label" type="Label" parent="Control/URLInput/URL"]
+margin_left = 29.0
+margin_top = -21.0
+margin_right = 59.0
+margin_bottom = -4.0
+text = "URL:"
+
+[node name="Icone" type="TextureRect" parent="Control/URLInput/URL/Label"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_left = -19.0
+margin_top = 1.0
+margin_right = -3.0
+margin_bottom = 17.0
+texture = ExtResource( 17 )
+expand = true
+
+[connection signal="about_to_show" from="." to="." method="_on_CadastroDeRegistro_about_to_show"]
+[connection signal="confirmed" from="." to="." method="_on_CadastroDeRegistro_confirmed"]
 [connection signal="item_selected" from="Control/Tipo" to="." method="_on_Tipo_item_selected"]
+[connection signal="button_up" from="Control/ImagemInput/ImagemButton" to="." method="_on_ImagemButton_button_up"]
+[connection signal="button_up" from="Control/AudioInput/Stop" to="." method="_on_Stop_button_up"]
+[connection signal="button_up" from="Control/AudioInput/Play" to="." method="_on_Play_button_up"]
+[connection signal="button_up" from="Control/ArquivoInput/FileButton" to="." method="_on_FileButton_button_up"]
+[connection signal="button_up" from="Control/ArquivoInput/Download" to="." method="_on_Download_button_up"]
+[connection signal="button_up" from="Control/URLInput/Go" to="." method="_on_Go_button_up"]

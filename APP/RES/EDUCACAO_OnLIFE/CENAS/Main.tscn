@@ -112,6 +112,9 @@ dialog_autowrap = true
 
 [node name="InterfaceSobreposta" parent="Toolbar" instance=ExtResource( 23 )]
 
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="ArquivoEscolhido" from="." to="Interface/Popups/CadastroDeRegistro" method="_on_Main_ArquivoEscolhido"]
 [connection signal="ArquivoEscolhido" from="." to="Interface/Popups/CadastroDeCidade" method="_on_Main_ArquivoEscolhido"]
 [connection signal="ArquivoEscolhido" from="." to="Interface/Popups/CadastroDePessoa" method="_on_Main_ArquivoEscolhido"]
 [connection signal="file_selected" from="Interface/Popups/FileDialog" to="." method="_on_FileDialog_file_selected"]
