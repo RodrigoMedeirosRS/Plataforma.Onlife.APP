@@ -1,14 +1,11 @@
 using Godot;
 using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 
 using BLL.Interface;
 using DTO;
 using DTO.Utils;
 using BLL.Utils;
-using DTO.Dominio;
 
 
 public class CadastroDeRegistro : ConfirmationDialog
@@ -85,14 +82,16 @@ public class CadastroDeRegistro : ConfirmationDialog
 	public void CarregarEdicao(RegistroDTO registroDTO)
 	{
 		this.Popup_();
+		Idioma.Select(BuscarOpcao(registroDTO.Idioma, Idioma));
+		Tipo.Select(BuscarOpcao(registroDTO.Tipo, Tipo));
+		AtualizarInterface();
+		Registro = registroDTO;
+		Nome.Text = registroDTO.Nome;
+		Descricao.Text = registroDTO.Descricao;
 	}
 	private void CarregarArquivoExstensaoVariada()
 	{
 		Main.DispararArquivo(new string[]{ "*" + Tipos[Tipo.Selected].Extensao + " ; " + Tipos[Tipo.Selected].Nome });
-	}
-	private void _on_Tipo_item_selected(int index)
-	{
-		AtualizarInterface();
 	}
 	private void AtualizarInterface()
 	{
@@ -115,7 +114,19 @@ public class CadastroDeRegistro : ConfirmationDialog
 				break;
 		}
 	}
-
+	private int BuscarOpcao(string nome, OptionButton dropdown)
+		{
+			for (int i = 0; i < dropdown.GetItemCount(); i++)
+			{
+				if (dropdown.GetItemText(i) == nome)
+					return i;
+			}
+			return 0;
+		}
+	private void _on_Tipo_item_selected(int index)
+	{
+		AtualizarInterface();
+	}
 	private void _on_CadastroDeRegistro_confirmed()
 	{
 		try
