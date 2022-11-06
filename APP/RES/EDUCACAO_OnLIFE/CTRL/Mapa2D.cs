@@ -37,7 +37,16 @@ public class Mapa2D : Control
 	}
 	public override void _Process(float delta)
 	{
-		
+		if (Main.LocalidadeMode() && Main.AguardandoSelecaoDePonto && Input.IsActionPressed("clique"))
+		{
+			var mousePosition = GetViewport().GetMousePosition() + this.RectPosition;
+			var registro = new RegistroDTO()
+			{
+				Latitude = mousePosition.x,
+				Longitude = mousePosition.y
+			};
+			Main.DispararRegistro(registro);
+		}
 	}
 	public void Popup(LocalidadeDTO cidade)
 	{

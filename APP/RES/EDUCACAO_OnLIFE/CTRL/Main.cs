@@ -14,11 +14,11 @@ public class Main : Node2D
 	private static CadastroDePistaViva CadastroDePistaViva { get; set; }
 	private static CadastroDeCidade CadastroDeCidade { get; set; }
 	private static CadastroDeRegistro CadastroDeRegistro { get; set; }
-	private static bool AguardandoSelecaoDePonto { get; set; }
 	private static PackedScene Cidade { get; set; }
 	private static IConsultarCidadeBLL ConsultarCidadeBLL { get; set; }
 	private static Mapa2D MapaLocalidade { get; set; }
 	public static Spatial Localidades { get; private set; }
+	public static bool AguardandoSelecaoDePonto { get; private set; }
 	
 
 	[Signal] public delegate void DialogoFinalizado();
