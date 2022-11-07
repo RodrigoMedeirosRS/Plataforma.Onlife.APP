@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/Janela.cs" type="Script" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Fechar.svg" type="Texture" id=2]
@@ -11,6 +11,20 @@
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/file-tree.png" type="Texture" id=9]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/emoticon-happy.png" type="Texture" id=10]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/Cabecalho.cs" type="Script" id=11]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/play.png" type="Texture" id=12]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/web.png" type="Texture" id=13]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/stop.png" type="Texture" id=14]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/URLbIG.png" type="Texture" id=15]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Image.png" type="Texture" id=16]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Audio.png" type="Texture" id=17]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/book-open-variant.png" type="Texture" id=18]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/download.png" type="Texture" id=19]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/open-in-new.png" type="Texture" id=20]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/File.png" type="Texture" id=21]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/file-image.png" type="Texture" id=22]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/music.png" type="Texture" id=23]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/translate-variant.png" type="Texture" id=24]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/file-document.png" type="Texture" id=25]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
@@ -197,6 +211,323 @@ margin_right = 188.0
 margin_bottom = 267.0
 hint_tooltip = "Relações"
 texture_normal = ExtResource( 9 )
+expand = true
+
+[node name="Conteudo" type="Control" parent="."]
+
+[node name="CadastroDeRegistro" type="AcceptDialog" parent="Conteudo"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 279.0
+margin_top = 38.0
+margin_right = 732.0
+margin_bottom = 504.0
+rect_min_size = Vector2( 453, 466 )
+theme = ExtResource( 3 )
+window_title = ""
+
+[node name="Control" type="Control" parent="Conteudo/CadastroDeRegistro"]
+anchor_left = -0.523179
+anchor_right = -0.523179
+margin_left = 245.0
+margin_top = 8.0
+margin_right = 682.0
+margin_bottom = 430.0
+
+[node name="Idioma" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+margin_left = 80.0
+margin_top = -3.0
+margin_right = 315.0
+margin_bottom = 29.0
+
+[node name="NomeTexto" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Idioma"]
+margin_left = -66.0
+margin_top = 6.0
+margin_right = 344.0
+margin_bottom = 23.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lingua do Registro"
+autowrap = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Idioma"]
+margin_left = -55.0
+margin_top = -8.0
+margin_right = -19.0
+margin_bottom = 6.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Idioma:"
+
+[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Idioma/Label"]
+self_modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = -13.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 13.0
+texture = ExtResource( 24 )
+expand = true
+
+[node name="Texto" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+visible = false
+margin_left = 1.0
+margin_top = -6.0
+margin_right = 435.0
+margin_bottom = 425.0
+
+[node name="Dados" type="Control" parent="Conteudo/CadastroDeRegistro/Control/Texto"]
+
+[node name="Label2" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Texto/Dados"]
+margin_left = 23.0
+margin_top = 29.0
+margin_right = 59.0
+margin_bottom = 43.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Texto:"
+
+[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Texto/Dados/Label2"]
+self_modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = -13.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 13.0
+texture = ExtResource( 18 )
+expand = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Conteudo/CadastroDeRegistro/Control/Texto"]
+margin_left = 8.0
+margin_top = 47.0
+margin_right = 428.0
+margin_bottom = 427.0
+rect_min_size = Vector2( 420, 380 )
+
+[node name="CorpoDoTexto" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Texto/ScrollContainer"]
+margin_right = 420.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 420, 0 )
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+autowrap = true
+
+[node name="Imagem" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+visible = false
+anchor_right = -0.0800915
+anchor_bottom = -0.180095
+margin_top = -1.0
+margin_right = 470.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Dados" type="Control" parent="Conteudo/CadastroDeRegistro/Control/Imagem"]
+
+[node name="Label2" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Imagem/Dados"]
+margin_left = 23.0
+margin_top = 29.0
+margin_right = 59.0
+margin_bottom = 43.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Imagem:"
+
+[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Imagem/Dados/Label2"]
+self_modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = -13.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 13.0
+texture = ExtResource( 22 )
+expand = true
+
+[node name="ImagemButton" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Imagem"]
+margin_left = 30.0
+margin_top = 49.0
+margin_right = 403.0
+margin_bottom = 422.0
+rect_min_size = Vector2( 373, 373 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Audio" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+visible = false
+anchor_right = -0.0755149
+anchor_bottom = -0.180095
+margin_top = -1.0
+margin_right = 470.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Dados" type="Control" parent="Conteudo/CadastroDeRegistro/Control/Audio"]
+
+[node name="Label2" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Audio/Dados"]
+margin_left = 23.0
+margin_top = 29.0
+margin_right = 59.0
+margin_bottom = 43.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Audio:"
+
+[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Audio/Dados/Label2"]
+self_modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = -13.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 13.0
+texture = ExtResource( 23 )
+expand = true
+
+[node name="AudioButton" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Audio"]
+margin_left = 66.0
+margin_top = 49.0
+margin_right = 368.0
+margin_bottom = 351.0
+texture = ExtResource( 17 )
+expand = true
+
+[node name="Stop" type="TextureButton" parent="Conteudo/CadastroDeRegistro/Control/Audio"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_left = 166.0
+margin_top = 362.0
+margin_right = 214.0
+margin_bottom = 410.0
+texture_normal = ExtResource( 14 )
+
+[node name="Play" type="TextureButton" parent="Conteudo/CadastroDeRegistro/Control/Audio"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_left = 222.0
+margin_top = 362.0
+margin_right = 270.0
+margin_bottom = 410.0
+texture_normal = ExtResource( 12 )
+
+[node name="ConteudoAudio" type="AudioStreamPlayer" parent="Conteudo/CadastroDeRegistro/Control/Audio"]
+volume_db = -5.0
+
+[node name="Arquivo" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+visible = false
+anchor_right = -0.0800915
+anchor_bottom = -0.189573
+margin_top = -1.0
+margin_right = 470.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Dados" type="Control" parent="Conteudo/CadastroDeRegistro/Control/Arquivo"]
+
+[node name="Label2" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Arquivo/Dados"]
+margin_left = 23.0
+margin_top = 29.0
+margin_right = 59.0
+margin_bottom = 43.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Arquivo:"
+
+[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Arquivo/Dados/Label2"]
+self_modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = -13.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 13.0
+texture = ExtResource( 25 )
+expand = true
+
+[node name="FileButton" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Arquivo"]
+margin_left = 64.0
+margin_top = 50.0
+margin_right = 371.0
+margin_bottom = 357.0
+texture = ExtResource( 21 )
+expand = true
+
+[node name="Download" type="TextureButton" parent="Conteudo/CadastroDeRegistro/Control/Arquivo"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_left = 194.0
+margin_top = 366.0
+margin_right = 242.0
+margin_bottom = 414.0
+texture_normal = ExtResource( 19 )
+
+[node name="URL" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+anchor_right = -0.0686499
+anchor_bottom = -0.180095
+margin_right = 470.0
+margin_bottom = 501.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="URLButton" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/URL"]
+margin_left = 87.0
+margin_top = 54.0
+margin_right = 357.0
+margin_bottom = 324.0
+texture = ExtResource( 15 )
+expand = true
+
+[node name="Go" type="TextureButton" parent="Conteudo/CadastroDeRegistro/Control/URL"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_left = 377.0
+margin_top = 353.0
+margin_right = 425.0
+margin_bottom = 401.0
+texture_normal = ExtResource( 20 )
+
+[node name="URL" type="Label" parent="Conteudo/CadastroDeRegistro/Control/URL"]
+margin_left = 26.0
+margin_top = 363.0
+margin_right = 364.0
+margin_bottom = 395.0
+
+[node name="Label" type="Label" parent="Conteudo/CadastroDeRegistro/Control/URL/URL"]
+margin_left = 29.0
+margin_top = -21.0
+margin_right = 59.0
+margin_bottom = -4.0
+text = "URL:"
+
+[node name="Icone" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/URL/URL/Label"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_left = -19.0
+margin_top = 1.0
+margin_right = -3.0
+margin_bottom = 17.0
+texture = ExtResource( 13 )
+expand = true
+
+[node name="Dados" type="Control" parent="Conteudo/CadastroDeRegistro/Control/URL"]
+
+[node name="Label2" type="Label" parent="Conteudo/CadastroDeRegistro/Control/URL/Dados"]
+margin_left = 23.0
+margin_top = 29.0
+margin_right = 59.0
+margin_bottom = 43.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Link Externo:"
+
+[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/URL/Dados/Label2"]
+self_modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = -13.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 13.0
+texture = ExtResource( 13 )
 expand = true
 
 [connection signal="DadosCarregados" from="." to="Cabecalho" method="_on_Janela_DadosCarregados"]
