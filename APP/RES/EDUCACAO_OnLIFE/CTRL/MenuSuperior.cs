@@ -30,6 +30,7 @@ public class MenuSuperior : Control
     }
     private void _on_GPedU_pressed()
     {
+        OS.ShellOpen("https://gpedu.com.br/");
     }
     private void _on_Contato_pressed()
     {
