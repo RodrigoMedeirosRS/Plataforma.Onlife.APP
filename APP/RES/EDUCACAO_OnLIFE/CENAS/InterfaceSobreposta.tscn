@@ -352,8 +352,8 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -9.0
-margin_right = 88320.0
-margin_bottom = 49671.0
+margin_right = 94080.0
+margin_bottom = 52911.0
 rect_min_size = Vector2( 175, 139 )
 mouse_filter = 2
 
@@ -456,6 +456,17 @@ margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModalEquipe" parent="InterfaceExpandida/MenuSuperior/Modais" index="2"]
+margin_right = 1306.0
+margin_bottom = -253.0
+
+[node name="RichTextLabel" parent="InterfaceExpandida/MenuSuperior/Modais/ModalEquipe/MarginContainer" index="0"]
+margin_right = 335.0
+margin_bottom = 133.0
 
 [node name="Panel" parent="InterfaceExpandida/MenuSuperior/MarginContainer" index="0"]
 margin_bottom = 104.0
@@ -573,3 +584,6 @@ anims/Retrair = SubResource( 6 )
 [connection signal="pressed" from="Panel/ExpandirButton" to="." method="_on_ExpandirButton_pressed"]
 
 [editable path="InterfaceExpandida/MenuSuperior"]
+[editable path="InterfaceExpandida/MenuSuperior/Modais/ModalSobre"]
+[editable path="InterfaceExpandida/MenuSuperior/Modais/ModalContato"]
+[editable path="InterfaceExpandida/MenuSuperior/Modais/ModalEquipe"]
