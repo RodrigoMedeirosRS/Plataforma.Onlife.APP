@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Plataforma.OnLIFE.APP"
-run/main_scene="res://RES/EDUCACAO_OnLIFE/CENAS/Main.tscn"
+run/main_scene="res://RES/EDUCACAO_OnLIFE/CENAS/TESTE_CIDADE.tscn"
 config/icon="res://icon.png"
 
 [display]
