@@ -49,6 +49,10 @@ namespace BLL
             PopularDropdown<TipoDTO>(tipos, dropdown);
             return tipos;
         }
+        public List<TipoDTO> ListarTipos()
+        {
+            return ConsultarTipos();
+        }
         public List<TipoRelacaoDTO> PopularDropDownTipoRelacao(OptionButton dropdown)
         {
             var tiposRelacao = ConsultarTiposRelacao();

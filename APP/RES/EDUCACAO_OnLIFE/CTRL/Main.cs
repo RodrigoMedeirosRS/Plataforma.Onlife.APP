@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 using DTO;
 using BLL.Utils;
@@ -15,12 +16,14 @@ public class Main : Node2D
 	private static CadastroDeCidade CadastroDeCidade { get; set; }
 	private static CadastroDeRegistro CadastroDeRegistro { get; set; }
 	private static PackedScene Cidade { get; set; }
-	private static IConsultarCidadeBLL ConsultarCidadeBLL { get; set; }
 	private static Mapa2D MapaLocalidade { get; set; }
 	public static Spatial Localidades { get; private set; }
 	public static bool AguardandoSelecaoDePonto { get; private set; }
-	
+	public static List<TipoDTO> Tipos { get; private set; }
 
+	private static IConsultarCidadeBLL ConsultarCidadeBLL { get; set; }
+	private static IConsultarTipoBLL TipoBLL { get; set; }
+	
 	[Signal] public delegate void DialogoFinalizado();
 	[Signal] public delegate void PerguntaRespondida(string resposta);
 	[Signal] public delegate void ArquivoEscolhido(string base64);
@@ -41,6 +44,7 @@ public class Main : Node2D
 	private void RealizarInjecaoDependecias()
 	{
 		ConsultarCidadeBLL = new BLL.ConsultarCidadeBLL();
+		TipoBLL = new BLL.ConsultarTipoBLL();
 	}
 	private void PopularNodes()
 	{
@@ -55,6 +59,11 @@ public class Main : Node2D
 		MapaLocalidade = GetNode<Mapa2D>("./Cidade/Mapa2D");
 		NovaCidadeBTN = GetNode<Button>("./Toolbar/InterfaceSobreposta/SideBar/VBoxContainer/NovaCidade");
 		AguardandoSelecaoDePonto = false;
+		Tipos = TipoBLL.ListarTipos();
+	}
+	public static void FecharArvore()
+	{
+		DispararDialogo("Estou incompleto, linha 61 arquivo main.cs, me termine!");
 	}
 	public static bool ObterModoDeCarga()
 	{

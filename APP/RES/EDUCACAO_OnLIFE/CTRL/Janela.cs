@@ -6,14 +6,17 @@ using DTO;
 public class Janela : Control
 {
 	public RegistroDTO RegistroDTO { get; set; }
+	public ConfirmationDialog Alerta { get; set; }
 	private bool MousePosicionado { get; set; }
-
+	public bool Edicao { get; set; }
 	[Signal] public delegate void DadosCarregados();
-	[Signal] public delegate void Fechar();
+
 	public override void _Ready()
 	{
 		MousePosicionado = false;
+		Edicao = false;
 		RegistroDTO = new RegistroDTO();
+		Alerta = GetNode<ConfirmationDialog>("Conteudo/Alterta");
 	}
 	public override void _Process(float delta)
 	{
@@ -27,7 +30,8 @@ public class Janela : Control
 	}
 	private void _on_Fechar_button_up()
 	{
-		EmitSignal("Fechar");
+		Edicao = false;
+		Alerta.Popup_();
 	}
 	private void _on_BarraSuperior_mouse_entered()
 	{

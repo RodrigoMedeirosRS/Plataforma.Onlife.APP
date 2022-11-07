@@ -215,7 +215,7 @@ expand = true
 
 [node name="Conteudo" type="Control" parent="."]
 
-[node name="CadastroDeRegistro" type="AcceptDialog" parent="Conteudo"]
+[node name="Registro" type="AcceptDialog" parent="Conteudo"]
 visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -227,7 +227,7 @@ rect_min_size = Vector2( 453, 466 )
 theme = ExtResource( 3 )
 window_title = ""
 
-[node name="Control" type="Control" parent="Conteudo/CadastroDeRegistro"]
+[node name="Control" type="Control" parent="Conteudo/Registro"]
 anchor_left = -0.523179
 anchor_right = -0.523179
 margin_left = 245.0
@@ -235,13 +235,13 @@ margin_top = 8.0
 margin_right = 682.0
 margin_bottom = 430.0
 
-[node name="Idioma" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+[node name="Idioma" type="Control" parent="Conteudo/Registro/Control"]
 margin_left = 80.0
 margin_top = -3.0
 margin_right = 315.0
 margin_bottom = 29.0
 
-[node name="NomeTexto" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Idioma"]
+[node name="NomeIdioma" type="Label" parent="Conteudo/Registro/Control/Idioma"]
 margin_left = -66.0
 margin_top = 6.0
 margin_right = 344.0
@@ -252,7 +252,7 @@ text = "Lingua do Registro"
 autowrap = true
 clip_text = true
 
-[node name="Label" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Idioma"]
+[node name="Label" type="Label" parent="Conteudo/Registro/Control/Idioma"]
 margin_left = -55.0
 margin_top = -8.0
 margin_right = -19.0
@@ -262,7 +262,7 @@ custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Idioma:"
 
-[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Idioma/Label"]
+[node name="TextureRect" type="TextureRect" parent="Conteudo/Registro/Control/Idioma/Label"]
 self_modulate = Color( 1, 0.027451, 0.027451, 1 )
 margin_left = -13.0
 margin_top = 2.0
@@ -271,16 +271,16 @@ margin_bottom = 13.0
 texture = ExtResource( 24 )
 expand = true
 
-[node name="Texto" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+[node name="Texto" type="Control" parent="Conteudo/Registro/Control"]
 visible = false
 margin_left = 1.0
 margin_top = -6.0
 margin_right = 435.0
 margin_bottom = 425.0
 
-[node name="Dados" type="Control" parent="Conteudo/CadastroDeRegistro/Control/Texto"]
+[node name="Dados" type="Control" parent="Conteudo/Registro/Control/Texto"]
 
-[node name="Label2" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Texto/Dados"]
+[node name="Label2" type="Label" parent="Conteudo/Registro/Control/Texto/Dados"]
 margin_left = 23.0
 margin_top = 29.0
 margin_right = 59.0
@@ -290,7 +290,7 @@ custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Texto:"
 
-[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Texto/Dados/Label2"]
+[node name="TextureRect" type="TextureRect" parent="Conteudo/Registro/Control/Texto/Dados/Label2"]
 self_modulate = Color( 1, 0.027451, 0.027451, 1 )
 margin_left = -13.0
 margin_top = 2.0
@@ -299,14 +299,14 @@ margin_bottom = 13.0
 texture = ExtResource( 18 )
 expand = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Conteudo/CadastroDeRegistro/Control/Texto"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Conteudo/Registro/Control/Texto"]
 margin_left = 8.0
 margin_top = 47.0
 margin_right = 428.0
 margin_bottom = 427.0
 rect_min_size = Vector2( 420, 380 )
 
-[node name="CorpoDoTexto" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Texto/ScrollContainer"]
+[node name="CorpoDoTexto" type="Label" parent="Conteudo/Registro/Control/Texto/ScrollContainer"]
 margin_right = 420.0
 margin_bottom = 17.0
 rect_min_size = Vector2( 420, 0 )
@@ -314,7 +314,7 @@ theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 autowrap = true
 
-[node name="Imagem" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+[node name="Imagem" type="Control" parent="Conteudo/Registro/Control"]
 visible = false
 anchor_right = -0.0800915
 anchor_bottom = -0.180095
@@ -325,9 +325,9 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Dados" type="Control" parent="Conteudo/CadastroDeRegistro/Control/Imagem"]
+[node name="Dados" type="Control" parent="Conteudo/Registro/Control/Imagem"]
 
-[node name="Label2" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Imagem/Dados"]
+[node name="Label2" type="Label" parent="Conteudo/Registro/Control/Imagem/Dados"]
 margin_left = 23.0
 margin_top = 29.0
 margin_right = 59.0
@@ -337,7 +337,7 @@ custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Imagem:"
 
-[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Imagem/Dados/Label2"]
+[node name="TextureRect" type="TextureRect" parent="Conteudo/Registro/Control/Imagem/Dados/Label2"]
 self_modulate = Color( 1, 0.027451, 0.027451, 1 )
 margin_left = -13.0
 margin_top = 2.0
@@ -346,7 +346,7 @@ margin_bottom = 13.0
 texture = ExtResource( 22 )
 expand = true
 
-[node name="ImagemButton" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Imagem"]
+[node name="ImagemButton" type="TextureRect" parent="Conteudo/Registro/Control/Imagem"]
 margin_left = 30.0
 margin_top = 49.0
 margin_right = 403.0
@@ -355,7 +355,7 @@ rect_min_size = Vector2( 373, 373 )
 texture = ExtResource( 16 )
 expand = true
 
-[node name="Audio" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+[node name="Audio" type="Control" parent="Conteudo/Registro/Control"]
 visible = false
 anchor_right = -0.0755149
 anchor_bottom = -0.180095
@@ -366,9 +366,9 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Dados" type="Control" parent="Conteudo/CadastroDeRegistro/Control/Audio"]
+[node name="Dados" type="Control" parent="Conteudo/Registro/Control/Audio"]
 
-[node name="Label2" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Audio/Dados"]
+[node name="Label2" type="Label" parent="Conteudo/Registro/Control/Audio/Dados"]
 margin_left = 23.0
 margin_top = 29.0
 margin_right = 59.0
@@ -378,7 +378,7 @@ custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Audio:"
 
-[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Audio/Dados/Label2"]
+[node name="TextureRect" type="TextureRect" parent="Conteudo/Registro/Control/Audio/Dados/Label2"]
 self_modulate = Color( 1, 0.027451, 0.027451, 1 )
 margin_left = -13.0
 margin_top = 2.0
@@ -387,7 +387,7 @@ margin_bottom = 13.0
 texture = ExtResource( 23 )
 expand = true
 
-[node name="AudioButton" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Audio"]
+[node name="AudioButton" type="TextureRect" parent="Conteudo/Registro/Control/Audio"]
 margin_left = 66.0
 margin_top = 49.0
 margin_right = 368.0
@@ -395,7 +395,7 @@ margin_bottom = 351.0
 texture = ExtResource( 17 )
 expand = true
 
-[node name="Stop" type="TextureButton" parent="Conteudo/CadastroDeRegistro/Control/Audio"]
+[node name="Stop" type="TextureButton" parent="Conteudo/Registro/Control/Audio"]
 self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
 margin_left = 166.0
 margin_top = 362.0
@@ -403,7 +403,7 @@ margin_right = 214.0
 margin_bottom = 410.0
 texture_normal = ExtResource( 14 )
 
-[node name="Play" type="TextureButton" parent="Conteudo/CadastroDeRegistro/Control/Audio"]
+[node name="Play" type="TextureButton" parent="Conteudo/Registro/Control/Audio"]
 self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
 margin_left = 222.0
 margin_top = 362.0
@@ -411,10 +411,10 @@ margin_right = 270.0
 margin_bottom = 410.0
 texture_normal = ExtResource( 12 )
 
-[node name="ConteudoAudio" type="AudioStreamPlayer" parent="Conteudo/CadastroDeRegistro/Control/Audio"]
+[node name="ConteudoAudio" type="AudioStreamPlayer" parent="Conteudo/Registro/Control/Audio"]
 volume_db = -5.0
 
-[node name="Arquivo" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+[node name="Arquivo" type="Control" parent="Conteudo/Registro/Control"]
 visible = false
 anchor_right = -0.0800915
 anchor_bottom = -0.189573
@@ -425,9 +425,9 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Dados" type="Control" parent="Conteudo/CadastroDeRegistro/Control/Arquivo"]
+[node name="Dados" type="Control" parent="Conteudo/Registro/Control/Arquivo"]
 
-[node name="Label2" type="Label" parent="Conteudo/CadastroDeRegistro/Control/Arquivo/Dados"]
+[node name="Label2" type="Label" parent="Conteudo/Registro/Control/Arquivo/Dados"]
 margin_left = 23.0
 margin_top = 29.0
 margin_right = 59.0
@@ -437,7 +437,7 @@ custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Arquivo:"
 
-[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Arquivo/Dados/Label2"]
+[node name="TextureRect" type="TextureRect" parent="Conteudo/Registro/Control/Arquivo/Dados/Label2"]
 self_modulate = Color( 1, 0.027451, 0.027451, 1 )
 margin_left = -13.0
 margin_top = 2.0
@@ -446,7 +446,7 @@ margin_bottom = 13.0
 texture = ExtResource( 25 )
 expand = true
 
-[node name="FileButton" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/Arquivo"]
+[node name="FileButton" type="TextureRect" parent="Conteudo/Registro/Control/Arquivo"]
 margin_left = 64.0
 margin_top = 50.0
 margin_right = 371.0
@@ -454,7 +454,7 @@ margin_bottom = 357.0
 texture = ExtResource( 21 )
 expand = true
 
-[node name="Download" type="TextureButton" parent="Conteudo/CadastroDeRegistro/Control/Arquivo"]
+[node name="Download" type="TextureButton" parent="Conteudo/Registro/Control/Arquivo"]
 self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
 margin_left = 194.0
 margin_top = 366.0
@@ -462,7 +462,7 @@ margin_right = 242.0
 margin_bottom = 414.0
 texture_normal = ExtResource( 19 )
 
-[node name="URL" type="Control" parent="Conteudo/CadastroDeRegistro/Control"]
+[node name="URL" type="Control" parent="Conteudo/Registro/Control"]
 anchor_right = -0.0686499
 anchor_bottom = -0.180095
 margin_right = 470.0
@@ -471,7 +471,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="URLButton" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/URL"]
+[node name="URLButton" type="TextureRect" parent="Conteudo/Registro/Control/URL"]
 margin_left = 87.0
 margin_top = 54.0
 margin_right = 357.0
@@ -479,29 +479,30 @@ margin_bottom = 324.0
 texture = ExtResource( 15 )
 expand = true
 
-[node name="Go" type="TextureButton" parent="Conteudo/CadastroDeRegistro/Control/URL"]
-self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+[node name="Go" type="TextureButton" parent="Conteudo/Registro/Control/URL"]
+self_modulate = Color( 1, 0.027451, 0.027451, 1 )
 margin_left = 377.0
 margin_top = 353.0
 margin_right = 425.0
 margin_bottom = 401.0
 texture_normal = ExtResource( 20 )
 
-[node name="URL" type="Label" parent="Conteudo/CadastroDeRegistro/Control/URL"]
+[node name="URL" type="Label" parent="Conteudo/Registro/Control/URL"]
 margin_left = 26.0
 margin_top = 363.0
 margin_right = 364.0
 margin_bottom = 395.0
+theme = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="Conteudo/CadastroDeRegistro/Control/URL/URL"]
+[node name="Label" type="Label" parent="Conteudo/Registro/Control/URL/URL"]
 margin_left = 29.0
 margin_top = -21.0
 margin_right = 59.0
 margin_bottom = -4.0
 text = "URL:"
 
-[node name="Icone" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/URL/URL/Label"]
-self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+[node name="Icone" type="TextureRect" parent="Conteudo/Registro/Control/URL/URL/Label"]
+self_modulate = Color( 1, 0.027451, 0.027451, 1 )
 margin_left = -19.0
 margin_top = 1.0
 margin_right = -3.0
@@ -509,9 +510,9 @@ margin_bottom = 17.0
 texture = ExtResource( 13 )
 expand = true
 
-[node name="Dados" type="Control" parent="Conteudo/CadastroDeRegistro/Control/URL"]
+[node name="Dados" type="Control" parent="Conteudo/Registro/Control/URL"]
 
-[node name="Label2" type="Label" parent="Conteudo/CadastroDeRegistro/Control/URL/Dados"]
+[node name="Label2" type="Label" parent="Conteudo/Registro/Control/URL/Dados"]
 margin_left = 23.0
 margin_top = 29.0
 margin_right = 59.0
@@ -521,7 +522,7 @@ custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Link Externo:"
 
-[node name="TextureRect" type="TextureRect" parent="Conteudo/CadastroDeRegistro/Control/URL/Dados/Label2"]
+[node name="TextureRect" type="TextureRect" parent="Conteudo/Registro/Control/URL/Dados/Label2"]
 self_modulate = Color( 1, 0.027451, 0.027451, 1 )
 margin_left = -13.0
 margin_top = 2.0
@@ -530,11 +531,26 @@ margin_bottom = 13.0
 texture = ExtResource( 13 )
 expand = true
 
+[node name="Alterta" type="ConfirmationDialog" parent="Conteudo"]
+margin_left = 60.0
+margin_top = 96.0
+margin_right = 334.0
+margin_bottom = 199.0
+theme = ExtResource( 3 )
+window_title = ""
+dialog_text = "Executar essa ação vai fechar toda a arvore de pesquisa. Deseja prosseguir?"
+dialog_autowrap = true
+
 [connection signal="DadosCarregados" from="." to="Cabecalho" method="_on_Janela_DadosCarregados"]
-[connection signal="Fechar" from="." to="Cabecalho" method="_on_Janela_Fechar"]
 [connection signal="mouse_entered" from="BarraSuperior" to="." method="_on_BarraSuperior_mouse_entered"]
 [connection signal="mouse_exited" from="BarraSuperior" to="." method="_on_BarraSuperior_mouse_exited"]
 [connection signal="button_up" from="Fechar" to="." method="_on_Fechar_button_up"]
 [connection signal="button_up" from="Cabecalho/Editar" to="Cabecalho" method="_on_Editar_button_up"]
 [connection signal="button_up" from="Cabecalho/Abrir" to="Cabecalho" method="_on_Abrir_button_up"]
 [connection signal="button_up" from="Cabecalho/Relacoes" to="Cabecalho" method="_on_Relacoes_button_up"]
+[connection signal="popup_hide" from="Conteudo/Registro" to="Cabecalho" method="_on_Registro_popup_hide"]
+[connection signal="button_up" from="Conteudo/Registro/Control/Audio/Stop" to="Cabecalho" method="_on_Stop_button_up"]
+[connection signal="button_up" from="Conteudo/Registro/Control/Audio/Play" to="Cabecalho" method="_on_Play_button_up"]
+[connection signal="button_up" from="Conteudo/Registro/Control/Arquivo/Download" to="Cabecalho" method="_on_Download_button_up"]
+[connection signal="button_up" from="Conteudo/Registro/Control/URL/Go" to="Cabecalho" method="_on_Go_button_up"]
+[connection signal="confirmed" from="Conteudo/Alterta" to="Cabecalho" method="_on_Alterta_confirmed"]
