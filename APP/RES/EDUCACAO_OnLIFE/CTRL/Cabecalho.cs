@@ -43,24 +43,24 @@ public class Cabecalho : Control, IDisposableCTRL
 	private void PopularNodes()
 	{
 		Dados = GetParent<Janela>();
-		Nome = GetNode<Label>("./Cabecalho/Nome/NomeTexto");
-		Apelido = GetNode<Label>("./Cabecalho/Nome/NomeTexto");
-		Descricao = GetNode<Label>("./Cabecalho/Descricao/ScrollContainer/DescricaoTexto");
-		Idioma = GetNode<Label>("./Conteudo/Registro/Control/Idioma/NomeIdioma");
-		Registro = GetNode<AcceptDialog>("./Conteudo/Registro");
+		Nome = GetNode<Label>("./Nome/NomeTexto");
+		Apelido = GetNode<Label>("./Nome/NomeTexto");
+		Descricao = GetNode<Label>("./Descricao/ScrollContainer/DescricaoTexto");
+		Idioma = GetNode<Label>("../Conteudo/Registro/Control/Idioma/NomeIdioma");
+		Registro = GetNode<AcceptDialog>("../Conteudo/Registro");
 
-		ConteudoTexto = GetNode<Control>("./Conteudo/Registro/Control/Texto");
-		ConteudoAudio = GetNode<Control>("./Conteudo/Registro/Control/Audio");
-		ConteudoArquivo = GetNode<Control>("./Conteudo/Registro/Control/Arquivo");
-		ConteudoImagem = GetNode<Control>("./Conteudo/Registro/Control/Imagem");
-		ConteudoURL = GetNode<Control>("./Conteudo/Registro/Control/URL");
+		ConteudoTexto = GetNode<Control>("../Conteudo/Registro/Control/Texto");
+		ConteudoAudio = GetNode<Control>("../Conteudo/Registro/Control/Audio");
+		ConteudoArquivo = GetNode<Control>("../Conteudo/Registro/Control/Arquivo");
+		ConteudoImagem = GetNode<Control>("../Conteudo/Registro/Control/Imagem");
+		ConteudoURL = GetNode<Control>("../Conteudo/Registro/Control/URL");
 
-		ReprodutorAudio = GetNode<AudioStreamPlayer>("./Conteudo/Registro/Control/Audio/ConteudoAudio");
-		Texto = GetNode<Label>("./Conteudo/Registro/Control/Texto/ScrollContainer/CorpoDoTexto");
-		Imagem = GetNode<TextureRect>("./Conteudo/Registro/Control/Imagem/Dados/Label2/TextureRect");
+		ReprodutorAudio = GetNode<AudioStreamPlayer>("../Conteudo/Registro/Control/Audio/ConteudoAudio");
+		Texto = GetNode<Label>("../Conteudo/Registro/Control/Texto/ScrollContainer/CorpoDoTexto");
+		Imagem = GetNode<TextureRect>("../Conteudo/Registro/Control/Imagem/ImagemButton");
 		ImagemOriginal = Imagem.Texture;
-		ConteudoURL = GetNode<Label>("./Conteudo/Registro/Control/URL/URL");
-		SaveFile = GetNode<FileDialog>("./Conteudo/SaveDialog");
+		ConteudoURL = GetNode<Label>("../Conteudo/Registro/Control/URL/URL");
+		SaveFile = GetNode<FileDialog>("../Conteudo/SaveDialog");
 	}
 	private void _on_Janela_DadosCarregados()
 	{
@@ -86,7 +86,12 @@ public class Cabecalho : Control, IDisposableCTRL
 	private void AlternarTipoJanela()
 	{
 		ReprodutorAudio.Stop();
-		var tipo = Main.Tipos.FirstOrDefault(tipo => tipo.Nome == Dados.RegistroDTO.Tipo);
+		//var tipo = Main.Tipos.FirstOrDefault(tipo => tipo.Nome == Dados.RegistroDTO.Tipo);
+		var tipo = new TipoDTO(){
+			Nome = "Texto",
+			Extensao = ".txt",
+			TipoExecucao = TipoExecucao.Texto
+		};
 		ConteudoTexto.Visible = tipo.TipoExecucao == TipoExecucao.Texto;
 		ConteudoAudio.Visible = tipo.TipoExecucao == TipoExecucao.Audio;
 		ConteudoArquivo.Visible = tipo.TipoExecucao == TipoExecucao.Arquivo;
@@ -96,7 +101,12 @@ public class Cabecalho : Control, IDisposableCTRL
 	private void AtribuirConteudo()
 	{
 		ValidarConteudoRegistro();
-		var tipo = Main.Tipos.FirstOrDefault(tipo => tipo.Nome == Dados.RegistroDTO.Tipo);
+		//var tipo = Main.Tipos.FirstOrDefault(tipo => tipo.Nome == Dados.RegistroDTO.Tipo);
+		var tipo = new TipoDTO(){
+			Nome = "Texto",
+			Extensao = ".txt",
+			TipoExecucao = TipoExecucao.Texto
+		};
 		switch(tipo.TipoExecucao)
 		{
 			case(TipoExecucao.Audio):

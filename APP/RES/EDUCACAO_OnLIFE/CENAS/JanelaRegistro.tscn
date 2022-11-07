@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/Janela.cs" type="Script" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Fechar.svg" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/music.png" type="Texture" id=23]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/translate-variant.png" type="Texture" id=24]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/file-document.png" type="Texture" id=25]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/FioVermelhoMock.tscn" type="PackedScene" id=26]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
@@ -46,6 +47,10 @@ margin_right = -1652.0
 margin_bottom = -784.0
 rect_min_size = Vector2( 268, 296 )
 script = ExtResource( 1 )
+
+[node name="FioVermelho" parent="." instance=ExtResource( 26 )]
+ponto_a = NodePath("..")
+ponto_b = NodePath("../Conteudo/Registro")
 
 [node name="Fundo" type="Panel" parent="."]
 anchor_right = 1.0
@@ -214,14 +219,14 @@ texture_normal = ExtResource( 9 )
 expand = true
 
 [node name="Conteudo" type="Control" parent="."]
+visible = false
 
 [node name="Registro" type="AcceptDialog" parent="Conteudo"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 279.0
-margin_top = 38.0
-margin_right = 732.0
-margin_bottom = 504.0
+visible = true
+margin_left = 288.0
+margin_top = 37.0
+margin_right = 741.0
+margin_bottom = 503.0
 rect_min_size = Vector2( 453, 466 )
 theme = ExtResource( 3 )
 window_title = ""
@@ -314,17 +319,23 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 autowrap = true
 
 [node name="Imagem" type="Control" parent="Conteudo/Registro/Control"]
-visible = false
-anchor_right = -0.0800915
-anchor_bottom = -0.180095
-margin_top = -1.0
-margin_right = 470.0
-margin_bottom = 500.0
+anchor_left = 1.07208
+anchor_top = 0.194313
+anchor_right = 1.07208
+anchor_bottom = 0.194313
+margin_left = -504.5
+margin_top = -159.0
+margin_right = -504.5
+margin_bottom = -159.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Dados" type="Control" parent="Conteudo/Registro/Control/Imagem"]
+margin_left = 37.0
+margin_top = 71.0
+margin_right = 37.0
+margin_bottom = 71.0
 
 [node name="Label2" type="Label" parent="Conteudo/Registro/Control/Imagem/Dados"]
 margin_left = 23.0
@@ -346,16 +357,18 @@ texture = ExtResource( 22 )
 expand = true
 
 [node name="ImagemButton" type="TextureRect" parent="Conteudo/Registro/Control/Imagem"]
-margin_left = 30.0
-margin_top = 49.0
-margin_right = 403.0
-margin_bottom = 422.0
+margin_left = 67.0
+margin_top = 119.0
+margin_right = 440.0
+margin_bottom = 492.0
 rect_min_size = Vector2( 373, 373 )
 texture = ExtResource( 16 )
 expand = true
 
 [node name="Audio" type="Control" parent="Conteudo/Registro/Control"]
 visible = false
+anchor_left = -0.0755149
+anchor_top = -0.180095
 anchor_right = -0.0755149
 anchor_bottom = -0.180095
 margin_top = -1.0
@@ -415,6 +428,8 @@ volume_db = -5.0
 
 [node name="Arquivo" type="Control" parent="Conteudo/Registro/Control"]
 visible = false
+anchor_left = -0.0800915
+anchor_top = -0.189573
 anchor_right = -0.0800915
 anchor_bottom = -0.189573
 margin_top = -1.0
@@ -462,6 +477,9 @@ margin_bottom = 414.0
 texture_normal = ExtResource( 19 )
 
 [node name="URL" type="Control" parent="Conteudo/Registro/Control"]
+visible = false
+anchor_left = -0.0686499
+anchor_top = -0.180095
 anchor_right = -0.0686499
 anchor_bottom = -0.180095
 margin_right = 470.0
