@@ -541,6 +541,19 @@ window_title = ""
 dialog_text = "Executar essa ação vai fechar toda a arvore de pesquisa. Deseja prosseguir?"
 dialog_autowrap = true
 
+[node name="SaveDialog" type="FileDialog" parent="Conteudo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -54.0
+margin_top = 36.0
+margin_right = 730.0
+margin_bottom = 485.0
+theme = ExtResource( 3 )
+window_title = "Salvar um Arquivo"
+access = 2
+
 [connection signal="DadosCarregados" from="." to="Cabecalho" method="_on_Janela_DadosCarregados"]
 [connection signal="mouse_entered" from="BarraSuperior" to="." method="_on_BarraSuperior_mouse_entered"]
 [connection signal="mouse_exited" from="BarraSuperior" to="." method="_on_BarraSuperior_mouse_exited"]
@@ -554,3 +567,4 @@ dialog_autowrap = true
 [connection signal="button_up" from="Conteudo/Registro/Control/Arquivo/Download" to="Cabecalho" method="_on_Download_button_up"]
 [connection signal="button_up" from="Conteudo/Registro/Control/URL/Go" to="Cabecalho" method="_on_Go_button_up"]
 [connection signal="confirmed" from="Conteudo/Alterta" to="Cabecalho" method="_on_Alterta_confirmed"]
+[connection signal="file_selected" from="Conteudo/SaveDialog" to="Cabecalho" method="_on_FileDialog_file_selected"]

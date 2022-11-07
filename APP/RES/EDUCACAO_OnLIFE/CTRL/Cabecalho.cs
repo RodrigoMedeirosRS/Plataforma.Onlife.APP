@@ -17,6 +17,7 @@ public class Cabecalho : Control, IDisposableCTRL
 	private Label Descricao { get; set; }
 	private Label Idioma { get; set; }
 	private AcceptDialog Registro { get; set; }
+	private FileDialog SaveFile { get; set; }
 	private Texture ImagemOriginal { get; set; }
 	private TextureRect Imagem { get; set; }
 	private Label Texto { get; set; }
@@ -59,6 +60,7 @@ public class Cabecalho : Control, IDisposableCTRL
 		Imagem = GetNode<TextureRect>("./Conteudo/Registro/Control/Imagem/Dados/Label2/TextureRect");
 		ImagemOriginal = Imagem.Texture;
 		ConteudoURL = GetNode<Label>("./Conteudo/Registro/Control/URL/URL");
+		SaveFile = GetNode<FileDialog>("./Conteudo/SaveDialog");
 	}
 	private void _on_Janela_DadosCarregados()
 	{
@@ -160,11 +162,17 @@ public class Cabecalho : Control, IDisposableCTRL
 	}
 	private void _on_Download_button_up()
 	{
-		// Replace with function body.
+		var tipo = Main.Tipos.FirstOrDefault(tipo => tipo.Nome == Dados.RegistroDTO.Tipo);
+		SaveFile.Filters = new string[]{ "*" + tipo.Extensao + " ; " + tipo.Nome };
+		SaveFile.Popup_();
 	}
 	private void _on_Go_button_up()
 	{
 		if(!string.IsNullOrEmpty(Dados.RegistroDTO.Conteudo))
 			OS.ShellOpen(Dados.RegistroDTO.Conteudo);
+	}
+	private void _on_FileDialog_file_selected(String path)
+	{
+		ImportadorDeBinariosUtil.SalvarBase64(path, Dados.RegistroDTO.Conteudo);
 	}
 }
