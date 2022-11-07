@@ -86,12 +86,7 @@ public class Cabecalho : Control, IDisposableCTRL
 	private void AlternarTipoJanela()
 	{
 		ReprodutorAudio.Stop();
-		//var tipo = Main.Tipos.FirstOrDefault(tipo => tipo.Nome == Dados.RegistroDTO.Tipo);
-		var tipo = new TipoDTO(){
-			Nome = "Texto",
-			Extensao = ".txt",
-			TipoExecucao = TipoExecucao.Texto
-		};
+		var tipo = Main.Tipos.FirstOrDefault(tipo => tipo.Nome == Dados.RegistroDTO.Tipo);
 		ConteudoTexto.Visible = tipo.TipoExecucao == TipoExecucao.Texto;
 		ConteudoAudio.Visible = tipo.TipoExecucao == TipoExecucao.Audio;
 		ConteudoArquivo.Visible = tipo.TipoExecucao == TipoExecucao.Arquivo;
@@ -101,12 +96,7 @@ public class Cabecalho : Control, IDisposableCTRL
 	private void AtribuirConteudo()
 	{
 		ValidarConteudoRegistro();
-		//var tipo = Main.Tipos.FirstOrDefault(tipo => tipo.Nome == Dados.RegistroDTO.Tipo);
-		var tipo = new TipoDTO(){
-			Nome = "Texto",
-			Extensao = ".txt",
-			TipoExecucao = TipoExecucao.Texto
-		};
+		var tipo = Main.Tipos.FirstOrDefault(tipo => tipo.Nome == Dados.RegistroDTO.Tipo);
 		switch(tipo.TipoExecucao)
 		{
 			case(TipoExecucao.Audio):
