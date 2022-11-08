@@ -1,7 +1,11 @@
 using Godot;
 using System;
 
-public class PlanoDeRegistros : Node
+using DTO;
+using BLL.Utils;
+using CTRL.Interface;
+
+public class PlanoDeRegistros : CanvasLayer
 {
 	public Control Container { get; set; }
 	private ColorRect Veu { get; set; }
@@ -13,8 +17,8 @@ public class PlanoDeRegistros : Node
 	private void PopularNodes()
 	{
 		MouseOffset = new Vector2();
-		Container = GetNode<Control>("./CanvasLayer/Container");
-		Veu = GetNode<ColorRect>("./CanvasLayer/Veu");
+		Container = GetNode<Control>("./Container");
+		Veu = GetNode<ColorRect>("./Veu");
 	}
 	private void AlternarVisiblidade()
 	{
@@ -26,6 +30,29 @@ public class PlanoDeRegistros : Node
 	{
 		AlternarVisiblidade();
 		Mover();
+	}
+	public void InstanciarPrimeiroRegisro(RegistroDTO registroDTO)
+	{
+		if(!Veu.Visible)
+		{
+			var janelaCena = InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/JanelaRegistro.tscn");
+			var janela = InstanciadorUtil.InstanciarObjeto(Container, janelaCena, null);
+			(janela as Janela).PopularDados(registroDTO);
+		}
+	}
+	public void InstanciarPrimeiraPessoa(PessoaDTO pessoaDTO)
+	{
+		if(!Veu.Visible)
+		{
+			var janelaCena = InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/JanelaPessoa.tscn");
+			var janela = InstanciadorUtil.InstanciarObjeto(Container, janelaCena, null);
+			(janela as JanelaPessoa).DefinirDados(pessoaDTO);
+		}
+	}
+	public void LimparRegistros()
+	{
+		foreach(var registro in Container.GetChildren())
+			(registro as IDisposableCTRL).FecharCTRL();
 	}
 	public void Mover()
 	{

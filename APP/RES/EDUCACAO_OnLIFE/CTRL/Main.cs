@@ -17,6 +17,8 @@ public class Main : Node2D
 	private static CadastroDeRegistro CadastroDeRegistro { get; set; }
 	private static PackedScene Cidade { get; set; }
 	private static Mapa2D MapaLocalidade { get; set; }
+	private static PlanoDeRegistros PlanoDeRegistros { get; set; }
+
 	public static Spatial Localidades { get; private set; }
 	public static bool AguardandoSelecaoDePonto { get; private set; }
 	public static List<TipoDTO> Tipos { get; private set; }
@@ -33,6 +35,7 @@ public class Main : Node2D
 
 	public override void _Ready()
 	{
+		ReposicionarTela();
 		RealizarInjecaoDependecias();
 		PopularNodes();
 		AtualizarCidades();
@@ -59,11 +62,20 @@ public class Main : Node2D
 		MapaLocalidade = GetNode<Mapa2D>("./Cidade/Mapa2D");
 		NovaCidadeBTN = GetNode<Button>("./Toolbar/InterfaceSobreposta/SideBar/VBoxContainer/NovaCidade");
 		AguardandoSelecaoDePonto = false;
+		PlanoDeRegistros = GetNode<PlanoDeRegistros>("./PlanoDeRegistros");
 		Tipos = TipoBLL.ListarTipos();
+	}
+	public static void InstanciarPrimeiraPessoa(PessoaDTO pessoaDTO)
+	{
+		PlanoDeRegistros.InstanciarPrimeiraPessoa(pessoaDTO);
+	}
+	public static void InstanciarPrimeiroRegisro(RegistroDTO registroDTO)
+	{
+		PlanoDeRegistros.InstanciarPrimeiroRegisro(registroDTO);
 	}
 	public static void FecharArvore()
 	{
-		DispararDialogo("Estou incompleto, linha 61 arquivo main.cs, me termine!");
+		PlanoDeRegistros.LimparRegistros();
 	}
 	public static bool ObterModoDeCarga()
 	{
@@ -170,5 +182,14 @@ public class Main : Node2D
 		var paddingCount = base64.Substring(characterCount - 2, 2)
 									.Count(c => c == '=');
 		return (3 * (characterCount / 4)) - paddingCount;
+	}
+	private void ReposicionarTela()
+	{
+		if (OS.GetName() == "Windows")
+		{
+			var screen_size = OS.GetScreenSize(0);
+			var window_size = OS.WindowSize;
+			OS.WindowPosition = screen_size * 0.5f - window_size * 0.5f;
+		}
 	}
 }

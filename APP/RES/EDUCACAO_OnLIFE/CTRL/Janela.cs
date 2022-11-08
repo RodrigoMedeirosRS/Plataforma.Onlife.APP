@@ -2,8 +2,9 @@ using Godot;
 using System;
 
 using DTO;
+using CTRL.Interface;
 
-public class Janela : Control
+public class Janela : Control, IDisposableCTRL
 {
 	public RegistroDTO RegistroDTO { get; set; }
 	public ConfirmationDialog Alerta { get; set; }
@@ -47,5 +48,9 @@ public class Janela : Control
 	private void _on_BarraSuperior_mouse_exited()
 	{
 		MousePosicionado = false;
+	}
+	public void FecharCTRL()
+	{
+		GetNode<Cabecalho>("./Cabecalho").FecharCTRL();
 	}
 }

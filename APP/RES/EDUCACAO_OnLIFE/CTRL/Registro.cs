@@ -35,6 +35,6 @@ public class Registro : Control, IDisposableCTRL
 	}
 	private void _on_TextureButton_button_up()
 	{
-		// Replace with function body.
+		Main.InstanciarPrimeiroRegisro(RegistroDTO);
 	}
 }
