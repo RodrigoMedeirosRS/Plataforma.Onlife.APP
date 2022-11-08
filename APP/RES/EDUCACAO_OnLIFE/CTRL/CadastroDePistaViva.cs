@@ -68,6 +68,7 @@ public class CadastroDePistaViva : ConfirmationDialog
 			ResearchGate.Text = pistaviva.ResearchGate;
 			if (!string.IsNullOrEmpty(pistaviva.Foto))
 				FotoPerfil.TextureNormal = ImportadorDeBinariosUtil.GerarImagem("temp", ".jpg", pistaviva.Foto);
+				
 		}
 		catch
 		{

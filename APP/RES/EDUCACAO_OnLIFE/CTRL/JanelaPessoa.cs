@@ -48,9 +48,9 @@ public class JanelaPessoa : Control, IDisposableCTRL
 		Foto = GetNode<TextureRect>("./Cabecalho/Foto");
 		Nome = GetNode<Label>("./Cabecalho/Nome/NomeTexto");
 		Apelido = GetNode<Label>("./Cabecalho/Apelido/ApelidoTexto");
-		Lattes = GetNode<TextureButton>("./Cabecalho/Lattes");
-		LinkdIn = GetNode<TextureButton>("./Cabecalho/LinkedIn");
-		ResearchGate = GetNode<TextureButton>("./Cabecalho/ResearchGate");
+		Lattes = GetNode<TextureButton>("./Cabecalho/HBoxContainer/Lattes");
+		LinkdIn = GetNode<TextureButton>("./Cabecalho/HBoxContainer/LinkedIn");
+		ResearchGate = GetNode<TextureButton>("./Cabecalho/HBoxContainer/ResearchGate");
 		ImagemOriginal = Foto.Texture;
 	}
 	public void DefinirDados (PessoaDTO pistaviva)

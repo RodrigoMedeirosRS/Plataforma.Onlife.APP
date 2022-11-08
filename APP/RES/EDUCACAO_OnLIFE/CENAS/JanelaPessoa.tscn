@@ -139,51 +139,57 @@ margin_bottom = 13.0
 texture = ExtResource( 5 )
 expand = true
 
-[node name="Editar" type="TextureButton" parent="Cabecalho"]
-modulate = Color( 1, 0.027451, 0.027451, 1 )
-margin_left = 143.0
-margin_top = 244.0
-margin_right = 170.0
-margin_bottom = 271.0
-hint_tooltip = "Editar"
-texture_normal = ExtResource( 9 )
-expand = true
+[node name="HBoxContainer" type="HBoxContainer" parent="Cabecalho"]
+margin_left = 37.0
+margin_top = 238.0
+margin_right = 188.0
+margin_bottom = 265.0
+alignment = 1
 
-[node name="Relacoes" type="TextureButton" parent="Cabecalho"]
-modulate = Color( 1, 0.027451, 0.027451, 1 )
-margin_left = 178.0
-margin_top = 240.0
-margin_right = 205.0
-margin_bottom = 267.0
-hint_tooltip = "Relações"
-texture_normal = ExtResource( 4 )
-expand = true
-
-[node name="Lattes" type="TextureButton" parent="Cabecalho"]
-margin_left = 33.0
-margin_top = 240.0
-margin_right = 60.0
-margin_bottom = 267.0
+[node name="Lattes" type="TextureButton" parent="Cabecalho/HBoxContainer"]
+margin_right = 27.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 27, 27 )
 hint_tooltip = "Ir ao Lattes"
 texture_normal = ExtResource( 3 )
 expand = true
 
-[node name="ResearchGate" type="TextureButton" parent="Cabecalho"]
-margin_left = 69.0
-margin_top = 240.0
-margin_right = 96.0
-margin_bottom = 267.0
+[node name="ResearchGate" type="TextureButton" parent="Cabecalho/HBoxContainer"]
+margin_left = 31.0
+margin_right = 58.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 27, 27 )
 hint_tooltip = "Ir ao Research Gate"
 texture_normal = ExtResource( 11 )
 expand = true
 
-[node name="LinkedIn" type="TextureButton" parent="Cabecalho"]
-margin_left = 106.0
-margin_top = 240.0
-margin_right = 133.0
-margin_bottom = 267.0
+[node name="LinkedIn" type="TextureButton" parent="Cabecalho/HBoxContainer"]
+margin_left = 62.0
+margin_right = 89.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 27, 27 )
 hint_tooltip = "Ir ao LinkedIn"
 texture_normal = ExtResource( 10 )
+expand = true
+
+[node name="Editar" type="TextureButton" parent="Cabecalho/HBoxContainer"]
+modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = 93.0
+margin_right = 120.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 27, 27 )
+hint_tooltip = "Editar"
+texture_normal = ExtResource( 9 )
+expand = true
+
+[node name="Relacoes" type="TextureButton" parent="Cabecalho/HBoxContainer"]
+modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = 124.0
+margin_right = 151.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 27, 27 )
+hint_tooltip = "Relações"
+texture_normal = ExtResource( 4 )
 expand = true
 
 [node name="Conteudo" type="Control" parent="."]
@@ -203,10 +209,10 @@ dialog_autowrap = true
 [connection signal="mouse_entered" from="BarraSuperior" to="." method="_on_BarraSuperior_mouse_entered"]
 [connection signal="mouse_exited" from="BarraSuperior" to="." method="_on_BarraSuperior_mouse_exited"]
 [connection signal="button_up" from="Fechar" to="." method="_on_Fechar_button_up"]
-[connection signal="button_up" from="Cabecalho/Editar" to="." method="_on_Editar_button_up"]
-[connection signal="button_up" from="Cabecalho/Relacoes" to="." method="_on_Relacoes_button_up"]
-[connection signal="button_up" from="Cabecalho/Lattes" to="." method="_on_Lattes_button_up"]
-[connection signal="button_up" from="Cabecalho/ResearchGate" to="." method="_on_ResearchGate_button_up"]
-[connection signal="button_up" from="Cabecalho/LinkedIn" to="." method="_on_LinkedIn_button_up"]
+[connection signal="button_up" from="Cabecalho/HBoxContainer/Lattes" to="." method="_on_Lattes_button_up"]
+[connection signal="button_up" from="Cabecalho/HBoxContainer/ResearchGate" to="." method="_on_ResearchGate_button_up"]
+[connection signal="button_up" from="Cabecalho/HBoxContainer/LinkedIn" to="." method="_on_LinkedIn_button_up"]
+[connection signal="button_up" from="Cabecalho/HBoxContainer/Editar" to="." method="_on_Editar_button_up"]
+[connection signal="tree_entered" from="Cabecalho/HBoxContainer/Relacoes" to="." method="_on_Relacoes_tree_entered"]
 [connection signal="about_to_show" from="Conteudo/Alterta" to="." method="_on_Alterta_about_to_show"]
 [connection signal="confirmed" from="Conteudo/Alterta" to="." method="_on_Alterta_confirmed"]
