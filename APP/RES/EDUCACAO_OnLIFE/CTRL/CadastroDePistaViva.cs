@@ -16,6 +16,7 @@ public class CadastroDePistaViva : ConfirmationDialog
 	private TextureButton FotoPerfil { get; set; }
 	private Texture FotoPadrao { get; set; }
 	private PessoaDTO PistaViva { get; set; }
+	private JanelaRelacoes JanelaRelacoes { get; set; }
 	public override void _Ready()
 	{
 		RealizarInjecaoDeDependencias();
@@ -34,6 +35,7 @@ public class CadastroDePistaViva : ConfirmationDialog
 		ResearchGate = GetNode<LineEdit>("./Control/ResearchGate");
 		LinkedIn = GetNode<LineEdit>("./Control/LinkedIn");
 		FotoPerfil = GetNode<TextureButton>("./Control/FotoDePerfil");
+		JanelaRelacoes = GetNode<JanelaRelacoes>("./Popup/JanelaRelacoes");
 		FotoPadrao = FotoPerfil.TextureNormal;
 		PistaViva = new PessoaDTO();
 	}
@@ -105,5 +107,15 @@ public class CadastroDePistaViva : ConfirmationDialog
 			PistaViva.Foto = base64;
 			FotoPerfil.TextureNormal = ImportadorDeBinariosUtil.GerarImagem("temp", ".jpg", base64); 
 		}
+	}
+	private void _on_JanelaRelacoes_confirmed()
+	{
+		PistaViva.Relacoes = JanelaRelacoes.ObterRelacoes();
+	}
+	private void _on_Relacoes_button_up()
+	{
+		JanelaRelacoes.Popup_();
+		JanelaRelacoes.DefinirDados(PistaViva.Relacoes);
+		JanelaRelacoes.RectGlobalPosition = this.RectGlobalPosition;
 	}
 }

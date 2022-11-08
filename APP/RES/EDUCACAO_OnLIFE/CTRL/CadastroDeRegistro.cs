@@ -30,6 +30,7 @@ public class CadastroDeRegistro : ConfirmationDialog
 	private TextureButton PlayBTN { get; set; }
 	private TextureButton StopBTN { get; set; }
 	private AudioStreamPlayer ConteudoAudio { get; set; }
+	private JanelaRelacoes JanelaRelacoes { get; set; }
 
 	private Texture ImagemOriginal { get; set; }
 	private List<TipoDTO> Tipos { get; set; }
@@ -73,6 +74,7 @@ public class CadastroDeRegistro : ConfirmationDialog
 		ConteudoAudio = GetNode<AudioStreamPlayer>("./Control/AudioInput/ConteudoAudio");
 		PlayBTN = GetNode<TextureButton>("./Control/AudioInput/Play");
 		StopBTN = GetNode<TextureButton>("./Control/AudioInput/Stop");
+		JanelaRelacoes = GetNode<JanelaRelacoes>("./Popup/JanelaRelacoes");
 
 		Registro = new RegistroDTO();
 		Tipos = BLLTipo.PopularDropDownTipo(Tipo);
@@ -298,5 +300,15 @@ public class CadastroDeRegistro : ConfirmationDialog
 		AudioInput.Visible = false;
 		ArquivoInput.Visible = false;
 		URLInput.Visible = false;
+	}
+	private void _on_JanelaRelacoes_confirmed()
+	{
+		Registro.Referencias = JanelaRelacoes.ObterRelacoes();
+	}
+	private void _on_Relacoes_button_up()
+	{
+		JanelaRelacoes.Popup_();
+		JanelaRelacoes.DefinirDados(Registro.Referencias);
+		JanelaRelacoes.RectGlobalPosition = this.RectGlobalPosition;
 	}
 }

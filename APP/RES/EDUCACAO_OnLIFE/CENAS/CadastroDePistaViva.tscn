@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Profile.png" type="Texture" id=2]
@@ -8,15 +8,16 @@
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/account-box.png" type="Texture" id=6]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/linkedin.png" type="Texture" id=7]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/lattes.png" type="Texture" id=8]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JanelaRelacoes.tscn" type="PackedScene" id=9]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/file-tree.png" type="Texture" id=10]
 
 [node name="CadastroDePessoa" type="ConfirmationDialog"]
 visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_right = -1092.0
+margin_right = -1149.0
 margin_bottom = -700.0
-rect_min_size = Vector2( 824, 380 )
+rect_min_size = Vector2( 771, 380 )
 theme = ExtResource( 1 )
 window_title = ""
 script = ExtResource( 3 )
@@ -24,7 +25,7 @@ script = ExtResource( 3 )
 [node name="Control" type="Control" parent="."]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 816.0
+margin_right = 763.0
 margin_bottom = 344.0
 
 [node name="Nome" type="LineEdit" parent="Control"]
@@ -147,21 +148,45 @@ texture = ExtResource( 7 )
 expand = true
 
 [node name="FotoDePerfil" type="TextureButton" parent="Control"]
-margin_left = 526.0
-margin_right = 782.0
-margin_bottom = 252.0
+margin_left = 536.0
+margin_right = 725.0
+margin_bottom = 189.0
 texture_normal = ExtResource( 2 )
 expand = true
 
 [node name="Label" type="Label" parent="Control/FotoDePerfil"]
 self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
-margin_left = 15.0
-margin_top = 263.0
-margin_right = 244.0
-margin_bottom = 280.0
+margin_left = -21.0
+margin_top = 197.0
+margin_right = 208.0
+margin_bottom = 254.0
 custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
-text = "Clique na imagem para alterar a foto."
+text = "Clique na imagem para alterar a foto ou no icone abaixo para alterar as relações."
+align = 3
+autowrap = true
+
+[node name="Relacoes" type="TextureButton" parent="Control"]
+modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = 616.0
+margin_top = 261.0
+margin_right = 648.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 27, 27 )
+hint_tooltip = "Relações"
+texture_normal = ExtResource( 10 )
+expand = true
+
+[node name="Popup" type="Control" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 763.0
+margin_bottom = 344.0
+
+[node name="JanelaRelacoes" parent="Popup" instance=ExtResource( 9 )]
+visible = false
 
 [connection signal="about_to_show" from="." to="." method="_on_CadastroDePessoa_about_to_show"]
 [connection signal="confirmed" from="." to="." method="_on_CadastroDePessoa_confirmed"]
 [connection signal="button_up" from="Control/FotoDePerfil" to="." method="_on_FotoDePerfil_button_up"]
+[connection signal="button_up" from="Control/Relacoes" to="." method="_on_Relacoes_button_up"]
+[connection signal="confirmed" from="Popup/JanelaRelacoes" to="." method="_on_JanelaRelacoes_confirmed"]

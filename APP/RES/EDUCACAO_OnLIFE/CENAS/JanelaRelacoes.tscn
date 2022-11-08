@@ -18,13 +18,13 @@ use_filter = true
 font_data = ExtResource( 1 )
 
 [node name="JanelaRelacoes" type="AcceptDialog"]
-visible = true
 anchor_right = 0.394
 anchor_bottom = 0.515
 margin_right = -0.480042
 margin_bottom = -0.200073
 rect_min_size = Vector2( 756, 512 )
 theme = ExtResource( 4 )
+popup_exclusive = true
 window_title = ""
 script = ExtResource( 5 )
 

@@ -5,7 +5,7 @@ using DTO;
 using CTRL.Interface;
 public class ResultadoRelacao : Control, IDisposableCTRL
 {
-	private RelacaoDTO Relacao { get; set; }
+	public RelacaoDTO Relacao { get; private set; }
 	public bool Relacionado { get; set; }
 	private Label Texto { get; set; }
 	private CheckButton RelacaoBTN { get; set; }

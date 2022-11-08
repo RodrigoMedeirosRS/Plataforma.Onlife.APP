@@ -44,14 +44,14 @@ public class JanelaRelacoes : AcceptDialog, IDisposableCTRL
 	{
 		LimparConsulta();
 		try
-        {
-            ListarRegistrosRelacionados();
-            RealizarConsultaRegisros();
-        }
-        catch {}
+		{
+			ListarRegistrosRelacionados();
+			RealizarConsultaRegisros();
+		}
+		catch {}
 	}
-    private void RealizarConsultaRegisros()
-    {
+	private void RealizarConsultaRegisros()
+	{
 		if (!string.IsNullOrEmpty(BarraDeBusca.Text))
 		{
 			var registros = new List<RegistroDTO>();
@@ -63,23 +63,23 @@ public class JanelaRelacoes : AcceptDialog, IDisposableCTRL
 			});
 			InstanciarResultados(registros, false);
 		}
-    }
-    private void ListarRegistrosRelacionados()
-    {
-        var registros = new List<RegistroDTO>();
-        foreach (var relacao in Relacoes)
-        {
-            var retorno = BLLRegistro.ObterRelacao(new DTO.Dominio.RelacaoConsulta()
-            {
-                CodRegistro = (int)relacao.RelacaoID
-            });
-            if (retorno != null)
-                registros.Add(retorno);
-        }
-        InstanciarResultados(registros, true);
-    }
+	}
+	private void ListarRegistrosRelacionados()
+	{
+		var registros = new List<RegistroDTO>();
+		foreach (var relacao in Relacoes)
+		{
+			var retorno = BLLRegistro.ObterRelacao(new DTO.Dominio.RelacaoConsulta()
+			{
+				CodRegistro = (int)relacao.RelacaoID
+			});
+			if (retorno != null)
+				registros.Add(retorno);
+		}
+		InstanciarResultados(registros, true);
+	}
 
-    private void InstanciarResultados(List<RegistroDTO> registros, bool relacionado)
+	private void InstanciarResultados(List<RegistroDTO> registros, bool relacionado)
 	{
 		foreach(var registro in registros)
 		{
@@ -88,8 +88,21 @@ public class JanelaRelacoes : AcceptDialog, IDisposableCTRL
 			(registroCena as ResultadoRelacao).DefinirDados(registro, relacionado);
 		};
 	}
+	public List<RelacaoDTO> ObterRelacoes()
+	{
+		AtualizarRelacoes();
+		return Relacoes;
+	}
+	private void AtualizarRelacoes()
+	{
+		Relacoes = new List<RelacaoDTO>();
+		foreach(var relacao in Container.GetChildren())
+			if ((relacao as ResultadoRelacao).Relacionado)
+				Relacoes.Add((relacao as ResultadoRelacao).Relacao);
+	}
 	private void LimparConsulta()
 	{
+		AtualizarRelacoes();
 		foreach(var resultado in Container.GetChildren())
 			(resultado as IDisposableCTRL).FecharCTRL();
 	}
@@ -104,6 +117,9 @@ public class JanelaRelacoes : AcceptDialog, IDisposableCTRL
 	}
 	public void FecharCTRL()
 	{
-		
+		BLLPessoa.Dispose();
+		BLLTIpo.Dispose();
+		BLLRegistro.Dispose();
+		QueueFree();
 	}
 }
