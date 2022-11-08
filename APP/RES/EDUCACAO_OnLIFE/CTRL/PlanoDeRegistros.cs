@@ -129,11 +129,17 @@ public class PlanoDeRegistros : CanvasLayer
 	{
 		if (FechandoArvore == false)
 		{
-			FechandoArvore = true;
-			foreach(var registro in Container.GetChildren())
+			try
+			{
+				FechandoArvore = true;
+				foreach(var registro in Container.GetChildren())
 				(registro as IDisposableCTRL).FecharCTRL();
+			}
+			finally
+			{
+				FechandoArvore = false;
+			}
 		}
-		FechandoArvore = false;
 	}
 	public void Mover()
 	{
