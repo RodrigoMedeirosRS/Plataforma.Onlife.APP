@@ -56,7 +56,7 @@ namespace BLL
         }
         public RegistroDTO ObterRelacao(RelacaoConsulta relacao)
         {
-            var retorno = SAL.ExecutarPost<RelacaoConsulta, RegistroDTO>(URLConsultarRelacao, relacao);
+            var retorno = SAL.ExecutarPost<RelacaoConsulta, RegistroDTO>(URLObterRelacao, relacao);
             return retorno;
         }
         public ReferenciaRetorno RealizarConsultaDeRegistrosRelacionados(RelacaoConsulta relacaoConsulta)
