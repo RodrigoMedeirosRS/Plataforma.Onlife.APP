@@ -38,7 +38,7 @@ public class JanelaRelacoes : AcceptDialog, IDisposableCTRL
 	public void DefinirDados(List<RelacaoDTO> relacoes)
 	{
 		Relacoes = relacoes;
-		RealizarConsulta();
+		ListarRegistrosRelacionados();
 	}
 	private void RealizarConsulta()
 	{

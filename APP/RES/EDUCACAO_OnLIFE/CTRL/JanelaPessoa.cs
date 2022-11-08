@@ -69,7 +69,6 @@ public class JanelaPessoa : Control, IDisposableCTRL
 	}
 	public void FecharCTRL()
 	{
-		PistaViva.Dispose();
 		Main.FecharArvore();
 		QueueFree();
 	}

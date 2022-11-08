@@ -68,7 +68,6 @@ public class Cabecalho : Control, IDisposableCTRL
 	}
 	public void FecharCTRL()
 	{
-		Dados.RegistroDTO.Dispose();
 		Dados.Alerta.QueueFree();
 		Registro.QueueFree();
 		RegistroBLL.Dispose();
