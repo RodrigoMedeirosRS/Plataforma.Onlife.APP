@@ -3,6 +3,7 @@ using System;
 
 	public class InterfaceSobreposta : Control
 	{
+		private AcceptDialog TelaDeBusca { get; set; }
 		public const string MensagemRegistro = "Por favor, clique com o botão direito do mouse sobre o mapa marcando a localização aproximada do registro que você quer cadastrar.";
 		public const string MensagemCidade = "Por favor, clique com o botão direito do mouse sobre o globo marcando a posição aproximada da cidade que você quer cadastrar.";
 		private AnimationPlayer Anim { get; set; }
@@ -18,6 +19,7 @@ using System;
 		private void PopularNodes()
 		{
 			Anim = GetNode<AnimationPlayer>("Anim");
+			TelaDeBusca = GetNode<AcceptDialog>("./TelaDeBusca");
 		}
 		public void _on_ExpandirButton_pressed()
 		{
@@ -49,7 +51,7 @@ using System;
 		}
 		private void _on_Buscar_button_up()
 		{
-			// Replace with function body.
+			TelaDeBusca.Popup_();
 		}
 
 		

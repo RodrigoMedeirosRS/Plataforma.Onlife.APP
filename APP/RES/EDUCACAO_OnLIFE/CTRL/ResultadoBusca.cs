@@ -19,18 +19,24 @@ public class ResultadoBusca : Control, IDisposableCTRL
 		PistaViva = null;
 		Texto = GetNode<Label>("./Label");
 	}
-	private void DefinirDados(RegistroDTO registro)
+	public void DefinirDados(RegistroDTO registro)
 	{
 		if(PistaViva != null)
+		{
 			PistaViva.Dispose();
+			PistaViva = null;
+		}
 		Registro = registro;
 		Texto.Text = registro.Nome;
 		Texto.HintTooltip = registro.Descricao;
 	}
-	private void DefinirDados(PessoaDTO pistaViva)
+	public void DefinirDados(PessoaDTO pistaViva)
 	{
 		if(Registro != null)
+		{
 			Registro.Dispose();
+			Registro = null;
+		}
 		PistaViva = pistaViva;
 		Texto.Text = pistaViva.Nome;
 		Texto.HintTooltip = string.Empty;
@@ -41,13 +47,10 @@ public class ResultadoBusca : Control, IDisposableCTRL
 			Main.InstanciarPrimeiraPessoa(PistaViva);
 		if (Registro != null)
 			Main.InstanciarPrimeiroRegisro(Registro);
+		GetParent().GetParent().GetParent().GetParent<AcceptDialog>().Hide();
 	}
 	public void FecharCTRL()
 	{
-		if(Registro != null)
-			Registro.Dispose();
-		if(PistaViva != null)
-			PistaViva.Dispose();
 		QueueFree();
 	}
 }
