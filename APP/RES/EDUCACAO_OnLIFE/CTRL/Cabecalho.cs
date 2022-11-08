@@ -139,7 +139,7 @@ public class Cabecalho : Control, IDisposableCTRL
 	}
 	private void _on_Relacoes_button_up()
 	{
-		
+		Main.InstanciarReferencias(Dados.RegistroDTO, Dados.RectGlobalPosition);
 	}
 	private void _on_Registro_popup_hide()
 	{

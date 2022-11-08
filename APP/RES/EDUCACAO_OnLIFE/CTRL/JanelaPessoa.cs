@@ -92,7 +92,7 @@ public class JanelaPessoa : Control, IDisposableCTRL
 	}
 	private void _on_Relacoes_button_up()
 	{
-		
+		Main.InstanciarRelacoes(PistaViva, this.RectGlobalPosition);
 	}
 	private void _on_Alterta_confirmed()
 	{
