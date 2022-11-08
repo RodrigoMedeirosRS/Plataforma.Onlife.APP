@@ -38,6 +38,7 @@ public class JanelaRelacoes : AcceptDialog, IDisposableCTRL
 	public void DefinirDados(List<RelacaoDTO> relacoes)
 	{
 		Relacoes = relacoes;
+		RealizarConsulta();
 	}
 	private void RealizarConsulta()
 	{
@@ -51,14 +52,17 @@ public class JanelaRelacoes : AcceptDialog, IDisposableCTRL
 	}
     private void RealizarConsultaRegisros()
     {
-        var registros = new List<RegistroDTO>();
-        registros = BLLRegistro.RealizarConsulta(new DTO.Dominio.RegistroConsulta()
-        {
-            Nome = BarraDeBusca.Text,
-            Idioma = Idioma.GetItemText(Idioma.Selected),
-            Completo = false
-        });
-        InstanciarResultados(registros, false);
+		if (!string.IsNullOrEmpty(BarraDeBusca.Text))
+		{
+			var registros = new List<RegistroDTO>();
+			registros = BLLRegistro.RealizarConsulta(new DTO.Dominio.RegistroConsulta()
+			{
+				Nome = BarraDeBusca.Text,
+				Idioma = Idioma.GetItemText(Idioma.Selected),
+				Completo = false
+			});
+			InstanciarResultados(registros, false);
+		}
     }
     private void ListarRegistrosRelacionados()
     {
