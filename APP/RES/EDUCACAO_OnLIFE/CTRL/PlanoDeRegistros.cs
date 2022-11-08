@@ -8,6 +8,7 @@ using CTRL.Interface;
 public class PlanoDeRegistros : CanvasLayer
 {
 	public Control Container { get; set; }
+	private Control First { get; set; }
 	private ColorRect Veu { get; set; }
 	private Vector2 MouseOffset { get; set; }
 	private bool FechandoArvore { get; set; }
@@ -21,12 +22,11 @@ public class PlanoDeRegistros : CanvasLayer
 		MouseOffset = new Vector2();
 		Container = GetNode<Control>("./Container");
 		Veu = GetNode<ColorRect>("./Veu");
+		First = GetNode<Control>("./First");
 	}
 	private void AlternarVisiblidade()
 	{
 		Veu.Visible = Container.GetChildCount() > 0;
-		if (!Veu.Visible)
-			Container.RectPosition = new Vector2(960, 540);
 	}
 	public override void _Process(float delta)
 	{
@@ -37,19 +37,29 @@ public class PlanoDeRegistros : CanvasLayer
 	{
 		if(!Veu.Visible)
 		{
-			var janelaCena = InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/JanelaRegistro.tscn");
-			var janela = InstanciadorUtil.InstanciarObjeto(Container, janelaCena, null);
-			(janela as Janela).PopularDados(registroDTO);
+			InstanciarJanelaRegistro(registroDTO, First.RectGlobalPosition);
 		}
 	}
 	public void InstanciarPrimeiraPessoa(PessoaDTO pessoaDTO)
 	{
 		if(!Veu.Visible)
 		{
-			var janelaCena = InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/JanelaPessoa.tscn");
-			var janela = InstanciadorUtil.InstanciarObjeto(Container, janelaCena, null);
-			(janela as JanelaPessoa).DefinirDados(pessoaDTO);
+			InstanciarJanelaPessoa(pessoaDTO, First.RectGlobalPosition);
 		}
+	}
+	private void InstanciarJanelaRegistro(RegistroDTO registroDTO, Vector2 posicao)
+	{
+		var janelaCena = InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/JanelaRegistro.tscn");
+		var janela = InstanciadorUtil.InstanciarObjeto(Container, janelaCena, null);
+		(janela as Janela).PopularDados(registroDTO);
+		(janela as Janela).RectGlobalPosition = posicao - new Vector2(134, 148);
+	}
+	private void InstanciarJanelaPessoa(PessoaDTO pessoaDTO, Vector2 posicao)
+	{
+		var janelaCena = InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/JanelaPessoa.tscn");
+		var janela = InstanciadorUtil.InstanciarObjeto(Container, janelaCena, null);
+		(janela as JanelaPessoa).DefinirDados(pessoaDTO);
+		(janela as JanelaPessoa).RectGlobalPosition = posicao - new Vector2(134, 148);
 	}
 	public void LimparRegistros()
 	{

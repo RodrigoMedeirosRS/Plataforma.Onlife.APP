@@ -63,11 +63,11 @@ public class Janela : Control, IDisposableCTRL
 	}
 	private void _on_Registro_about_to_show()
 	{
-		Registro.RectGlobalPosition = this.RectGlobalPosition;
+		Registro.RectGlobalPosition = this.RectGlobalPosition + new Vector2(300, 0);
 	}
 	private void _on_Alterta_about_to_show()
 	{
-		Alerta.RectGlobalPosition = this.RectGlobalPosition;
+		Alerta.RectGlobalPosition = this.RectGlobalPosition + new Vector2(0, 40);
 	}
 	private void _on_SaveDialog_confirmed()
 	{

@@ -208,4 +208,5 @@ dialog_autowrap = true
 [connection signal="button_up" from="Cabecalho/Lattes" to="." method="_on_Lattes_button_up"]
 [connection signal="button_up" from="Cabecalho/ResearchGate" to="." method="_on_ResearchGate_button_up"]
 [connection signal="button_up" from="Cabecalho/LinkedIn" to="." method="_on_LinkedIn_button_up"]
+[connection signal="about_to_show" from="Conteudo/Alterta" to="." method="_on_Alterta_about_to_show"]
 [connection signal="confirmed" from="Conteudo/Alterta" to="." method="_on_Alterta_confirmed"]

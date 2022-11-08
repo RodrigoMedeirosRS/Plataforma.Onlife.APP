@@ -25,21 +25,21 @@ public class JanelaPessoa : Control, IDisposableCTRL
 		PopularNodes();
 	}
 	public override void _Process(float delta)
-    {
-       MoverJanela();
-    }
-    private void MoverJanela()
-    {
+	{
+	   MoverJanela();
+	}
+	private void MoverJanela()
+	{
 		try
 		{
 			if (MousePosicionado && Input.IsActionJustPressed("selecao"))
-            	MouseOffset = GetLocalMousePosition();
-        	if (MousePosicionado && Input.IsActionPressed("selecao"))
-           	 this.RectGlobalPosition = GetGlobalMousePosition() - MouseOffset;
+				MouseOffset = GetLocalMousePosition();
+			if (MousePosicionado && Input.IsActionPressed("selecao"))
+		   	 this.RectGlobalPosition = GetGlobalMousePosition() - MouseOffset;
 		}
 		catch{}
-    }
-    public void PopularNodes()
+	}
+	public void PopularNodes()
 	{
 		Edicao = false;
 		MouseOffset = new Vector2();
@@ -117,5 +117,9 @@ public class JanelaPessoa : Control, IDisposableCTRL
 	{
 		Edicao = false;
 		Alerta.Popup_();
+	}
+	private void _on_Alterta_about_to_show()
+	{
+		Alerta.RectGlobalPosition = this.RectGlobalPosition + new Vector2(0, 40);;
 	}
 }
