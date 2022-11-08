@@ -19,18 +19,26 @@ public class JanelaPessoa : Control, IDisposableCTRL
 	private TextureButton ResearchGate { get; set; }
 	private Texture ImagemOriginal { get; set; }
 	private ConfirmationDialog Alerta { get; set; }
+	private Vector2 MouseOffset { get; set; }
 	public override void _Ready()
 	{
 		PopularNodes();
 	}
 	public override void _Process(float delta)
-	{
-		if(MousePosicionado && Input.IsActionPressed("selecao"))
-			this.RectGlobalPosition = GetGlobalMousePosition();
-	}
-	public void PopularNodes()
+    {
+        MoverJanela();
+    }
+    private void MoverJanela()
+    {
+        if (MousePosicionado && Input.IsActionJustPressed("selecao"))
+            MouseOffset = GetLocalMousePosition();
+        if (MousePosicionado && Input.IsActionPressed("selecao"))
+            this.RectGlobalPosition = GetGlobalMousePosition() - MouseOffset;
+    }
+    public void PopularNodes()
 	{
 		Edicao = false;
+		MouseOffset = new Vector2();
 		MousePosicionado = false;
 		Alerta = GetNode<ConfirmationDialog>("./Conteudo/Alterta");
 		Foto = GetNode<TextureRect>("./Cabecalho/Foto");

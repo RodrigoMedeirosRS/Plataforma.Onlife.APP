@@ -21,6 +21,10 @@ public class Janela : Control
 	}
 	public override void _Process(float delta)
 	{
+		MoverJanela();
+	}
+	private void MoverJanela()
+	{
 		if (MousePosicionado && Input.IsActionJustPressed("selecao"))
 			MouseOffset = GetLocalMousePosition();
 		if (MousePosicionado && Input.IsActionPressed("selecao"))
