@@ -76,6 +76,7 @@ public class Main : Node2D
 	public static void FecharArvore()
 	{
 		PlanoDeRegistros.LimparRegistros();
+		MapaLocalidade.AtualizarRegistrosLocalizados();
 	}
 	public static bool ObterModoDeCarga()
 	{
