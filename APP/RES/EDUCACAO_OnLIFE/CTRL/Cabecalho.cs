@@ -31,6 +31,7 @@ public class Cabecalho : Control, IDisposableCTRL
 	public Control ConteudoURL { get; set; }
 
 	private AudioStreamPlayer ReprodutorAudio { get ; set; }
+	private TextureButton RelacoesBTN { get; set; }
 	public override void _Ready()
 	{
 		RealizarInjecaoDeDependencias();
@@ -61,6 +62,8 @@ public class Cabecalho : Control, IDisposableCTRL
 		ImagemOriginal = Imagem.Texture;
 		ConteudoURL = GetNode<Label>("../Conteudo/Registro/Control/URL/URL");
 		SaveFile = GetNode<FileDialog>("../Conteudo/SaveDialog");
+		RelacoesBTN = GetNode<TextureButton>("./Relacoes");
+		RelacoesBTN.Disabled = false;
 	}
 	private void _on_Janela_DadosCarregados()
 	{
@@ -139,6 +142,7 @@ public class Cabecalho : Control, IDisposableCTRL
 	}
 	private void _on_Relacoes_button_up()
 	{
+		RelacoesBTN.Disabled = true;
 		Main.InstanciarReferencias(Dados.RegistroDTO, Dados.RectGlobalPosition);
 	}
 	private void _on_Registro_popup_hide()

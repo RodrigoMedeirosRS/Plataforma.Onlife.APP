@@ -20,6 +20,7 @@ public class JanelaPessoa : Control, IDisposableCTRL
 	private Texture ImagemOriginal { get; set; }
 	private ConfirmationDialog Alerta { get; set; }
 	private Vector2 MouseOffset { get; set; }
+	private TextureButton RelacoesBTN { get; set; }
 	public override void _Ready()
 	{
 		PopularNodes();
@@ -44,6 +45,7 @@ public class JanelaPessoa : Control, IDisposableCTRL
 		Edicao = false;
 		MouseOffset = new Vector2();
 		MousePosicionado = false;
+		RelacoesBTN = GetNode<TextureButton>("./Cabecalho/HBoxContainer/Relacoes");
 		Alerta = GetNode<ConfirmationDialog>("./Conteudo/Alterta");
 		Foto = GetNode<TextureRect>("./Cabecalho/Foto");
 		Nome = GetNode<Label>("./Cabecalho/Nome/NomeTexto");
@@ -52,6 +54,7 @@ public class JanelaPessoa : Control, IDisposableCTRL
 		LinkdIn = GetNode<TextureButton>("./Cabecalho/HBoxContainer/LinkedIn");
 		ResearchGate = GetNode<TextureButton>("./Cabecalho/HBoxContainer/ResearchGate");
 		ImagemOriginal = Foto.Texture;
+		RelacoesBTN.Disabled = false;
 	}
 	public void DefinirDados (PessoaDTO pistaviva)
 	{
@@ -92,6 +95,7 @@ public class JanelaPessoa : Control, IDisposableCTRL
 	}
 	private void _on_Relacoes_button_up()
 	{
+		RelacoesBTN.Disabled = true;
 		Main.InstanciarRelacoes(PistaViva, this.RectGlobalPosition);
 	}
 	private void _on_Alterta_confirmed()
