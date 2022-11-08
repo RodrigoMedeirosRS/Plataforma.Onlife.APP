@@ -87,7 +87,28 @@ public class CadastroDeRegistro : ConfirmationDialog
 		AtualizarInterface();
 		Registro = registroDTO;
 		Nome.Text = registroDTO.Nome;
+		Apelido.Text = registroDTO.Apelido;
 		Descricao.Text = registroDTO.Descricao;
+		AtribuirConteudo();
+	}
+
+	private void AtribuirConteudo()
+	{
+		switch(Tipos[Tipo.Selected].TipoExecucao)
+		{
+			case(TipoExecucao.Audio):
+				ConteudoAudio.Stream = ImportadorDeBinariosUtil.GerarAudio("temp", Tipos[Tipo.Selected].Extensao, Registro.Conteudo);
+				break;
+			case(TipoExecucao.Imagem):
+				ConteudoImagem.TextureNormal = ImportadorDeBinariosUtil.GerarImagem("temp", ".jpg", Registro.Conteudo);
+				break;
+			case(TipoExecucao.Texto):
+				ConteudoTexto.Text = Registro.Conteudo;
+				break;
+			case(TipoExecucao.URL):
+				ConteudoURL.Text = Registro.Conteudo;
+				break;
+		};
 	}
 	private void CarregarArquivoExstensaoVariada()
 	{

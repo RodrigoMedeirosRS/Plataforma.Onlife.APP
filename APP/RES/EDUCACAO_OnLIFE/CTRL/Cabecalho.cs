@@ -77,7 +77,6 @@ public class Cabecalho : Control, IDisposableCTRL
 	}
 	private void PopularDados()
 	{
-		var a = Dados.RegistroDTO;
 		Nome.Text = Dados.RegistroDTO.Nome;
 		Apelido.Text = Dados.RegistroDTO.Apelido;
 		Descricao.Text = Dados.RegistroDTO.Descricao;
@@ -150,7 +149,10 @@ public class Cabecalho : Control, IDisposableCTRL
 	private void _on_Alterta_confirmed()
 	{
 		if (Dados.Edicao)
+		{
+			ValidarConteudoRegistro();
 			Main.DispararRegistro(Dados.RegistroDTO);
+		}
 		FecharCTRL();
 	}
 	private void _on_Stop_button_up()

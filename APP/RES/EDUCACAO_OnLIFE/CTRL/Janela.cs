@@ -26,10 +26,14 @@ public class Janela : Control, IDisposableCTRL
 	}
 	private void MoverJanela()
 	{
-		if (MousePosicionado && Input.IsActionJustPressed("selecao"))
-			MouseOffset = GetLocalMousePosition();
-		if (MousePosicionado && Input.IsActionPressed("selecao"))
-			this.RectGlobalPosition = GetGlobalMousePosition() - MouseOffset;
+		try
+		{
+			if (MousePosicionado && Input.IsActionJustPressed("selecao"))
+				MouseOffset = GetLocalMousePosition();
+			if (MousePosicionado && Input.IsActionPressed("selecao"))
+				this.RectGlobalPosition = GetGlobalMousePosition() - MouseOffset;
+		}
+		catch{}
 	}
 	public void PopularDados(RegistroDTO registro)
 	{

@@ -10,12 +10,14 @@ public class PlanoDeRegistros : CanvasLayer
 	public Control Container { get; set; }
 	private ColorRect Veu { get; set; }
 	private Vector2 MouseOffset { get; set; }
+	private bool FechandoArvore { get; set; }
 	public override void _Ready()
 	{
 		PopularNodes();
 	}
 	private void PopularNodes()
 	{
+		FechandoArvore = false;
 		MouseOffset = new Vector2();
 		Container = GetNode<Control>("./Container");
 		Veu = GetNode<ColorRect>("./Veu");
@@ -51,8 +53,13 @@ public class PlanoDeRegistros : CanvasLayer
 	}
 	public void LimparRegistros()
 	{
-		foreach(var registro in Container.GetChildren())
-			(registro as IDisposableCTRL).FecharCTRL();
+		if (FechandoArvore == false)
+		{
+			FechandoArvore = true;
+			foreach(var registro in Container.GetChildren())
+				(registro as IDisposableCTRL).FecharCTRL();
+		}
+		FechandoArvore = false;
 	}
 	public void Mover()
 	{

@@ -26,14 +26,18 @@ public class JanelaPessoa : Control, IDisposableCTRL
 	}
 	public override void _Process(float delta)
     {
-        MoverJanela();
+       MoverJanela();
     }
     private void MoverJanela()
     {
-        if (MousePosicionado && Input.IsActionJustPressed("selecao"))
-            MouseOffset = GetLocalMousePosition();
-        if (MousePosicionado && Input.IsActionPressed("selecao"))
-            this.RectGlobalPosition = GetGlobalMousePosition() - MouseOffset;
+		try
+		{
+			if (MousePosicionado && Input.IsActionJustPressed("selecao"))
+            	MouseOffset = GetLocalMousePosition();
+        	if (MousePosicionado && Input.IsActionPressed("selecao"))
+           	 this.RectGlobalPosition = GetGlobalMousePosition() - MouseOffset;
+		}
+		catch{}
     }
     public void PopularNodes()
 	{
