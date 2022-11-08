@@ -35,7 +35,7 @@ public class CadastroDePistaViva : ConfirmationDialog
 		ResearchGate = GetNode<LineEdit>("./Control/ResearchGate");
 		LinkedIn = GetNode<LineEdit>("./Control/LinkedIn");
 		FotoPerfil = GetNode<TextureButton>("./Control/FotoDePerfil");
-		JanelaRelacoes = GetNode<JanelaRelacoes>("./Popup/JanelaRelacoes");
+		JanelaRelacoes = GetNode<JanelaRelacoes>("./JanelaRelacoes");
 		FotoPadrao = FotoPerfil.TextureNormal;
 		PistaViva = new PessoaDTO();
 	}
@@ -66,7 +66,7 @@ public class CadastroDePistaViva : ConfirmationDialog
 			Nome.Text = pistaviva.Nome;
 			Apelido.Text = pistaviva.Apelido;
 			Lattes.Text = pistaviva.Lattes;
-			LinkedIn.Text = pistaviva.Lattes;
+			LinkedIn.Text = pistaviva.LinkedIn;
 			ResearchGate.Text = pistaviva.ResearchGate;
 			if (!string.IsNullOrEmpty(pistaviva.Foto))
 				FotoPerfil.TextureNormal = ImportadorDeBinariosUtil.GerarImagem("temp", ".jpg", pistaviva.Foto);

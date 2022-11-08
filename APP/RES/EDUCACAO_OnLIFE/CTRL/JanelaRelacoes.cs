@@ -110,9 +110,13 @@ public class JanelaRelacoes : AcceptDialog, IDisposableCTRL
 	{
 		RealizarConsulta();
 	}
-	private void _on_TelaDeBusca_popup_hide()
+	private void _on_JanelaRelacoes_popup_hide()
 	{
 		BarraDeBusca.Text = string.Empty;
+		LimparConsulta();
+	}
+	private void _on_JanelaRelacoes_about_to_show()
+	{
 		LimparConsulta();
 	}
 	public void FecharCTRL()

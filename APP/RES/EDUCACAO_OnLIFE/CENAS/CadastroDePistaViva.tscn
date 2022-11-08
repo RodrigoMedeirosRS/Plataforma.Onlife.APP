@@ -12,7 +12,6 @@
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/file-tree.png" type="Texture" id=10]
 
 [node name="CadastroDePessoa" type="ConfirmationDialog"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1149.0
@@ -25,8 +24,8 @@ script = ExtResource( 3 )
 [node name="Control" type="Control" parent="."]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 763.0
-margin_bottom = 344.0
+margin_right = 764.0
+margin_bottom = 564.0
 
 [node name="Nome" type="LineEdit" parent="Control"]
 margin_top = 15.0
@@ -176,17 +175,14 @@ hint_tooltip = "Relações"
 texture_normal = ExtResource( 10 )
 expand = true
 
-[node name="Popup" type="Control" parent="."]
+[node name="JanelaRelacoes" parent="." instance=ExtResource( 9 )]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 763.0
-margin_bottom = 344.0
-
-[node name="JanelaRelacoes" parent="Popup" instance=ExtResource( 9 )]
-visible = false
+margin_right = 459.832
+margin_bottom = 255.0
 
 [connection signal="about_to_show" from="." to="." method="_on_CadastroDePessoa_about_to_show"]
 [connection signal="confirmed" from="." to="." method="_on_CadastroDePessoa_confirmed"]
 [connection signal="button_up" from="Control/FotoDePerfil" to="." method="_on_FotoDePerfil_button_up"]
 [connection signal="button_up" from="Control/Relacoes" to="." method="_on_Relacoes_button_up"]
-[connection signal="confirmed" from="Popup/JanelaRelacoes" to="." method="_on_JanelaRelacoes_confirmed"]
+[connection signal="confirmed" from="JanelaRelacoes" to="." method="_on_JanelaRelacoes_confirmed"]

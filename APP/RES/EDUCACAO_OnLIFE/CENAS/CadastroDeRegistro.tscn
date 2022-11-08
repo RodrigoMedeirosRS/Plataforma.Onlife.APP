@@ -374,12 +374,11 @@ hint_tooltip = "Relações"
 texture_normal = ExtResource( 19 )
 expand = true
 
-[node name="Popup" type="Control" parent="."]
-visible = false
-margin_right = 905.0
-margin_bottom = 551.0
-
-[node name="JanelaRelacoes" parent="Popup" instance=ExtResource( 18 )]
+[node name="JanelaRelacoes" parent="." instance=ExtResource( 18 )]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 407.036
+margin_bottom = 279.72
 
 [connection signal="about_to_show" from="." to="." method="_on_CadastroDeRegistro_about_to_show"]
 [connection signal="confirmed" from="." to="." method="_on_CadastroDeRegistro_confirmed"]
@@ -392,4 +391,4 @@ margin_bottom = 551.0
 [connection signal="button_up" from="Control/ArquivoInput/Download" to="." method="_on_Download_button_up"]
 [connection signal="button_up" from="Control/URLInput/Go" to="." method="_on_Go_button_up"]
 [connection signal="button_up" from="Control/Relacoes" to="." method="_on_Relacoes_button_up"]
-[connection signal="confirmed" from="Popup/JanelaRelacoes" to="." method="_on_JanelaRelacoes_confirmed"]
+[connection signal="confirmed" from="JanelaRelacoes" to="." method="_on_JanelaRelacoes_confirmed"]

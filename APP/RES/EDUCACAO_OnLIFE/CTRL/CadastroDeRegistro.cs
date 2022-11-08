@@ -74,7 +74,7 @@ public class CadastroDeRegistro : ConfirmationDialog
 		ConteudoAudio = GetNode<AudioStreamPlayer>("./Control/AudioInput/ConteudoAudio");
 		PlayBTN = GetNode<TextureButton>("./Control/AudioInput/Play");
 		StopBTN = GetNode<TextureButton>("./Control/AudioInput/Stop");
-		JanelaRelacoes = GetNode<JanelaRelacoes>("./Popup/JanelaRelacoes");
+		JanelaRelacoes = GetNode<JanelaRelacoes>("./JanelaRelacoes");
 
 		Registro = new RegistroDTO();
 		Tipos = BLLTipo.PopularDropDownTipo(Tipo);
