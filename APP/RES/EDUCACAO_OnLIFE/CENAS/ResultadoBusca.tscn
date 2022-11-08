@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/FONTES/Lato-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/FlatUI/kenneyUI.tres" type="Theme" id=2]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/folder-open-red.png" type="Texture" id=3]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/ResultadoBusca.cs" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=16]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=15]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="Resultado" type="Control"]
+margin_right = 725.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 628.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Nome completo do resultado obtido na consulta"
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="Busca" type="Button" parent="."]
+margin_left = 632.0
+margin_top = 1.0
+margin_right = 746.0
+margin_bottom = 45.251
+rect_scale = Vector2( 0.6, 0.6 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 15 )
+text = "Abrir"
+icon = ExtResource( 3 )
+expand_icon = true
+
+[connection signal="button_up" from="Busca" to="." method="_on_Busca_button_up"]

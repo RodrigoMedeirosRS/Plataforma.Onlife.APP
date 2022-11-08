@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/MenuSuperior.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Rodape.tscn" type="PackedScene" id=2]
@@ -11,6 +11,11 @@
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/CadastrarPessoa.png" type="Texture" id=9]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/ButtonHover.tres" type="StyleBox" id=10]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/busca.png" type="Texture" id=11]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/FONTES/Lato-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/account-box.png" type="Texture" id=13]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/FlatUI/kenneyUI.tres" type="Theme" id=14]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/file-document.png" type="Texture" id=15]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/file-search-outline-red.png" type="Texture" id=16]
 
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 1, 0, 0, 1 )
@@ -336,6 +341,17 @@ tracks/7/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="DynamicFont" id=16]
+size = 12
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=15]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 12 )
+
 [node name="InterfaceSobreposta" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -575,6 +591,95 @@ autoplay = "Expandir"
 anims/Expandir = SubResource( 12 )
 anims/RESET = SubResource( 13 )
 anims/Retrair = SubResource( 6 )
+
+[node name="TelaDeBusca" type="AcceptDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -256.0
+margin_right = 256.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 756, 512 )
+window_title = ""
+
+[node name="Conteudo" type="Control" parent="TelaDeBusca"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 748.0
+margin_bottom = 520.0
+rect_min_size = Vector2( 512, 512 )
+
+[node name="BarraDeBusca" type="Control" parent="TelaDeBusca/Conteudo"]
+margin_left = -10.0
+margin_right = -10.0
+
+[node name="LineEdit" type="LineEdit" parent="TelaDeBusca/Conteudo/BarraDeBusca"]
+margin_left = 61.0
+margin_top = 25.0
+margin_right = 449.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 340, 0 )
+
+[node name="Label" type="Label" parent="TelaDeBusca/Conteudo/BarraDeBusca/LineEdit"]
+margin_left = 5.0
+margin_top = -20.0
+margin_right = 99.0
+margin_bottom = -3.0
+custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Nome do Registro"
+
+[node name="Busca" type="Button" parent="TelaDeBusca/Conteudo/BarraDeBusca"]
+margin_left = 653.0
+margin_top = 24.0
+margin_right = 767.0
+margin_bottom = 68.251
+rect_scale = Vector2( 0.75, 0.75 )
+theme = ExtResource( 14 )
+custom_fonts/font = SubResource( 15 )
+text = "Buscar"
+icon = ExtResource( 16 )
+expand_icon = true
+
+[node name="Tipo" type="TextureButton" parent="TelaDeBusca/Conteudo/BarraDeBusca"]
+modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = 12.0
+margin_top = 21.0
+margin_right = 51.0
+margin_bottom = 60.0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 15 )
+expand = true
+
+[node name="OptionButton" type="OptionButton" parent="TelaDeBusca/Conteudo/BarraDeBusca"]
+self_modulate = Color( 1, 0.027451, 0.027451, 1 )
+margin_left = 463.0
+margin_top = 25.0
+margin_right = 636.0
+margin_bottom = 58.0
+
+[node name="Label" type="Label" parent="TelaDeBusca/Conteudo/BarraDeBusca/OptionButton"]
+margin_left = 5.0
+margin_top = -20.0
+margin_right = 99.0
+margin_bottom = -3.0
+custom_colors/font_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Idioma"
+
+[node name="Container" type="ScrollContainer" parent="TelaDeBusca/Conteudo"]
+margin_left = 7.0
+margin_top = 70.0
+margin_right = 732.0
+margin_bottom = 506.0
+rect_min_size = Vector2( 725, 436 )
+
+[node name="Ordenador" type="VBoxContainer" parent="TelaDeBusca/Conteudo/Container"]
+margin_right = 725.0
+margin_bottom = 436.0
+rect_min_size = Vector2( 725, 436 )
 
 [connection signal="button_up" from="SideBar/VBoxContainer/NovaPistaViva" to="." method="_on_NovaPistaViva_button_up"]
 [connection signal="button_up" from="SideBar/VBoxContainer/NovoRegistro" to="." method="_on_NovoRegistro_button_up"]

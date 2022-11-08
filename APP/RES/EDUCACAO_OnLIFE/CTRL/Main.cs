@@ -30,7 +30,11 @@ public class Main : Node2D
 	[Signal] public delegate void PerguntaRespondida(string resposta);
 	[Signal] public delegate void ArquivoEscolhido(string base64);
 
+	private Button NovoRegistroBTN { get; set; }
+	private Button NovaPistaVivaBTN { get; set; }
 	private Button NovaCidadeBTN { get; set; }
+	private Button BuscarBTN { get; set; }
+	private ColorRect Veu { get; set; }
 	private const int LimiteArquivo = 2097152;
 
 	public override void _Ready()
@@ -42,7 +46,10 @@ public class Main : Node2D
 	}
 	public override void _Process(float delta)
 	{
-		NovaCidadeBTN.Disabled = LocalidadeMode();
+		NovaCidadeBTN.Disabled = LocalidadeMode() || Veu.Visible;
+		NovoRegistroBTN.Disabled = Veu.Visible;
+		NovaPistaVivaBTN.Disabled = Veu.Visible;
+		BuscarBTN.Disabled = Veu.Visible;
 	}
 	private void RealizarInjecaoDependecias()
 	{
@@ -61,6 +68,10 @@ public class Main : Node2D
 		Cidade = BLL.Utils.InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/Cidade.tscn");
 		MapaLocalidade = GetNode<Mapa2D>("./Cidade/Mapa2D");
 		NovaCidadeBTN = GetNode<Button>("./Toolbar/InterfaceSobreposta/SideBar/VBoxContainer/NovaCidade");
+		NovaPistaVivaBTN = GetNode<Button>("./Toolbar/InterfaceSobreposta/SideBar/VBoxContainer/NovaPistaViva");
+		NovoRegistroBTN = GetNode<Button>("./Toolbar/InterfaceSobreposta/SideBar/VBoxContainer/NovoRegistro");
+		BuscarBTN = GetNode<Button>("./Toolbar/InterfaceSobreposta/SideBar/VBoxContainer/Buscar");
+		Veu = GetNode<ColorRect>("./PlanoDeRegistros/Veu");
 		AguardandoSelecaoDePonto = false;
 		PlanoDeRegistros = GetNode<PlanoDeRegistros>("./PlanoDeRegistros");
 		Tipos = TipoBLL.ListarTipos();
