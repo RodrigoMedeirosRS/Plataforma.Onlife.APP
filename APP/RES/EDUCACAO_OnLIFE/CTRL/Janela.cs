@@ -10,6 +10,8 @@ public class Janela : Control, IDisposableCTRL
 	public ConfirmationDialog Alerta { get; set; }
 	private bool MousePosicionado { get; set; }
 	private Vector2 MouseOffset { get; set; }
+	private AcceptDialog Registro { get; set; }
+	private FileDialog SaveDialog { get; set; }
 	public bool Edicao { get; set; }
 	[Signal] public delegate void DadosCarregados();
 
@@ -19,6 +21,8 @@ public class Janela : Control, IDisposableCTRL
 		Edicao = false;
 		RegistroDTO = new RegistroDTO();
 		Alerta = GetNode<ConfirmationDialog>("Conteudo/Alterta");
+		Registro = GetNode<AcceptDialog>("./Conteudo/Registro");
+		SaveDialog = GetNode<FileDialog>("./Conteudo/SaveDialog");
 	}
 	public override void _Process(float delta)
 	{
@@ -56,5 +60,17 @@ public class Janela : Control, IDisposableCTRL
 	public void FecharCTRL()
 	{
 		GetNode<Cabecalho>("./Cabecalho").FecharCTRL();
+	}
+	private void _on_Registro_about_to_show()
+	{
+		Registro.RectGlobalPosition = this.RectGlobalPosition;
+	}
+	private void _on_Alterta_about_to_show()
+	{
+		Alerta.RectGlobalPosition = this.RectGlobalPosition;
+	}
+	private void _on_SaveDialog_confirmed()
+	{
+		SaveDialog.RectGlobalPosition = this.RectGlobalPosition;
 	}
 }
