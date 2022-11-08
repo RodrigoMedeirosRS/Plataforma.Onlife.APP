@@ -213,6 +213,7 @@ dialog_autowrap = true
 [connection signal="button_up" from="Cabecalho/HBoxContainer/ResearchGate" to="." method="_on_ResearchGate_button_up"]
 [connection signal="button_up" from="Cabecalho/HBoxContainer/LinkedIn" to="." method="_on_LinkedIn_button_up"]
 [connection signal="button_up" from="Cabecalho/HBoxContainer/Editar" to="." method="_on_Editar_button_up"]
+[connection signal="button_up" from="Cabecalho/HBoxContainer/Relacoes" to="." method="_on_Relacoes_button_up"]
 [connection signal="tree_entered" from="Cabecalho/HBoxContainer/Relacoes" to="." method="_on_Relacoes_tree_entered"]
 [connection signal="about_to_show" from="Conteudo/Alterta" to="." method="_on_Alterta_about_to_show"]
 [connection signal="confirmed" from="Conteudo/Alterta" to="." method="_on_Alterta_confirmed"]
