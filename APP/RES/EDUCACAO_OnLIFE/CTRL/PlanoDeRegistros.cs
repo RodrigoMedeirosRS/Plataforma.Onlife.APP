@@ -1,9 +1,12 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 using DTO;
 using BLL.Utils;
+using BLL.Interface;
 using CTRL.Interface;
+using DTO.Dominio;
 
 public class PlanoDeRegistros : CanvasLayer
 {
@@ -11,10 +14,18 @@ public class PlanoDeRegistros : CanvasLayer
 	private Control First { get; set; }
 	private ColorRect Veu { get; set; }
 	private Vector2 MouseOffset { get; set; }
+	private IConsultarRegistroBLL RegistroBLL { get; set; }
+	private IConsultarPessoaBLL PessoaBLL { get; set; }
 	private bool FechandoArvore { get; set; }
 	public override void _Ready()
 	{
+		RealizarInjecaoDeDependencias();
 		PopularNodes();
+	}
+	private void RealizarInjecaoDeDependencias()
+	{
+		RegistroBLL = new BLL.ConsultarRegistroBLL();
+		PessoaBLL = new BLL.ConsultarPessoaBLL();
 	}
 	private void PopularNodes()
 	{
@@ -54,12 +65,65 @@ public class PlanoDeRegistros : CanvasLayer
 		(janela as Janela).PopularDados(registroDTO);
 		(janela as Janela).RectGlobalPosition = posicao - new Vector2(134, 148);
 	}
+	public void InstanciarReferencias(RegistroDTO registroDTO, Vector2 posicao)
+	{
+		posicao += new Vector2(300, 000);
+		var relacoes = BuscarRelacoes(registroDTO);
+		foreach (var referencia in relacoes.Pessoas)
+		{
+			InstanciarJanelaPessoa(referencia, posicao);
+			posicao += new Vector2(0, 350);
+		}
+		foreach (var relacao in relacoes.Registros)
+		{
+			InstanciarJanelaRegistro(relacao, posicao);
+			posicao += new Vector2(0, 350);
+		}		
+	}
+	private ReferenciaRetorno BuscarRelacoes(RegistroDTO registroDTO)
+	{
+		try
+		{
+			return RegistroBLL.RealizarConsultaDeRegistrosRelacionados(new DTO.Dominio.RelacaoConsulta()
+			{
+				CodRegistro = registroDTO.Codigo
+			});
+		}
+		catch
+		{
+			return new ReferenciaRetorno();
+		}
+	}
 	private void InstanciarJanelaPessoa(PessoaDTO pessoaDTO, Vector2 posicao)
 	{
 		var janelaCena = InstanciadorUtil.CarregarCena("res://RES/EDUCACAO_OnLIFE/CENAS/JanelaPessoa.tscn");
 		var janela = InstanciadorUtil.InstanciarObjeto(Container, janelaCena, null);
 		(janela as JanelaPessoa).DefinirDados(pessoaDTO);
 		(janela as JanelaPessoa).RectGlobalPosition = posicao - new Vector2(134, 148);
+	}
+	public void InstanciarRelacoes(PessoaDTO pessoaDTO, Vector2 posicao)
+	{
+		posicao += new Vector2(300, 000);
+
+		foreach (var relacao in BuscarRelacoes(pessoaDTO))
+		{
+			InstanciarJanelaRegistro(relacao, posicao);
+			posicao += new Vector2(0, 350);
+		}		
+	}
+	private List<RegistroDTO> BuscarRelacoes(PessoaDTO pessoaDTO)
+	{
+		try
+		{
+			return PessoaBLL.RealizarConsultaDeRegistrosRelacionados(new DTO.Dominio.RelacaoConsulta()
+			{
+				CodRegistro = pessoaDTO.Codigo
+			});
+		}
+		catch
+		{
+			return new List<RegistroDTO>();
+		}
 	}
 	public void LimparRegistros()
 	{

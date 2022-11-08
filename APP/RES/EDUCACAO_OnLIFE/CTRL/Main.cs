@@ -84,6 +84,14 @@ public class Main : Node2D
 	{
 		PlanoDeRegistros.InstanciarPrimeiroRegisro(registroDTO);
 	}
+	public static void InstanciarRelacoes(PessoaDTO pessoaDTO, Vector2 posicao)
+	{
+		PlanoDeRegistros.InstanciarRelacoes(pessoaDTO, posicao);
+	}
+	public static void InstanciarReferencias(RegistroDTO registroDTO, Vector2 posicao)
+	{
+		PlanoDeRegistros.InstanciarReferencias(registroDTO, posicao);
+	}
 	public static void FecharArvore()
 	{
 		PlanoDeRegistros.LimparRegistros();
