@@ -67,12 +67,12 @@ public class PlanoDeRegistros : CanvasLayer
 	}
 	public void InstanciarReferencias(RegistroDTO registroDTO, Vector2 posicao)
 	{
-		posicao += new Vector2(300, 000);
+		posicao += new Vector2(434, 148);
 		var relacoes = BuscarRelacoes(registroDTO);
 		foreach (var referencia in relacoes.Pessoas)
 		{
 			InstanciarJanelaPessoa(referencia, posicao);
-			posicao += new Vector2(0, 350);
+			posicao -= new Vector2(0, 350);
 		}
 		foreach (var relacao in relacoes.Registros)
 		{
@@ -103,7 +103,7 @@ public class PlanoDeRegistros : CanvasLayer
 	}
 	public void InstanciarRelacoes(PessoaDTO pessoaDTO, Vector2 posicao)
 	{
-		posicao += new Vector2(300, 000);
+		posicao += new Vector2(434, 148);
 
 		foreach (var relacao in BuscarRelacoes(pessoaDTO))
 		{
