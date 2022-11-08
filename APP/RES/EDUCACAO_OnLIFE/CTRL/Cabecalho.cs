@@ -44,7 +44,7 @@ public class Cabecalho : Control, IDisposableCTRL
 	{
 		Dados = GetParent<Janela>();
 		Nome = GetNode<Label>("./Nome/NomeTexto");
-		Apelido = GetNode<Label>("./Nome/NomeTexto");
+		Apelido = GetNode<Label>("./Apelido/ApelidoTexto");
 		Descricao = GetNode<Label>("./Descricao/ScrollContainer/DescricaoTexto");
 		Idioma = GetNode<Label>("../Conteudo/Registro/Control/Idioma/NomeIdioma");
 		Registro = GetNode<AcceptDialog>("../Conteudo/Registro");
@@ -77,6 +77,7 @@ public class Cabecalho : Control, IDisposableCTRL
 	}
 	private void PopularDados()
 	{
+		var a = Dados.RegistroDTO;
 		Nome.Text = Dados.RegistroDTO.Nome;
 		Apelido.Text = Dados.RegistroDTO.Apelido;
 		Descricao.Text = Dados.RegistroDTO.Descricao;
