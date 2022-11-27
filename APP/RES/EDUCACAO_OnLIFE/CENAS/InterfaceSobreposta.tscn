@@ -476,12 +476,22 @@ __meta__ = {
 }
 
 [node name="ModalEquipe" parent="InterfaceExpandida/MenuSuperior/Modais" index="2"]
-margin_right = 1306.0
-margin_bottom = -253.0
+margin_right = 1260.0
+margin_bottom = -150.0
 
 [node name="RichTextLabel" parent="InterfaceExpandida/MenuSuperior/Modais/ModalEquipe/MarginContainer" index="0"]
-margin_right = 335.0
-margin_bottom = 133.0
+margin_right = 289.0
+margin_bottom = 236.0
+text = "Coordenação:
+	Eliane Schlemmer
+	
+Integrantes:
+	Anibal Guedes
+	Antônio Augusto B Coelho
+	Bruna Elisa Shuster
+	Bruno Madureira Ferreira
+	Clauê de Souza Silveira
+	Rodrigo de Medeiros Lehnemann"
 
 [node name="Panel" parent="InterfaceExpandida/MenuSuperior/MarginContainer" index="0"]
 margin_bottom = 104.0
