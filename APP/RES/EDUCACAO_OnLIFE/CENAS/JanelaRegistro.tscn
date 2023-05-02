@@ -481,12 +481,12 @@ texture_normal = ExtResource( 19 )
 
 [node name="URL" type="Control" parent="Conteudo/Registro/Control"]
 visible = false
-anchor_left = -0.0686499
-anchor_top = -0.180095
-anchor_right = -0.0686499
-anchor_bottom = -0.180095
-margin_right = 470.0
-margin_bottom = 501.0
+anchor_left = 0.0183066
+anchor_top = 0.0616114
+anchor_right = 0.0183066
+anchor_bottom = 0.0616114
+margin_right = 432.0
+margin_bottom = 399.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -501,10 +501,10 @@ expand = true
 
 [node name="Go" type="TextureButton" parent="Conteudo/Registro/Control/URL"]
 self_modulate = Color( 1, 0.027451, 0.027451, 1 )
-margin_left = 377.0
-margin_top = 353.0
-margin_right = 425.0
-margin_bottom = 401.0
+margin_left = 335.0
+margin_top = 325.0
+margin_right = 383.0
+margin_bottom = 373.0
 texture_normal = ExtResource( 20 )
 
 [node name="URL" type="Label" parent="Conteudo/Registro/Control/URL"]

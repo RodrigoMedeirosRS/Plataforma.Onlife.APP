@@ -90,7 +90,7 @@ margin_top = -224.5
 margin_right = 392.0
 margin_bottom = 224.5
 theme = ExtResource( 2 )
-window_title = "Abrir um Arquivo"
+window_title = "Open a File"
 mode = 0
 access = 2
 
